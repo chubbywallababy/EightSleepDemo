@@ -50,14 +50,6 @@ export const CircularProgress = ({
         };
     });
 
-    const powerPercentTextStyle = useAnimatedStyle(() => {
-        return {
-            opacity: withTiming(textOpacity.value, {
-                duration: FADE_DELAY,
-            }),
-        };
-    });
-
     return (
         <View style={styles.container}>
             <Svg style={StyleSheet.absoluteFill}>
@@ -76,7 +68,7 @@ export const CircularProgress = ({
             <Animated.Text style={[styles.powerText, powerTextStyle]}>
                 Power %
             </Animated.Text>
-            <Animated.Text style={[styles.powerPercentage, powerPercentTextStyle]}>
+            <Animated.Text style={[styles.powerPercentage, powerTextStyle]}>
                 {percentageComplete}
             </Animated.Text>
             <Button
