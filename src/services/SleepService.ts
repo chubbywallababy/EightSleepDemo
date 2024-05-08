@@ -1,13 +1,14 @@
+import {SleepData} from '../types';
 import {getRandomNumberInRange} from './getRandomNumberInRange';
-import {getMockSleepData} from './mockData';
+import {getMockSleepDataList} from './mockData';
 
 export const SleepService = {
-  getData: async () => {
-    const sleepDataPromise = new Promise(resolve => {
+  getData: async (): Promise<SleepData[]> => {
+    const sleepDataPromise = new Promise<SleepData[]>(resolve => {
       setTimeout(() => {
-        resolve(getMockSleepData());
+        resolve(getMockSleepDataList());
       }, getRandomNumberInRange(500, 2000));
     });
-    return await sleepDataPromise;
+    return sleepDataPromise;
   },
 };

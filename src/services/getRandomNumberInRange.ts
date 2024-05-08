@@ -8,9 +8,9 @@ export const getRandomNumberInRange = (min: number, max: number): number => {
   const randomDecimal = Math.random();
 
   // Scale the decimal to the desired range (min to max)
-  const range = max - min;
+  const range = max - min + 1; // Adding 1 to include the max value
   const scaledDecimal = randomDecimal * range;
 
   // Add the minimum value to get the final random number within the range
-  return scaledDecimal + min;
+  return Math.floor(scaledDecimal + min);
 };

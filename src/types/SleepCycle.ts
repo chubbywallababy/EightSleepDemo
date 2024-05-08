@@ -1,8 +1,8 @@
 import {SleepStage} from './SleepStage';
 
-export interface SleepSession {
-  startTime: Date;
-  endTime: Date;
+export interface SleepCycle {
+  startTime: string;
+  endTime: string;
   stages: SleepStage[];
   totalDuration: number;
 }

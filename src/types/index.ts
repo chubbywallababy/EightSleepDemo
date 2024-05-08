@@ -1,3 +1,3 @@
 export * from './SleepData';
-export * from './SleepSession';
+export * from './SleepCycle';
 export * from './SleepStage';

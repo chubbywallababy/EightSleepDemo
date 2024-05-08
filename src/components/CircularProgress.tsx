@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 import {StyleSheet, View, Button} from 'react-native'
 import Svg, {Circle} from 'react-native-svg'
 import Animated, {
@@ -8,8 +8,6 @@ import Animated, {
     useSharedValue,
     withTiming,
 } from 'react-native-reanimated';
-
-const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
 interface CircularProgressProps {
     strokeWidth: number;
@@ -24,6 +22,7 @@ export const CircularProgress = ({
     backgroundColor,
     percentageComplete,
 }: CircularProgressProps) => {
+    const AnimatedCircle = useMemo(() => Animated.createAnimatedComponent(Circle), []);
     const innerRadius = radius - strokeWidth / 2;
     const circumfrence = 2 * Math.PI * innerRadius;
     const invertedCompletion = (100 - percentageComplete) / 100;

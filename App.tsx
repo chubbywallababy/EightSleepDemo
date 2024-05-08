@@ -5,64 +5,43 @@
  * @format
  */
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   PixelRatio,
   View,
   StyleSheet,
   ScrollView,
+  FlatList,
+  Text,
+  ActivityIndicator,
 } from 'react-native';
 import {CircularProgress} from './src/components/CircularProgress';
 import {FadeInText} from './src/components/FadeInText';
+import {useAppDispatch, useAppSelector} from './src/redux/hooks';
+import {selectData, selectStatus, fetchAsync} from './src/redux/sleepSlice';
+import {SleepDataCell} from './src/components/SleepDataCell';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {SleepDataListView} from './src/views/SleepDataListView';
+import {SleepDataDetailView} from './src/views/SleepDataDetailView';
+import {SleepData} from './src/types';
 
-const radius = PixelRatio.roundToNearestPixel(130);
-const STROKE_WIDTH = 30;
+export type RootStackParamList = {
+  Home: undefined;
+  Details: {data: SleepData}
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App = () => {
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <View style={styles.ringChartContainer}>
-          <CircularProgress
-            strokeWidth={STROKE_WIDTH}
-            radius={radius}
-            backgroundColor="#f93986"
-            percentageComplete={85}
-          />
-        </View>
-      </View>
-      <PaddedText text="Hello!" />
-      <PaddedText text="Hello!" />
-      <PaddedText text="Hello!" />
-      <PaddedText text="Hello!" />
-      <PaddedText text="Hello!" />
-      <PaddedText text="Hello!" />
-    </ScrollView>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={SleepDataListView} />
+        <Stack.Screen name="Details" component={SleepDataDetailView} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const PaddedText = ({text}: {text: string}) => {
-  return (
-    <View style={styles.paddedText}>
-      <FadeInText text={text} />
-    </View>
-  )
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingTop: 50,
-  },
-  ringChartContainer: {
-    width: radius * 2,
-    height: radius * 2,
-  },
-  paddedText: {
-    marginVertical: 100,
-  }
-});
 
 export default App;
