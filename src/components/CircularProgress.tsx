@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {StyleSheet, View, Button} from 'react-native'
 import Svg, {Circle} from 'react-native-svg'
 import Animated, {
@@ -58,16 +58,6 @@ export const CircularProgress = ({
         };
     });
 
-    useEffect(() => {
-        if (!textOpacity.value) {
-            theta.value = animateTo.value;
-            textOpacity.value = 1;
-        } else {
-            theta.value = 2 * Math.PI * 1.001;
-            textOpacity.value = 0;
-        }
-    }, [theta, animateTo, textOpacity]);
-
     return (
         <View style={styles.container}>
             <Svg style={StyleSheet.absoluteFill}>
@@ -89,6 +79,18 @@ export const CircularProgress = ({
             <Animated.Text style={[styles.powerPercentage, powerPercentTextStyle]}>
                 {percentageComplete}
             </Animated.Text>
+            <Button
+                title="Animate!"
+                onPress={() => {
+                    if (!textOpacity.value) {
+                        theta.value = animateTo.value;
+                        textOpacity.value = 1;
+                    } else {
+                        theta.value = 2 * Math.PI * 1.001;
+                        textOpacity.value = 0;
+                    }
+                }}
+            />
         </View>
     );
 }

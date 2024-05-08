@@ -13,6 +13,7 @@ import {
   ScrollView,
 } from 'react-native';
 import {CircularProgress} from './src/components/CircularProgress';
+import {FadeInText} from './src/components/FadeInText';
 
 const radius = PixelRatio.roundToNearestPixel(130);
 const STROKE_WIDTH = 30;
@@ -30,10 +31,23 @@ const App = () => {
           />
         </View>
       </View>
+      <PaddedText text="Hello!" />
+      <PaddedText text="Hello!" />
+      <PaddedText text="Hello!" />
+      <PaddedText text="Hello!" />
+      <PaddedText text="Hello!" />
+      <PaddedText text="Hello!" />
     </ScrollView>
   );
 };
 
+const PaddedText = ({text}: {text: string}) => {
+  return (
+    <View style={styles.paddedText}>
+      <FadeInText text={text} />
+    </View>
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -46,6 +60,9 @@ const styles = StyleSheet.create({
     width: radius * 2,
     height: radius * 2,
   },
+  paddedText: {
+    marginVertical: 100,
+  }
 });
 
 export default App;
