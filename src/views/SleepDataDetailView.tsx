@@ -14,6 +14,7 @@ import {SleepStageSwitch} from '../components/SleepStageSwitch';
 import {Stage} from '../types';
 import {SleepDataByLineItem} from '../types/SleepDataByLineItem';
 import {SleepStagesPieGraph} from '../components/SleepStagesPieGraph';
+import {Background} from '../components/common';
 
 type SleepDataDetailViewProps = NativeStackScreenProps<
   RootStackParamList,
@@ -55,7 +56,7 @@ export const SleepDataDetailView = ({
   const tempData = getLineData(getSortedStages(data), 'temperature');
 
   return (
-    <View>
+    <Background>
       <View style={styles.switchContainer}>
         <SleepStageSwitch stage={selectedStage} setStage={setSelectedStage} />
       </View>
@@ -75,7 +76,7 @@ export const SleepDataDetailView = ({
         <Text style={styles.textField}>{JSON.stringify(moveData)}</Text>
         <Text style={styles.textField}>{JSON.stringify(respData)}</Text>
       </ScrollView>
-    </View>
+    </Background>
   );
 };
 

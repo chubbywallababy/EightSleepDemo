@@ -1,6 +1,7 @@
 import React from 'react';
 import {SleepData} from '../types';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {LabelText, SleepText} from './common';
 
 export interface SleepDataCellProps {
   data: SleepData;
@@ -13,11 +14,11 @@ export class SleepDataCell extends React.PureComponent<SleepDataCellProps> {
     return (
       <TouchableOpacity onPress={onPress}>
         <View style={styles.sleepDataCell}>
-          <Text style={styles.sleepCountText}>
+          <SleepText style={styles.sleepCountText}>
             {data.sessions.length}
-            <Text style={styles.sleepLabelText}> sleep cycles</Text>
-          </Text>
-          <Text style={styles.sleepLabelText}>{data.shortDate}</Text>
+            <LabelText> sleep cycles</LabelText>
+          </SleepText>
+          <LabelText>{data.shortDate}</LabelText>
         </View>
       </TouchableOpacity>
     );
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
   sleepDataCell: {
     width: '100%',
     height: 70,
-    backgroundColor: '#f2f2f2',
+    backgroundColor: '#151515',
     borderRadius: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -39,10 +40,5 @@ const styles = StyleSheet.create({
   sleepCountText: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#333',
-  },
-  sleepLabelText: {
-    fontSize: 14,
-    color: '#888',
   },
 });

@@ -11,6 +11,7 @@ import {fetchAsync, selectData, selectStatus} from '../redux/sleepSlice';
 import {SleepDataCell} from '../components/SleepDataCell';
 import {useNavigation} from './hooks/useNavigation';
 import {AnimatedNumber} from '../components/AnimatedNumber';
+import {Background} from '../components/common';
 
 export const SleepDataListView = () => {
   const navigation = useNavigation();
@@ -29,7 +30,7 @@ export const SleepDataListView = () => {
   }, [dispatch, didLoad]);
 
   return (
-    <View style={styles.container}>
+    <Background style={styles.container}>
       {status === 'loading' ? <ActivityIndicator size="large" /> : null}
       {status === 'failed' ? <Text>Sorry, something went wrong...</Text> : null}
       {data.length === 0 && status === 'idle' ? (
@@ -54,7 +55,7 @@ export const SleepDataListView = () => {
           />
         </>
       ) : null}
-    </View>
+    </Background>
   );
 };
 
