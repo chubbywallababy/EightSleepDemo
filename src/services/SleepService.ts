@@ -1,14 +1,34 @@
-import {SleepData} from '../types';
-import {getRandomNumberInRange} from './getRandomNumberInRange';
-import {getMockSleepDataList} from './mockData';
+import {SleepData, User} from '../types';
 
 export const SleepService = {
-  getData: async (): Promise<SleepData[]> => {
-    const sleepDataPromise = new Promise<SleepData[]>(resolve => {
-      setTimeout(() => {
-        resolve(getMockSleepDataList());
-      }, getRandomNumberInRange(500, 2000));
-    });
-    return sleepDataPromise;
+  /**
+   * Fetch all the users (family members)
+   *
+   * @param userId
+   * @returns
+   */
+  getUsers: async (): Promise<User[]> => {
+    const response = await fetch(
+      'https://s3.amazonaws.com/eight-public/challenge/users.json',
+    );
+    if (!response.ok) {
+      throw new Error('Failed to fetch users');
+    }
+    const data = await response.json();
+    return data.users;
+  },
+  /**
+   * Fetch the data for an individual user
+   *
+   * @param userId
+   * @returns
+   */
+  getSleepData: async (userId: string): Promise<SleepData> => {
+    const response = await fetch(
+      `https://s3.amazonaws.com/eight-public/challenge/${userId}.json`,
+    );
+    const sleepData = await response.json();
+
+    return sleepData;
   },
 };

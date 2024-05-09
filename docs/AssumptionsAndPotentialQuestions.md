@@ -56,4 +56,55 @@ A
 
 Q
 
+How would you report errors that are thrown in sagas?
+
+A
+
+There's a couple ways
+
+1. take the error from the saga, store it in state, then read/throw it in the view so an error boundary catches it.
+2. report in the saga using a tool like sentry
+
+<br>
+<hr>
+
+Q
+
+Why isn't there a sleep saga?
+
+A
+
+I could make a saga for the `fetchSleepData` generator function but it wasn't really necessary. The only reason I had sagas in the first place was to be able to control the side effects of a dispatch (calling the sleep data for individual users), so I just wanted to make it as simple as possible from that point on.
+
+<br>
+<hr>
+
+Q
+
+Why is the SleeperCell a pure component?
+
+A
+
+<br>
+<hr>
+
+Q
+
+Why are there separate errors and loading states on the redux sleep state?
+
+A
+
+<br>
+<hr>
+
+Q
+
+A
+
+<br>
+<hr>
+
+Q
+i18n?
+
 A

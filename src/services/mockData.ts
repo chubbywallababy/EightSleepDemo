@@ -1,9 +1,9 @@
-import {SleepData, SleepCycle, SleepStage, Stage} from '../types/index';
+import {OldSleepData, SleepCycle, SleepStage, Stage} from '../types/index';
 import {getRandomNumberInRange} from './getRandomNumberInRange';
 import uuid from 'react-native-uuid';
 import dayjs from 'dayjs';
 
-export const getMockSleepDataList = (): SleepData[] => {
+export const getMockSleepDataList = (): OldSleepData[] => {
   let currentDay = dayjs(); // Initialize currentDay with today's date
 
   return new Array(getRandomNumberInRange(800, 1200)).fill('').map(() => {
@@ -21,7 +21,7 @@ export const getMockSleepData = (
   numSessions: number,
   date: string,
   shortDate: string,
-): SleepData => {
+): OldSleepData => {
   // Generate an array of sleep sessions
   const sessions = generateSleepSessions(numSessions);
 

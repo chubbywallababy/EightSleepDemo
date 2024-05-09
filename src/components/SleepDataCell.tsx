@@ -1,10 +1,10 @@
 import React from 'react';
-import {SleepData} from '../types';
+import {OldSleepData} from '../types';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {LabelText, SleepText} from './common';
 
 export interface SleepDataCellProps {
-  data: SleepData;
+  data: OldSleepData;
   onPress: () => void;
 }
 

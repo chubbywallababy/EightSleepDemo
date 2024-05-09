@@ -1,18 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {
-    View,
     StyleSheet,
     FlatList,
     Text,
     ActivityIndicator,
+    View,
 } from 'react-native';
 import {useAppDispatch, useAppSelector} from '../redux/hooks';
-import {fetchUsers} from '../redux/users/slice';
 import {useNavigation} from './hooks/useNavigation';
-import {AnimatedNumber} from '../components/AnimatedNumber';
 import {Background, SleepText, SleepView} from '../components/common';
 import {selectUsers, selectUsersError, selectUsersStatus} from '../redux/users/selectors';
 import {SleeperCell} from '../components/SleeperCell';
+import {usersActions} from '../redux/users/actions';
 
 export const SleepersListView = () => {
     const navigation = useNavigation();
@@ -26,7 +25,7 @@ export const SleepersListView = () => {
 
     useEffect(() => {
         if (!didLoad) {
-            dispatch(fetchUsers());
+            dispatch(usersActions.fetchUsers());
             setDidLoad(true);
         }
     }, [dispatch, didLoad]);
@@ -54,6 +53,7 @@ export const SleepersListView = () => {
                             onPress={() => navigation?.navigate('Details', {data: item})}
                         />
                     )}
+                    ItemSeparatorComponent={() => <View style={styles.separator} />}
                 />
             ) : null}
         </Background>
@@ -67,22 +67,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    paddedText: {
-        marginVertical: 100,
-    },
-    heading: {
-        paddingVertical: 20,
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    headingText: {
-        marginLeft: 10,
-        fontSize: 16,
-    },
     list: {
         flex: 1,
         width: '100%',
-        marginVertical: 10,
+        marginVertical: 20,
     },
+    separator: {height: 15},
 });

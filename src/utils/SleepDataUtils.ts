@@ -1,82 +1,39 @@
-import {SleepData, Stage} from '../types';
-import {SleepDataPointByStage} from '../types/SleepDataPointByStage';
-import {SortedSleepStages} from '../types/SortedSleepStages';
+import {SleepInterval} from '../types';
 
-export const getSortedStages = (data: SleepData): SortedSleepStages => {
-  const allStages = data.sessions.flatMap(s =>
-    s.stages.map(st => ({...st, originalStartTime: s.startTime})),
+export type SleepKpiData =
+  | {
+      averageSleepDuration: number;
+      averageScore: number;
+    }
+  | undefined;
+
+/**
+ * Gets the most important data to summaraize a nights sleep
+ *
+ * @param data
+ * @returns
+ */
+export const getSleepKpiData = (
+  data: SleepInterval[] | undefined,
+): SleepKpiData => {
+  if (!data) {
+    return undefined;
+  }
+
+  const sleepDurations = data.map(d =>
+    d.stages.reduce((sum, stage) => sum + stage.duration, 0),
   );
-  return {
-    deep: allStages.filter(s => s.stage === Stage.Deep),
-    light: allStages.filter(s => s.stage === Stage.Light),
-    rem: allStages.filter(s => s.stage === Stage.Rem),
-  };
+  const sleepScores = data.map(d => d.score);
+
+  // Convert seconds into hours
+  const averageSleepDuration = round(getAverage(sleepDurations) / 60 / 60, 2);
+  const averageScore = round(getAverage(sleepScores), 2);
+
+  return {averageSleepDuration, averageScore};
 };
 
-/**
- * Get the aggregated temperatures for a data set
- *
- * @param data
- * @returns
- */
-export const getTemperatures = (data: SleepData): SleepDataPointByStage => {
-  const allStages = data.sessions.flatMap(s => s.stages);
-  return {
-    deep: allStages.filter(s => s.stage === Stage.Deep).map(s => s.temperature),
-    light: allStages
-      .filter(s => s.stage === Stage.Light)
-      .map(s => s.temperature),
-    rem: allStages.filter(s => s.stage === Stage.Rem).map(s => s.temperature),
-  };
-};
-
-/**
- * Get the aggregated heart rates for a data set
- *
- * @param data
- * @returns
- */
-export const getHeartRates = (data: SleepData): SleepDataPointByStage => {
-  const allStages = data.sessions.flatMap(s => s.stages);
-  return {
-    deep: allStages.filter(s => s.stage === Stage.Deep).map(s => s.heartRate),
-    light: allStages.filter(s => s.stage === Stage.Light).map(s => s.heartRate),
-    rem: allStages.filter(s => s.stage === Stage.Rem).map(s => s.heartRate),
-  };
-};
-
-/**
- * Get the aggregated movement rating for a data set
- *
- * @param data
- * @returns
- */
-export const getMovements = (data: SleepData): SleepDataPointByStage => {
-  const allStages = data.sessions.flatMap(s => s.stages);
-  return {
-    deep: allStages.filter(s => s.stage === Stage.Deep).map(s => s.movement),
-    light: allStages.filter(s => s.stage === Stage.Light).map(s => s.movement),
-    rem: allStages.filter(s => s.stage === Stage.Rem).map(s => s.movement),
-  };
-};
-
-/**
- * Get the aggregated respiration for a data set
- *
- * @param data
- * @returns
- */
-export const getRespirations = (data: SleepData): SleepDataPointByStage => {
-  const allStages = data.sessions.flatMap(s => s.stages);
-  return {
-    deep: allStages
-      .filter(s => s.stage === Stage.Deep)
-      .map(s => s.respirationRate),
-    light: allStages
-      .filter(s => s.stage === Stage.Light)
-      .map(s => s.respirationRate),
-    rem: allStages
-      .filter(s => s.stage === Stage.Rem)
-      .map(s => s.respirationRate),
-  };
-};
+const getAverage = (nums: number[]): number =>
+  nums.reduce((a, b) => a + b, 0) / nums.length;
+// Only meant to be used for a few decimal places, not tested completely
+const round = (n: number, places = 1) =>
+  Math.round(n * 10 ** places) / 10 ** places;
