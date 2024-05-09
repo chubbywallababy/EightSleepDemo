@@ -53,11 +53,7 @@ const getMockSleepSession = (previousEndTime?: Date): SleepCycle => {
   const endTime = getRandomDate(startTime);
   // represents the current sleep stage
   let s = 1;
-  let duration = getRandomNumberInRange(20, 90);
-
   const stages: SleepStage[] = new Array(3).fill('').map(() => {
-    duration = getRandomNumberInRange(20, 90); // Adjust for sleep cycle stages
-
     return getMockSleepStage(s++ % 4);
   }); // Generate 1-3 stages
 
