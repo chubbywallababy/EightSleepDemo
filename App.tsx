@@ -8,14 +8,14 @@
 import React from 'react';
 import {NavigationContainer, DarkTheme} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {SleepDataListView} from './src/views/SleepDataListView';
-import {SleepDataDetailView} from './src/views/SleepDataDetailView';
-import {SleepData} from './src/types';
+import {SleepersListView} from './src/views/SleepersListView';
+import {SleeperDetailView} from './src/views/SleeperDetailView';
+import {User} from './src/types';
 import {StatusBar} from 'react-native';
 
 export type RootStackParamList = {
   Home: undefined;
-  Details: {data: SleepData};
+  Details: {data: User};
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -28,8 +28,14 @@ const App = () => {
         barStyle='light-content'
       />
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={SleepDataListView} />
-        <Stack.Screen name="Details" component={SleepDataDetailView} />
+        <Stack.Screen
+          name="Home"
+          component={SleepersListView}
+        />
+        <Stack.Screen
+          name="Details"
+          component={SleeperDetailView}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

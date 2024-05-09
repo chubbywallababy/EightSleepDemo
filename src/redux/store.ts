@@ -1,9 +1,9 @@
 import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit';
-import sleepReducer from './sleepSlice';
+import usersReducer from './users/slice';
 
 export const store = configureStore({
   reducer: {
-    sleep: sleepReducer,
+    users: usersReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
