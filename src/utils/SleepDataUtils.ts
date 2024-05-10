@@ -48,7 +48,7 @@ export const getSleepKpiData = (
     averageDeepSleepDuration,
   );
 
-  const averageScore = round(getAverage(sleepScores), 2);
+  const averageScore = Math.ceil(round(getAverage(sleepScores), 1));
   const scoreStatus = getSleepScoreStatus(averageScore);
 
   return {

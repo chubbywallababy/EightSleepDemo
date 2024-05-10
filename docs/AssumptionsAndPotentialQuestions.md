@@ -1,9 +1,7 @@
 # What is this doc?
 
-This document is meant to keep:
-
 - Assumptions tracked which were made during the coding process and the logic behind the assumption.
-- Potential questions that might be good for a future interview.
+- Potential questions that might be good for an interview.
 
 <br>
 <hr>
@@ -110,6 +108,26 @@ Q
 i18n?
 
 A
+
+<br>
+<hr>
+
+Q
+
+What was your approach to testing?
+
+A
+
+<br>
+<hr>
+
+Q
+
+What might some good future features be to implement with family mode?
+
+A
+
+- Push notifications if a family member slept poorly
 
 <br>
 <hr>

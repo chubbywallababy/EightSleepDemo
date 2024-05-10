@@ -13,6 +13,7 @@ import {SleeperDetailView} from './src/views/SleeperDetailView';
 import {User} from './src/types';
 import {StatusBar} from 'react-native';
 import {NavigationHeader} from './src/components/NavigationHeader';
+import {NavigationBack} from './src/components/NavigationBack';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -41,7 +42,13 @@ const App = () => {
             header: NavigationHeader,
           }}
         />
-        <Stack.Screen name="Details" component={SleeperDetailView} />
+        <Stack.Screen
+          name="Details"
+          component={SleeperDetailView}
+          options={{
+            headerLeft: NavigationBack
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

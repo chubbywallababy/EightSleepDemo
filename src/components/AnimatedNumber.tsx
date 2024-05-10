@@ -1,12 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import {Animated, StyleSheet, View} from 'react-native';
+import {commonStyles} from './common';
 
 interface AnimatedNumberProps {
   n: number;
   duration?: number;
+  /** Represents if the counting animation will occurr. Defaults to true */
+  animateCount?: boolean;
 }
 
-export const AnimatedNumber = ({n, duration = 1000}: AnimatedNumberProps) => {
+/**
+ * Does not currently work for numbers with decimals. Set `animateCount` to false 
+ * 
+ * @param param0 
+ * @returns 
+ */
+export const AnimatedNumber = ({n, duration = 1000, animateCount = true}: AnimatedNumberProps) => {
   const [count] = useState(new Animated.Value(0));
   const [currentValue, setCurrentValue] = useState(0);
 
@@ -16,7 +25,7 @@ export const AnimatedNumber = ({n, duration = 1000}: AnimatedNumberProps) => {
       duration: duration,
       useNativeDriver: false, // Ensure native driver is off for Animated.timing
     }).start();
-  }, [n, duration, count]);
+  }, [n, duration, count, animateCount]);
 
   // Update currentValue whenever the animated value changes
   useEffect(() => {
@@ -39,7 +48,7 @@ export const AnimatedNumber = ({n, duration = 1000}: AnimatedNumberProps) => {
             }),
           },
         ]}>
-        {currentValue}
+        {animateCount ? currentValue : n}
       </Animated.Text>
     </View>
   );
@@ -51,8 +60,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
+    ...commonStyles.text,
     fontSize: 24,
-    fontFamily: 'Roboto',
     fontWeight: 'bold',
   },
 });
