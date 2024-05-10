@@ -5,6 +5,9 @@ export const strings = {
       title: 'Review',
       detail: 'New temperature suggestion',
     },
+    card: {
+      goal: 'Goal',
+    },
   },
   error: {
     generalError: 'Sorry, an error has occurred. Please try again.',

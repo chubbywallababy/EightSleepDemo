@@ -19,6 +19,10 @@ export const Thermometer = (props: ImageProps) => {
   return <Image source={require('./Thermometer.png')} {...props} style={[styles.thermometer, props.style]} />
 }
 
+export const Info = (props: ImageProps) => {
+  return <Image source={require('./Info.png')} {...props} style={[styles.info, props.style]} />
+}
+
 const styles = StyleSheet.create({
   chevronLeft: {
     transform: [{rotate: '-180deg'}],
@@ -30,5 +34,9 @@ const styles = StyleSheet.create({
   thermometer: {
     height: 24,
     width: 24,
+  },
+  info: {
+    height: 21,
+    width: 21,
   }
 });

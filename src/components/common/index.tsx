@@ -39,5 +39,5 @@ export const commonStyles = StyleSheet.create({
   background: {backgroundColor: '#000'},
   text: {color: 'white'},
   label: {color: '#888', fontSize: 14},
-  view: {backgroundColor: '#e0e0e0'},
+  view: {backgroundColor: '#202020'},
 });

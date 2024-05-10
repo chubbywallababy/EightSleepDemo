@@ -1,4 +1,9 @@
 /**
+ * These are convenience types relevant to the UI.
+ * They are represented in the JSON data at the S3 endpoints,
+ */
+
+/**
  * Numbered in case we want to sort
  */
 export enum KpiStatus {

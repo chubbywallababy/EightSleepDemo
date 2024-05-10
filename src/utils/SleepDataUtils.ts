@@ -56,6 +56,14 @@ export const getSleepKpiData = (
   };
 };
 
+/**
+ * Get the data shown on the details view.
+ *
+ * This will include all KPI data from `getSleepKpiData` and more.
+ *
+ * @param data
+ * @returns
+ */
 export const getSleepDetailData = (
   data: SleepInterval[] | undefined,
 ): SleepDetailData | undefined => {
@@ -105,6 +113,12 @@ const getDeepSleepDurationStatus = (average: number): KpiStatus => {
   }
 };
 
+/**
+ * A
+ *
+ * @param sleepHours
+ * @returns {SleepDurationObject} SleepDurationObject
+ */
 const hoursToSleepObject = (sleepHours: number): SleepDurationObject => {
   // Extract whole hours using Math.floor
   const hours = Math.floor(sleepHours);

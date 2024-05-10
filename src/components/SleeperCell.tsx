@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {SleepText} from './common';
+import {SleepText, SleepView} from './common';
 import {useAppSelector} from '../redux/hooks';
 import {selectUsersKpis, selectUsersStatus} from '../redux/sleep/selectors';
 import {ChevronRight} from './images';
@@ -29,7 +29,7 @@ export const SleeperCell = ({data, onPress}: SleeperCellProps) => {
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.touchable}>
-      <View style={styles.sleepDataCell}>
+      <SleepView style={styles.sleepDataCell}>
         <View style={styles.sleepDataRow}>
           <SleepText style={styles.titleText}>{data.name}</SleepText>
           {kpiData?.hasBadScore ?
@@ -71,7 +71,7 @@ export const SleeperCell = ({data, onPress}: SleeperCellProps) => {
             </>
           ) : null}
         </View>
-      </View>
+      </SleepView>
     </TouchableOpacity>
   );
 };
@@ -85,7 +85,6 @@ const styles = StyleSheet.create({
   sleepDataCell: {
     width: '100%',
     height: 125,
-    backgroundColor: '#202020',
     borderRadius: 5,
     flexDirection: 'column',
     justifyContent: 'space-between',
