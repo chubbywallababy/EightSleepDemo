@@ -13,6 +13,7 @@ import {ChevronRight} from './images';
 import {Platform} from 'react-native';
 import {AnimatedNumber} from './AnimatedNumber';
 import {DataPoint} from './DataPoint';
+import {strings} from '../i18n';
 
 export interface SleeperCellProps {
   data: User;
@@ -41,12 +42,13 @@ export const SleeperCell = ({data, onPress}: SleeperCellProps) => {
             <>
               <DataPoint
                 dataView={<AnimatedNumber n={kpiData.averageDeepSleepDuration} animateCount={false} duration={500} />}
-                detailText='Deep sleep'
-                unit='hrs'
+                detailText={strings.sleeperList.cell.deepSleep}
+                unit={strings.units.hoursShort}
               />
               <DataPoint
                 dataView={<AnimatedNumber n={kpiData.averageScore} duration={500} />}
-                detailText='Sleep score'
+                detailText={strings.sleeperList.cell.sleepScore}
+                unit={strings.units.percent}
               />
             </>
           ) : null}
@@ -79,7 +81,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   titleText: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: 'bold',
   },
   chevron: {

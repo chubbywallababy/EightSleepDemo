@@ -15,11 +15,12 @@
 # Thursday
 
 - Created types according to specs
-- Redux and state management setup (user an sleep slices)
-- Util functions an logic
+- Redux and state management setup (user and sleep slices)
+- Util functions and logic
 - Cleaned up the UI to more closely follow the mocks
-- Did all of the initial setup for the user list view
+- Initial setup for the user list view
 
 # Friday
 
-- Initial
+- Initial work on the details view
+- centralize strings
