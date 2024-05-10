@@ -3,6 +3,7 @@ export const strings = {
     cell: {
       sleepScore: 'Sleep score',
       deepSleep: 'Deep sleep',
+      letsImprove: "Let's work on this",
     },
   },
   units: {

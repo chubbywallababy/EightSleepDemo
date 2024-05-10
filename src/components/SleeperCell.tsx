@@ -16,6 +16,7 @@ import {DataPoint} from './DataPoint';
 import {strings} from '../i18n';
 import {GlowingBorder} from './GlowingBorder';
 import {getKpiColor} from './utils/getKpiColor';
+import LinearGradient from 'react-native-linear-gradient';
 
 export interface SleeperCellProps {
   data: User;
@@ -31,6 +32,17 @@ export const SleeperCell = ({data, onPress}: SleeperCellProps) => {
       <View style={styles.sleepDataCell}>
         <View style={styles.sleepDataRow}>
           <SleepText style={styles.titleText}>{data.name}</SleepText>
+          {kpiData?.hasBadScore ?
+            <LinearGradient
+              colors={["#7a6700", "#5c1516"]}
+              start={{x: 0, y: 0}}
+              end={{x: 1, y: 1.5}}
+              style={styles.linearGradient}
+            >
+              <View style={styles.badScoreContainer}>
+                <SleepText style={styles.badScoreText}>{strings.sleeperList.cell.letsImprove}</SleepText>
+              </View>
+            </LinearGradient> : null}
           <ChevronRight style={styles.chevron} />
         </View>
         <View style={[styles.sleepDataRow, styles.bottomDataRow]}>
@@ -106,5 +118,21 @@ const styles = StyleSheet.create({
   },
   indicator: {
     width: "100%",
-  }
+  },
+  linearGradient: {
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    textAlignVertical: "center",
+    textAlign: "center",
+    alignContent: "center",
+  },
+  badScoreText: {
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  badScoreContainer: {
+    paddingVertical: 5,
+    paddingHorizontal: 18,
+  },
 });

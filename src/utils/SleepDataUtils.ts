@@ -16,6 +16,7 @@ export type SleepKpiData =
       deepSleepDurationStatus: KpiStatus;
       averageScore: number;
       scoreStatus: KpiStatus;
+      hasBadScore: boolean;
     }
   | undefined;
 
@@ -56,6 +57,9 @@ export const getSleepKpiData = (
     deepSleepDurationStatus,
     averageScore,
     scoreStatus,
+    hasBadScore:
+      scoreStatus === KpiStatus.Bad ||
+      deepSleepDurationStatus === KpiStatus.Bad,
   };
 };
 

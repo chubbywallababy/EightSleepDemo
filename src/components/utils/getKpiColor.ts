@@ -3,8 +3,7 @@ import {KpiStatus} from '../../utils/SleepDataUtils';
 /**
  * Tracks which colors are for which status.
  *
- * Currently arbitrary values, but red/blue were not chosen because in the app they already
- * represent a temperature (hot/cold). Would clarify with product on this.
+ * Currently arbitrary values are returned.
  *
  * @param status
  * @returns
