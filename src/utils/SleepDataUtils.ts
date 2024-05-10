@@ -1,3 +1,4 @@
+import {strings} from '../i18n';
 import {SleepInterval} from '../types';
 
 /**
@@ -10,9 +11,15 @@ export enum KpiStatus {
   Bad = 3,
 }
 
+export interface SleepDurationObject {
+  hours: number;
+  minutes: number;
+}
+
 export type SleepKpiData =
   | {
       averageDeepSleepDuration: number;
+      averageDeepSleepDurationStr: string;
       deepSleepDurationStatus: KpiStatus;
       averageScore: number;
       scoreStatus: KpiStatus;
@@ -52,8 +59,14 @@ export const getSleepKpiData = (
   const averageScore = Math.ceil(round(getAverage(sleepScores), 1));
   const scoreStatus = getSleepScoreStatus(averageScore);
 
+  const deepSleepObject = hoursToSleepObject(averageDeepSleepDuration);
+
   return {
     averageDeepSleepDuration,
+    averageDeepSleepDurationStr: strings.units.getHoursAndMinutes(
+      deepSleepObject.hours,
+      deepSleepObject.minutes,
+    ),
     deepSleepDurationStatus,
     averageScore,
     scoreStatus,
@@ -97,6 +110,19 @@ const getDeepSleepDurationStatus = (average: number): KpiStatus => {
   } else {
     return KpiStatus.Bad;
   }
+};
+
+const hoursToSleepObject = (sleepHours: number): SleepDurationObject => {
+  // Multiply by 60 to convert from hours to minutes
+  const totalMinutes = sleepHours * 60;
+
+  // Extract whole hours using Math.floor
+  const hours = Math.floor(sleepHours);
+
+  // Calculate remaining minutes using modulo operator (%)
+  const minutes = Math.round((sleepHours - hours) * 60);
+
+  return {hours, minutes};
 };
 
 const getAverage = (nums: number[]): number =>

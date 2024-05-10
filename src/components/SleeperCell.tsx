@@ -11,7 +11,7 @@ import {useAppSelector} from '../redux/hooks';
 import {selectUsersKpis, selectUsersStatus} from '../redux/sleep/selectors';
 import {ChevronRight} from './images';
 import {Platform} from 'react-native';
-import {AnimatedNumber} from './AnimatedNumber';
+import {AnimatedNumber, numberStyles} from './AnimatedNumber';
 import {DataPoint} from './DataPoint';
 import {strings} from '../i18n';
 import {GlowingBorder} from './GlowingBorder';
@@ -40,7 +40,7 @@ export const SleeperCell = ({data, onPress}: SleeperCellProps) => {
               style={styles.linearGradient}
             >
               <View style={styles.badScoreContainer}>
-                <SleepText style={styles.badScoreText}>{strings.sleeperList.cell.letsImprove}</SleepText>
+                <SleepText style={styles.badScoreText}>{strings.sleeperList.cell.seeInsights}</SleepText>
               </View>
             </LinearGradient> : null}
           <ChevronRight style={styles.chevron} />
@@ -59,9 +59,8 @@ export const SleeperCell = ({data, onPress}: SleeperCellProps) => {
                 hideGlow={getKpiColor(kpiData.deepSleepDurationStatus) === undefined}
               >
                 <DataPoint
-                  dataView={<AnimatedNumber n={kpiData.averageDeepSleepDuration} animateCount={false} duration={500} />}
+                  dataView={<SleepText style={numberStyles.text}>{kpiData.averageDeepSleepDurationStr}</SleepText>}
                   detailText={strings.sleeperList.cell.deepSleep}
-                  unit={strings.units.hoursShort}
                 />
               </GlowingBorder>
               <GlowingBorder

@@ -3,12 +3,13 @@ export const strings = {
     cell: {
       sleepScore: 'Sleep score',
       deepSleep: 'Deep sleep',
-      letsImprove: "Let's work on this",
+      seeInsights: 'See insights',
     },
   },
   units: {
     hours: 'hours',
     hoursShort: 'hrs',
     percent: '%',
+    getHoursAndMinutes: (hrs: number, mins: number) => `${hrs}h ${mins}m`,
   },
 };

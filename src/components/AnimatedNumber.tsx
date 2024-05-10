@@ -37,10 +37,10 @@ export const AnimatedNumber = ({n, duration = 1000, animateCount = true}: Animat
   }, [count]);
 
   return (
-    <View style={styles.container}>
+    <View style={numberStyles.container}>
       <Animated.Text
         style={[
-          styles.text,
+          numberStyles.text,
           {
             opacity: count.interpolate({
               inputRange: [0, n],
@@ -54,7 +54,7 @@ export const AnimatedNumber = ({n, duration = 1000, animateCount = true}: Animat
   );
 };
 
-const styles = StyleSheet.create({
+export const numberStyles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
