@@ -1,31 +1,11 @@
 import {strings} from '../i18n';
 import {SleepInterval} from '../types';
-
-/**
- * Numbered in case we want to sort
- */
-export enum KpiStatus {
-  Great = 0,
-  Good = 1,
-  OK = 2,
-  Bad = 3,
-}
-
-export interface SleepDurationObject {
-  hours: number;
-  minutes: number;
-}
-
-export type SleepKpiData =
-  | {
-      averageDeepSleepDuration: number;
-      averageDeepSleepDurationStr: string;
-      deepSleepDurationStatus: KpiStatus;
-      averageScore: number;
-      scoreStatus: KpiStatus;
-      hasBadScore: boolean;
-    }
-  | undefined;
+import {
+  KpiStatus,
+  SleepDetailData,
+  SleepDurationObject,
+  SleepKpiData,
+} from './types';
 
 /**
  * Gets the most important data to summaraize a nights sleep
@@ -35,7 +15,7 @@ export type SleepKpiData =
  */
 export const getSleepKpiData = (
   data: SleepInterval[] | undefined,
-): SleepKpiData => {
+): SleepKpiData | undefined => {
   if (!data) {
     return undefined;
   }
@@ -76,6 +56,19 @@ export const getSleepKpiData = (
   };
 };
 
+export const getSleepDetailData = (
+  data: SleepInterval[] | undefined,
+): SleepDetailData | undefined => {
+  const kpiData = getSleepKpiData(data);
+  if (!data || !kpiData) {
+    return undefined;
+  }
+
+  return {
+    ...kpiData,
+  };
+};
+
 /**
  * Get the sleep score status based on arbitrary breakpoints
  *
@@ -113,9 +106,6 @@ const getDeepSleepDurationStatus = (average: number): KpiStatus => {
 };
 
 const hoursToSleepObject = (sleepHours: number): SleepDurationObject => {
-  // Multiply by 60 to convert from hours to minutes
-  const totalMinutes = sleepHours * 60;
-
   // Extract whole hours using Math.floor
   const hours = Math.floor(sleepHours);
 

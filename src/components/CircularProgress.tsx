@@ -1,19 +1,15 @@
-import React, {useMemo} from 'react';
-import {StyleSheet, View, Button} from 'react-native';
-import Svg, {Circle} from 'react-native-svg';
-import Animated, {
-  useAnimatedProps,
-  useAnimatedStyle,
-  useDerivedValue,
-  useSharedValue,
-  withTiming,
-} from 'react-native-reanimated';
+import React from 'react';
+import {AnimatedCircularProgress} from 'react-native-circular-progress';
+import {SleepText} from './common';
+import {StyleSheet, View} from 'react-native';
 
 interface CircularProgressProps {
   strokeWidth: number;
   radius: number;
   backgroundColor: string;
   percentageComplete: number;
+  unit?: string;
+  detailText?: string;
 }
 
 export const CircularProgress = ({
@@ -21,86 +17,72 @@ export const CircularProgress = ({
   strokeWidth,
   backgroundColor,
   percentageComplete,
+  unit,
+  detailText,
 }: CircularProgressProps) => {
-  const AnimatedCircle = useMemo(
-    () => Animated.createAnimatedComponent(Circle),
-    [],
-  );
-  const innerRadius = radius - strokeWidth / 2;
-  const circumfrence = 2 * Math.PI * innerRadius;
-  const invertedCompletion = (100 - percentageComplete) / 100;
-
-  const theta = useSharedValue(2 * Math.PI * 1.001);
-  const animateTo = useDerivedValue(() => 2 * Math.PI * invertedCompletion);
-  const textOpacity = useSharedValue(0);
-
-  const FADE_DELAY = 1500;
-
-  const animatedProps = useAnimatedProps(() => {
-    return {
-      strokeDashoffset: withTiming(theta.value * innerRadius, {
-        duration: FADE_DELAY,
-      }),
-    };
-  });
-
-  const powerTextStyle = useAnimatedStyle(() => {
-    return {
-      opacity: withTiming(textOpacity.value, {
-        duration: FADE_DELAY,
-      }),
-    };
-  });
-
   return (
-    <View style={styles.container}>
-      <Svg style={StyleSheet.absoluteFill}>
-        <AnimatedCircle
-          animatedProps={animatedProps}
-          cx={radius}
-          cy={radius}
-          fill={'transparent'}
-          r={innerRadius}
-          stroke={backgroundColor}
-          strokeDasharray={`${circumfrence} ${circumfrence}`}
-          strokeWidth={strokeWidth}
-          strokeLinecap="round"
-        />
-      </Svg>
-      <Animated.Text style={[styles.powerText, powerTextStyle]}>
-        Power %
-      </Animated.Text>
-      <Animated.Text style={[styles.powerPercentage, powerTextStyle]}>
-        {percentageComplete}
-      </Animated.Text>
-      <Button
-        title="Animate!"
-        onPress={() => {
-          if (!textOpacity.value) {
-            theta.value = animateTo.value;
-            textOpacity.value = 1;
-          } else {
-            theta.value = 2 * Math.PI * 1.001;
-            textOpacity.value = 0;
-          }
-        }}
-      />
+    <View
+      style={styles.container}
+    >
+      <AnimatedCircularProgress
+        size={radius}
+        width={strokeWidth}
+        delay={200}
+        lineCap='round'
+        fill={percentageComplete}
+        tintColor={backgroundColor}
+        backgroundColor="#143F99"
+        rotation={0}
+      >
+        {
+          (fill) => (
+            <SleepText style={styles.powerText}>
+              <View style={styles.textViewContainer}>
+                <View>
+                  <SleepText style={styles.boldText}>
+                    {Math.floor(fill)}
+                    {unit ? <SleepText style={styles.unitText}>
+                      {unit}
+                    </SleepText> : null}
+                  </SleepText>
+                </View>
+                <View>
+                  {detailText ? <SleepText style={styles.detailText}>
+                    {detailText}
+                  </SleepText> : null}
+                </View>
+              </View>
+            </SleepText>
+          )
+        }
+      </AnimatedCircularProgress>
     </View>
-  );
+  )
 };
 
 const styles = StyleSheet.create({
+  textViewContainer: {
+    flexDirection: 'column',
+  },
   container: {
-    ...StyleSheet.absoluteFillObject,
     justifyContent: 'center',
     alignItems: 'center',
   },
   powerText: {
     fontSize: 30,
     fontWeight: '300',
+    marginLeft: 10,
   },
-  powerPercentage: {
-    fontSize: 60,
-    fontWeight: '200',
+  boldText: {
+    fontSize: 46,
+    fontWeight: '700',
+    textAlign: "center",
+  },
+  unitText: {
+    fontSize: 18,
+  },
+  detailText: {
+    fontWeight: '700',
+    fontSize: 16,
   },
 });

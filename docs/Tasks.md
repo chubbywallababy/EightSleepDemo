@@ -24,8 +24,11 @@
 
 - Initial work on the details view
 - Centralize strings
-- Animations and styling for sleeper cell if the kpi score is bad
+- Animations for the sleeper cell and styling for bad kpi scores
+- Temperature suggestion for users that have a bad kpi scores
+- Circular progress
 
 what i want to do
 
+- Determine the data/types to show in the view and how to organize that
 - detail view and data visualization initial steps

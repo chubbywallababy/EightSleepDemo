@@ -14,13 +14,16 @@ export interface Stage {
   duration: number;
 }
 
+export type Timeseries = [string, number][];
+
 export interface TimeseriesData {
-  tnt: [string, number][];
-  tempRoomC: [string, number][];
-  tempBedC: [string, number][];
-  respiratoryRate: [string, number][];
-  heartRate: [string, number][];
-  heating: [string, number][];
+  tnt: Timeseries;
+  tempRoomC: Timeseries;
+  tempBedC: Timeseries;
+  respiratoryRate: Timeseries;
+  heartRate: Timeseries;
+  // gist said to ignore, but keeping in takehome for reference
+  // heating: Timeseries;
 }
 
 export interface SleepInterval {

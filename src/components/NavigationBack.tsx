@@ -1,9 +1,15 @@
 import React, {useCallback} from 'react';
 import {ChevronLeft} from './images';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import {HeaderBackButtonProps} from '@react-navigation/native-stack/lib/typescript/src/types';
 import {useNavigation} from '../views/hooks/useNavigation';
 
+/**
+ * Get a view with a custom back icon
+ * 
+ * @param props 
+ * @returns A back button for nested views
+ */
 export const NavigationBack = (props: HeaderBackButtonProps) => {
     const navigation = useNavigation();
 
@@ -15,14 +21,7 @@ export const NavigationBack = (props: HeaderBackButtonProps) => {
 
     return (
         <TouchableOpacity {...props} onPress={onPress}>
-            <ChevronLeft style={styles.chevron} />
+            <ChevronLeft />
         </TouchableOpacity>
     )
 };
-
-const styles = StyleSheet.create({
-    chevron: {
-        height: 16,
-        width: 9,
-    },
-});

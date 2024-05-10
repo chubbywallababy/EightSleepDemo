@@ -1,4 +1,14 @@
 export const strings = {
+  details: {
+    sleepFitness: 'Sleep Fitness',
+    action: {
+      title: 'Review',
+      detail: 'New temperature suggestion',
+    },
+  },
+  error: {
+    generalError: 'Sorry, an error has occurred. Please try again.',
+  },
   sleeperList: {
     cell: {
       sleepScore: 'Sleep score',

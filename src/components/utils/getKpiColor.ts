@@ -1,4 +1,4 @@
-import {KpiStatus} from '../../utils/SleepDataUtils';
+import {KpiStatus} from '../../utils/types';
 
 /**
  * Tracks which colors are for which status.
@@ -10,7 +10,7 @@ import {KpiStatus} from '../../utils/SleepDataUtils';
  */
 export const getKpiColor = (status: KpiStatus): string | undefined => {
   if (status === KpiStatus.Great) {
-    return 'teal';
+    return '#0073DD';
   } else if (status === KpiStatus.Bad) {
     return 'orange';
   }

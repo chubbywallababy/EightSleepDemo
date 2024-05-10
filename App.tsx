@@ -9,7 +9,7 @@ import React from 'react';
 import {NavigationContainer, DarkTheme} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SleepersListView} from './src/views/SleepersListView';
-import {SleeperDetailView} from './src/views/SleeperDetailView';
+import {SleeperDetailView} from './src/views/Details/SleeperDetailView';
 import {User} from './src/types';
 import {StatusBar} from 'react-native';
 import {NavigationHeader} from './src/components/NavigationHeader';

@@ -1,6 +1,6 @@
 import {createSelector} from '@reduxjs/toolkit';
 import {RootState} from '../store';
-import {getSleepKpiData} from '../../utils/SleepDataUtils';
+import {getSleepDetailData, getSleepKpiData} from '../../utils/SleepDataUtils';
 
 export const selectSleepState = (state: RootState) => state.sleep;
 
@@ -16,4 +16,9 @@ export const selectUsersError = (id: string) =>
 export const selectUsersKpis = (id: string) =>
   createSelector(selectUsersData(id), userSleepState =>
     getSleepKpiData(userSleepState?.intervals),
+  );
+
+export const selectUserSleepDetailData = (id: string) =>
+  createSelector(selectUsersData(id), usersSleepState =>
+    getSleepDetailData(usersSleepState?.intervals),
   );
