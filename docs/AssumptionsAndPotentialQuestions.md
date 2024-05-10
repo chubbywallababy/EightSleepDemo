@@ -99,6 +99,8 @@ A
 
 Q
 
+What if someone is getting quality sleep according to the static util funciton breakpoints, but is not feeling rested? And vice versa, bad quality sleep and feels great?
+
 A
 
 <br>
@@ -106,5 +108,12 @@ A
 
 Q
 i18n?
+
+A
+
+<br>
+<hr>
+
+Q
 
 A

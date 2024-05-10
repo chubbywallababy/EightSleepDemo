@@ -12,6 +12,7 @@ import {SleepersListView} from './src/views/SleepersListView';
 import {SleeperDetailView} from './src/views/SleeperDetailView';
 import {User} from './src/types';
 import {StatusBar} from 'react-native';
+import {NavigationHeader} from './src/components/NavigationHeader';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -22,20 +23,25 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App = () => {
   return (
-    <NavigationContainer theme={DarkTheme}>
-      <StatusBar
-        backgroundColor="#61dafb"
-        barStyle='light-content'
-      />
+    <NavigationContainer
+      theme={{
+        ...DarkTheme,
+        colors: {
+          ...DarkTheme.colors,
+          // Make the navigation header black
+          card: '#000',
+        },
+      }}>
+      <StatusBar backgroundColor="#000" barStyle="light-content" />
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
           component={SleepersListView}
+          options={{
+            header: NavigationHeader,
+          }}
         />
-        <Stack.Screen
-          name="Details"
-          component={SleeperDetailView}
-        />
+        <Stack.Screen name="Details" component={SleeperDetailView} />
       </Stack.Navigator>
     </NavigationContainer>
   );

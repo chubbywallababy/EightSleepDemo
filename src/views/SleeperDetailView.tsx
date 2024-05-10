@@ -15,7 +15,6 @@ export const SleeperDetailView = ({
   route,
   navigation,
 }: SleepDataDetailViewProps) => {
-
   const data = useAppSelector(selectUsersData(route.params.data.id));
 
   useEffect(() => {

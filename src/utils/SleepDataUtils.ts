@@ -1,9 +1,21 @@
 import {SleepInterval} from '../types';
 
+/**
+ * Numbered in case we want to sort
+ */
+export enum KpiStatus {
+  Great = 0,
+  Good = 1,
+  OK = 2,
+  Bad = 3,
+}
+
 export type SleepKpiData =
   | {
-      averageSleepDuration: number;
+      averageDeepSleepDuration: number;
+      deepSleepDurationStatus: KpiStatus;
       averageScore: number;
+      scoreStatus: KpiStatus;
     }
   | undefined;
 
@@ -20,16 +32,67 @@ export const getSleepKpiData = (
     return undefined;
   }
 
-  const sleepDurations = data.map(d =>
-    d.stages.reduce((sum, stage) => sum + stage.duration, 0),
+  const deepSleepDurations = data.map(d =>
+    d.stages
+      .filter(s => s.stage === 'deep')
+      .reduce((sum, stage) => sum + stage.duration, 0),
   );
   const sleepScores = data.map(d => d.score);
 
   // Convert seconds into hours
-  const averageSleepDuration = round(getAverage(sleepDurations) / 60 / 60, 2);
-  const averageScore = round(getAverage(sleepScores), 2);
+  const averageDeepSleepDuration = round(
+    getAverage(deepSleepDurations) / 60 / 60,
+    2,
+  );
+  const deepSleepDurationStatus = getDeepSleepDurationStatus(
+    averageDeepSleepDuration,
+  );
 
-  return {averageSleepDuration, averageScore};
+  const averageScore = round(getAverage(sleepScores), 2);
+  const scoreStatus = getSleepScoreStatus(averageScore);
+
+  return {
+    averageDeepSleepDuration,
+    deepSleepDurationStatus,
+    averageScore,
+    scoreStatus,
+  };
+};
+
+/**
+ * Get the sleep score status based on arbitrary breakpoints
+ *
+ * @param average
+ * @returns
+ */
+const getSleepScoreStatus = (average: number): KpiStatus => {
+  if (average > 87) {
+    return KpiStatus.Great;
+  } else if (average > 75) {
+    return KpiStatus.Good;
+  } else if (average > 65) {
+    return KpiStatus.OK;
+  } else {
+    return KpiStatus.Bad;
+  }
+};
+
+/**
+ * Get the deep sleep duration status based on arbitrary breakpoints
+ *
+ * @param average
+ * @returns
+ */
+const getDeepSleepDurationStatus = (average: number): KpiStatus => {
+  if (average > 1.8) {
+    return KpiStatus.Great;
+  } else if (average > 1.5) {
+    return KpiStatus.Good;
+  } else if (average > 1.2) {
+    return KpiStatus.OK;
+  } else {
+    return KpiStatus.Bad;
+  }
 };
 
 const getAverage = (nums: number[]): number =>

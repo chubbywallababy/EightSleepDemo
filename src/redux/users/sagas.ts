@@ -1,6 +1,6 @@
 import {call, put} from 'redux-saga/effects';
 import {SleepService} from '../../services/SleepService';
-import {SleepData, User} from '../../types';
+import {User} from '../../types';
 import {usersActions} from './actions';
 import {sleepActions} from '../sleep/actions';
 
