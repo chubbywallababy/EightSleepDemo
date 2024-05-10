@@ -1,3 +1,13 @@
+# Docs
+
+In the `docs` folder can be found the following markdown documents:
+
+- AssumptionsAndPotentialQuestions
+  - Assumptions tracked which were made during the coding process and the logic behind the assumption.
+  - Potential questions that might be good for an interview.
+- Tasks
+  - A list of what items were done for the project and in what order
+
 # FINISH THIS BEFORE SUBMISSION
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).

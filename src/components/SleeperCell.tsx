@@ -14,6 +14,8 @@ import {Platform} from 'react-native';
 import {AnimatedNumber} from './AnimatedNumber';
 import {DataPoint} from './DataPoint';
 import {strings} from '../i18n';
+import {GlowingBorder} from './GlowingBorder';
+import {getKpiColor} from './utils/getKpiColor';
 
 export interface SleeperCellProps {
   data: User;
@@ -40,16 +42,26 @@ export const SleeperCell = ({data, onPress}: SleeperCellProps) => {
           ) : null}
           {kpiData !== undefined && userStatus === 'idle' ? (
             <>
-              <DataPoint
-                dataView={<AnimatedNumber n={kpiData.averageDeepSleepDuration} animateCount={false} duration={500} />}
-                detailText={strings.sleeperList.cell.deepSleep}
-                unit={strings.units.hoursShort}
-              />
-              <DataPoint
-                dataView={<AnimatedNumber n={kpiData.averageScore} duration={500} />}
-                detailText={strings.sleeperList.cell.sleepScore}
-                unit={strings.units.percent}
-              />
+              <GlowingBorder
+                shadowColor={getKpiColor(kpiData.deepSleepDurationStatus) || ""}
+                hideGlow={getKpiColor(kpiData.deepSleepDurationStatus) === undefined}
+              >
+                <DataPoint
+                  dataView={<AnimatedNumber n={kpiData.averageDeepSleepDuration} animateCount={false} duration={500} />}
+                  detailText={strings.sleeperList.cell.deepSleep}
+                  unit={strings.units.hoursShort}
+                />
+              </GlowingBorder>
+              <GlowingBorder
+                shadowColor={getKpiColor(kpiData.scoreStatus) || ""}
+                hideGlow={getKpiColor(kpiData.scoreStatus) === undefined}
+              >
+                <DataPoint
+                  dataView={<AnimatedNumber n={kpiData.averageScore} duration={500} />}
+                  detailText={strings.sleeperList.cell.sleepScore}
+                  unit={strings.units.percent}
+                />
+              </GlowingBorder>
             </>
           ) : null}
         </View>
@@ -62,6 +74,7 @@ const styles = StyleSheet.create({
   touchable: {
     // Android (not iOS) cell reaches the horizontal edges of the screen
     marginHorizontal: Platform.OS === 'android' ? 10 : 0,
+    flex: 1,
   },
   sleepDataCell: {
     width: '100%',

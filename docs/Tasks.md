@@ -24,3 +24,8 @@
 
 - Initial work on the details view
 - centralize strings
+
+what i want to do
+
+- detail view and data visualization initial steps
+- animations an styling for sleeper cell if the kpi score is bad
