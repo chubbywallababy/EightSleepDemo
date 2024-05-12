@@ -53,7 +53,7 @@ export const GlowingBorder = ({children, shadowColor, delay = 0, duration = 2000
 
 const styles = StyleSheet.create({
     container: {
-        borderWidth: 0,
+        elevation: 50, // Make the blurred effect for android
         borderColor: 'transparent', // Set border color to transparent to avoid actual border showing
     },
 });

@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import {ChevronLeft} from './images';
-import {TouchableOpacity} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import {HeaderBackButtonProps} from '@react-navigation/native-stack/lib/typescript/src/types';
 import {useNavigation} from '../views/hooks/useNavigation';
 
@@ -20,8 +20,16 @@ export const NavigationBack = (props: HeaderBackButtonProps) => {
     }, [navigation, props.canGoBack]);
 
     return (
-        <TouchableOpacity {...props} onPress={onPress}>
+        <TouchableOpacity {...props} style={styles.backButton} onPress={onPress}>
             <ChevronLeft />
         </TouchableOpacity>
     )
 };
+
+const styles = StyleSheet.create({
+    backButton: {
+        // Makes it a little easier to hit the back button
+        // and pushes the android header more towards the center
+        width: 50
+    }
+})
