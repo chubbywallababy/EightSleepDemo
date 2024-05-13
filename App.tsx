@@ -1,8 +1,5 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
+ * Navigation content for the Eight Sleep demo!
  */
 
 import React from 'react';
@@ -56,7 +53,7 @@ const App = () => {
           component={SuggestionView}
           options={{
             headerLeft: NavigationBack,
-            title: "Autopilot"
+            title: 'Autopilot',
           }}
         />
       </Stack.Navigator>

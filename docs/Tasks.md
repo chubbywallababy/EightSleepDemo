@@ -73,3 +73,10 @@
 
 - Find any more animations to improve
 - improve code coverage if under 90%
+
+# Nice-to-haves
+
+- implement toast for accepting/rejecting suggestions
+- animation for the sleep heart rate line graph
+- gradient graph for temperature suggestion
+- animate the dots for tosses and turns

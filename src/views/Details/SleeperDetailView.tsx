@@ -29,13 +29,17 @@ export const SleeperDetailView = ({
 
   return (
     <Background>
-      {data ?
+      {data ? (
         <SleeperDataContent
           data={data}
           userId={route.params.data.id}
-          onSuggestionPress={() => navigation.navigate("Suggestion", {data: route.params.data})}
+          onSuggestionPress={() =>
+            navigation.navigate('Suggestion', {data: route.params.data})
+          }
         />
-        : <ErrorContainer />}
+      ) : (
+        <ErrorContainer />
+      )}
     </Background>
   );
 };

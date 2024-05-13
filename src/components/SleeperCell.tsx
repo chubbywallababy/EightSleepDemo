@@ -27,7 +27,9 @@ export interface SleeperCellProps {
 export const SleeperCell = ({data, onPress}: SleeperCellProps) => {
   const kpiData = useAppSelector(selectUsersKpis(data.id));
   const userStatus = useAppSelector(selectUsersStatus(data.id));
-  const hasUserMadeSelection = useAppSelector(selectHasUserMadeSelection(data.id));
+  const hasUserMadeSelection = useAppSelector(
+    selectHasUserMadeSelection(data.id),
+  );
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.touchable}>

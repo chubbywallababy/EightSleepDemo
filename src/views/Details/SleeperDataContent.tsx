@@ -7,15 +7,15 @@ import {strings} from '../../i18n';
 import {SleeperActionCell} from '../../components/SleeperActionCell';
 import {Thermometer} from '../../components/images';
 import {SleepStatCard} from '../../components/SleepStatCard';
-import {hoursToSleepObject} from '../../utils/SleepDataUtils';
 import {HorizontalDetailScrollView} from '../../components/HorizontalDetailScrollView';
 import {TossAndTurnCount} from '../../components/TossAndTurnCount';
 import {HeartRateLineGraph} from '../../components/HeartRateLineGraph';
 import {useAppSelector} from '../../redux/hooks';
 import {selectHasUserMadeSelection} from '../../redux/users/selectors';
+import {hoursToSleepObject} from '../../utils/general';
 
 interface SleeperDataContentProps {
-  data: SleepDetailData,
+  data: SleepDetailData;
   userId: string;
   /** If the suggestion is pressed */
   onSuggestionPress: () => void;
@@ -30,9 +30,14 @@ interface SleeperDataContentProps {
  * @param param0
  * @returns
  */
-export const SleeperDataContent = ({data, onSuggestionPress, userId}: SleeperDataContentProps) => {
-
-  const hasUserMadeSelection = useAppSelector(selectHasUserMadeSelection(userId));
+export const SleeperDataContent = ({
+  data,
+  onSuggestionPress,
+  userId,
+}: SleeperDataContentProps) => {
+  const hasUserMadeSelection = useAppSelector(
+    selectHasUserMadeSelection(userId),
+  );
 
   return (
     <ScrollView contentContainerStyle={styles.container}>

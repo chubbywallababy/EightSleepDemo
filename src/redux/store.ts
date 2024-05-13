@@ -1,4 +1,9 @@
-import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit';
+import {
+  configureStore,
+  ThunkAction,
+  Action,
+  combineReducers,
+} from '@reduxjs/toolkit';
 import usersReducer from './users/slice';
 import sleepReducer from './sleep/slice';
 import createSagaMiddleware from 'redux-saga';
@@ -34,3 +39,20 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >;
+
+/**
+ * For testing
+ *
+ * @param preloadedState
+ * @returns
+ */
+export const setupStore = (preloadedState?: Partial<RootState>) => {
+  return configureStore({
+    reducer: combineReducers({
+      users: usersReducer,
+      sleep: sleepReducer,
+    }),
+    preloadedState,
+  });
+};
+export type AppStore = ReturnType<typeof setupStore>;

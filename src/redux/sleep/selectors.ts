@@ -1,6 +1,7 @@
 import {createSelector} from '@reduxjs/toolkit';
 import {RootState} from '../store';
-import {getSleepDetailData, getSleepKpiData} from '../../utils/SleepDataUtils';
+import {getSleepKpiData} from '../../utils/getSleepKpiData';
+import {getSleepDetailData} from '../../utils/getSleepDetailData';
 
 export const selectSleepState = (state: RootState) => state.sleep;
 

@@ -15,7 +15,7 @@ interface UserSleepState {
   data?: SleepData;
 }
 
-const initialSleepState: SleepState = {};
+export const initialSleepState: SleepState = {};
 
 const sleepSlice = createSlice({
   name: 'sleep',

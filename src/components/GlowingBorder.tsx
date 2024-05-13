@@ -1,5 +1,5 @@
 import React, {useRef, useEffect} from 'react';
-import {Animated, Platform, StyleSheet} from 'react-native';
+import {Animated, StyleSheet} from 'react-native';
 
 interface GlowingBorderProps {
   children: React.ReactNode;

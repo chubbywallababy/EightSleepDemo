@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 import {usersActions} from './actions';
 import {User} from '../../types/User';
 
-interface UserState {
+export interface UserState {
   status: 'idle' | 'loading' | 'failed';
   error: string | null;
   data: {
@@ -16,7 +16,7 @@ interface UserState {
   };
 }
 
-const initialState: UserState = {
+export const initialState: UserState = {
   status: 'idle',
   error: null,
   data: {
