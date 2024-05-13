@@ -14,6 +14,7 @@ export const strings = {
         timeSlept: 'Time slept',
         timeToFallAsleep: 'Time to fall asleep',
         tossAndTurnCount: 'Tosses and turns',
+        sleepHeartRate: 'Sleep heart rate',
       },
       goal: 'Goal',
     },
@@ -34,5 +35,6 @@ export const strings = {
     percent: '%',
     getHoursAndMinutes: (hrs: number, mins: number) => `${hrs}h ${mins}m`,
     getMinutes: (mins: number) => `${mins}m`,
+    bpm: (bpm: number) => `${bpm} bpm`,
   },
 };

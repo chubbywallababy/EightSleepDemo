@@ -1,6 +1,10 @@
 import React from 'react';
-import {StyleSheet, Text, TextProps, View, ViewProps} from 'react-native';
+import {Text, TextProps, View, ViewProps} from 'react-native';
+import {commonStyles} from '../../styles/styles';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 
+dayjs.extend(utc);
 /**
  * A wrapper around react-native Text to help styling
  *
@@ -12,13 +16,23 @@ export const SleepText = (props: TextProps) => {
 };
 
 /**
- * A wrapper around react-native Text to help styling
+ * A component to display the card title
  *
  * @param props
  * @returns Text component
  */
 export const CardTitle = (props: TextProps) => {
   return <SleepText {...props} style={[commonStyles.text, commonStyles.cardTitle, props.style]} />;
+};
+
+/**
+ * A component to display subtitles
+ *
+ * @param props
+ * @returns Text component
+ */
+export const DateSubtitle = (props: TextProps & {ts: string}) => {
+  return <SleepText {...props} style={[commonStyles.text, commonStyles.subtitle, props.style]} >{dayjs(props.ts).utc().format("MMM DD")}</SleepText>;
 };
 
 
@@ -48,14 +62,3 @@ export const Background = (props: ViewProps) => {
 export const LabelText = (props: TextProps) => {
   return <Text {...props} style={[commonStyles.label, props.style]} />;
 };
-
-export const commonStyles = StyleSheet.create({
-  background: {backgroundColor: '#000'},
-  text: {color: 'white'},
-  label: {color: '#888', fontSize: 14},
-  view: {backgroundColor: '#202020'},
-  cardTitle: {
-    fontSize: 22,
-    fontWeight: '700',
-  },
-});

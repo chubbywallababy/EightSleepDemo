@@ -9,14 +9,14 @@ import {Thermometer} from '../../components/images';
 import {SleepStatCard} from '../../components/SleepStatCard';
 import {hoursToSleepObject} from '../../utils/SleepDataUtils';
 import {HorizontalDetailScrollView} from '../../components/HorizontalDetailScrollView';
-import {SleepText, SleepView} from '../../components/common';
 import {TossAndTurnCount} from '../../components/TossAndTurnCount';
+import {HeartRateLineGraph} from '../../components/HeartRateLineGraph';
 
 /**
  *
  * This view shows all the data relevant to a sleeper analysis
  *
- * It's the parent's responsibility to make sure the redux data is defined before presenting.
+ * It's the responsibility of the parent to make sure the redux data is defined before presenting.
  *
  * @param param0
  * @returns
@@ -71,6 +71,9 @@ export const SleeperDataContent = ({data}: {data: SleepDetailData}) => {
       />
       <HorizontalDetailScrollView title={strings.details.card.titles.tossAndTurnCount}>
         {data.tntData.map((dataPoint) => <TossAndTurnCount dataPoint={dataPoint} key={dataPoint.ts} />)}
+      </HorizontalDetailScrollView>
+      <HorizontalDetailScrollView title={strings.details.card.titles.sleepHeartRate}>
+        {data.sleepHeartRateData.map((dataPoint) => <HeartRateLineGraph key={dataPoint.ts} dataPoint={dataPoint} />)}
       </HorizontalDetailScrollView>
     </ScrollView>
   );

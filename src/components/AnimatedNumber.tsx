@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Animated, StyleSheet, View} from 'react-native';
-import {commonStyles} from './common';
+import {commonStyles} from '../styles/styles';
 
 interface AnimatedNumberProps {
   n: number;

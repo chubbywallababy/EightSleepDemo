@@ -33,7 +33,7 @@ export interface SleepDetailData extends SleepKpiData {
   timeSleptDataPoint: DataPoint;
   timeToFallAsleepDataPoint: DataPoint;
   tntData: TimeseriesDataPoint<number>[];
-  sleepHeartRateData: TimeseriesDataPoint<LineGraphData[]>[];
+  sleepHeartRateData: TimeseriesDataPoint<LineGraphData>[];
 }
 
 export interface DataPoint {
@@ -53,6 +53,8 @@ export interface LineGraphData {
   points: lineDataItem[];
   xAxisLabels: string[];
   yAxisLables: string[];
+  yAxisOffset: number;
+  maxValue: number;
 }
 
 export interface TimeseriesDataPoint<T> {

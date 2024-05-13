@@ -14,6 +14,7 @@ import {
   SleepKpiData,
   TimeseriesDataPoint,
 } from './types';
+import {getHeartRateLineGraphDataFromInterval} from './getHeartRateLineGraphDataFromInterval';
 
 /**
  * Gets the most important data to summaraize a nights sleep
@@ -268,70 +269,9 @@ const getTntTimeseriesData = (
 
 const getSleepHeartRateData = (
   intervals: SleepInterval[],
-): TimeseriesDataPoint<LineGraphData[]>[] => {
+): TimeseriesDataPoint<LineGraphData>[] => {
   return intervals.map(i => ({
     ts: i.ts,
-    data: intervals.map(getLineGraphDataFromInterval),
+    data: getHeartRateLineGraphDataFromInterval(i),
   }));
-};
-
-const getLineGraphDataFromInterval = (
-  interval: SleepInterval,
-): LineGraphData => {
-  const maxTs =
-    interval.timeseries.heartRate[interval.timeseries.heartRate.length - 1][0];
-  const minTs = interval.timeseries.heartRate[0][0];
-
-  let minPoint = Infinity;
-  let maxPoint = 0;
-
-  const points = interval.timeseries.heartRate.map(([_, v]) => {
-    if (v > maxPoint) {
-      maxPoint = v;
-    }
-    if (v < minPoint) {
-      minPoint = v;
-    }
-    return {value: v};
-  });
-
-  return {
-    points,
-    xAxisLabels: [dayjs(minTs).format('HH:MMa'), dayjs(maxTs).format('HH:MMa')],
-    yAxisLables: getLineGraphYAxisForHeartRateInterval(minPoint, maxPoint).map(
-      n => n.toString(),
-    ),
-  };
-};
-
-/**
- * Returns 6 numbers representing the heart rate
- * values for the Y axis on the sleep heart rate line graph
- *
- * @param min lowest heart rate
- * @param max highest heart rate
- * @returns 6 numbers in an array
- */
-const getLineGraphYAxisForHeartRateInterval = (
-  min: number,
-  max: number,
-): [number, number, number, number, number, number] => {
-  if (min > max) {
-    throw new Error(`'min' needs to be less than 'max': min=${min} max=${max}`);
-  }
-
-  const top = max + 5;
-  const bottom = min - 15;
-
-  const diff = top - bottom;
-  const interval = diff / 4;
-
-  return [
-    bottom,
-    bottom + interval,
-    bottom + interval * 2,
-    bottom + interval * 3,
-    bottom + interval * 4,
-    top,
-  ];
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import {CardTitle, commonStyles, SleepText, SleepView} from './common';
+import {CardTitle, SleepText, SleepView} from './common';
 import {StyleSheet} from 'react-native';
 import {DottedLine, ProgressBar} from './ProgressBar';
 import {strings} from '../i18n';

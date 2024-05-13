@@ -1,16 +1,18 @@
 import React from 'react';
 import {TimeseriesDataPoint} from '../utils/types';
 import {StyleSheet, View} from 'react-native';
-import {SleepText} from './common';
-import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
-
-dayjs.extend(utc);
+import {DateSubtitle, SleepText} from './common';
 
 export interface TossAndTurnCountProps {
     dataPoint: TimeseriesDataPoint<number>
 }
 
+/**
+ * Show the number of times a sleeper has tossed/turned in a given night
+ * 
+ * @param param0 
+ * @returns 
+ */
 export const TossAndTurnCount = ({dataPoint}: TossAndTurnCountProps): JSX.Element => {
 
     const topCount = Math.floor(dataPoint.data / 2);
@@ -19,7 +21,7 @@ export const TossAndTurnCount = ({dataPoint}: TossAndTurnCountProps): JSX.Elemen
     return (
         <View style={styles.container}>
             <View style={styles.content}>
-                <SleepText style={styles.timestamp}>{dayjs(dataPoint.ts).utc().format("MMM DD")}</SleepText>
+                <DateSubtitle ts={dataPoint.ts} />
                 <View style={styles.tntData}>
                     <SleepText style={styles.data}>{dataPoint.data}</SleepText>
                     <View style={styles.dots}>

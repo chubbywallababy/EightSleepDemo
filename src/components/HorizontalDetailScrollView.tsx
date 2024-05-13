@@ -10,7 +10,8 @@ interface HorizontalDetailScrollViewProps {
 }
 
 /**
- * Allow multiple children to be passed in, and only one child is shown at a time
+ * Allow multiple children to be passed in, and only one child is shown at a time.
+ * Children can be scrolled through using arrow buttons.
  * 
  * Future improvement would be to allow swiping
  * 
@@ -57,6 +58,7 @@ export const HorizontalDetailScrollView = ({children, title}: HorizontalDetailSc
                     ref={ref}
                     scrollEnabled={false}
                     showsHorizontalScrollIndicator={false}
+                // style={{gap}}s
                 >
                     {children.map((child, i) => (
                         <HorizontalScrollChildContainer key={i} width={width}>{child}</HorizontalScrollChildContainer>
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
     },
     child: {
         padding: 10,
-        alignItems: "center",
+        alignItems: "flex-start",
     },
     contentContainer: {
         padding: 16,
@@ -109,7 +111,10 @@ const styles = StyleSheet.create({
     },
     scrollButton: {
         // Makes it easier to press
-        width: 30
+        width: 30,
+        height: 20,
+        justifyContent: "center",
+        alignItems: "center",
     },
     title: {
         marginBottom: 10,
