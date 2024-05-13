@@ -1,4 +1,4 @@
-import jest from 'jest';
+/* eslint-disable no-undef */
 import 'react-native-gesture-handler/jestSetup';
 
 // include this section and the NativeAnimatedHelper section for mocking react-native-reanimated

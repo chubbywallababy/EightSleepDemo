@@ -7,8 +7,10 @@ module.exports = {
   },
   collectCoverageFrom: [
     '**/src/**/*.{js,jsx,ts,tsx}',
-    '!**/*.types.{ts,tsx}',
-    '!**/types/*',
+    '!**/src/**/*.types.{ts,tsx}',
+    '!**/src/types/*',
+    '!**/src/styles/*',
+    '!**/src/i18n/*',
     '!**/node_modules/**',
   ],
 };
