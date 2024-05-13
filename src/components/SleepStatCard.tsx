@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   cardTitle: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: '700',
   },
   cardSubtitle: {

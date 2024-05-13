@@ -17,8 +17,11 @@ export const SleepText = (props: TextProps) => {
  * @param props
  * @returns View component
  */
-export const SleepView = (props: ViewProps) => {
-  return <View {...props} style={[commonStyles.view, props.style]} />;
+export const SleepView = (props: ViewProps & {setWidth?: (width: number) => void}) => {
+  const setWidth = props.setWidth;
+  return <View {...props} style={[commonStyles.view, props.style]} onLayout={setWidth ? (e) => {
+    setWidth(e.nativeEvent.layout.width);
+  } : undefined} />;
 };
 
 /**

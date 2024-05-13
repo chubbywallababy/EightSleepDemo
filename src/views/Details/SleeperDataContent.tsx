@@ -8,6 +8,8 @@ import {SleeperActionCell} from '../../components/SleeperActionCell';
 import {Thermometer} from '../../components/images';
 import {SleepStatCard} from '../../components/SleepStatCard';
 import {hoursToSleepObject} from '../../utils/SleepDataUtils';
+import {HorizontalScrollView} from '../../components/HorizontalScrollView';
+import {SleepText} from '../../components/common';
 
 /**
  *
@@ -62,6 +64,13 @@ export const SleeperDataContent = ({data}: {data: SleepDetailData}) => {
         goalRange={data.timeToFallAsleepDataPoint.goal}
         statValue={data.timeToFallAsleepDataPoint.currentDataPoint}
       />
+      <HorizontalScrollView>
+        <SleepText style={styles.textTest}>1</SleepText>
+        <SleepText style={styles.textTest}>2</SleepText>
+        <SleepText style={styles.textTest}>3</SleepText>
+        <SleepText style={styles.textTest}>4</SleepText>
+        <SleepText style={styles.textTest}>5</SleepText>
+      </HorizontalScrollView>
     </ScrollView>
   );
 };
@@ -75,4 +84,7 @@ const styles = StyleSheet.create({
   textField: {
     padding: 20,
   },
+  textTest: {
+    fontSize: 30
+  }
 });
