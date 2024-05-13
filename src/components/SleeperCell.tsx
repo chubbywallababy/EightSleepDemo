@@ -32,12 +32,15 @@ export const SleeperCell = ({data, onPress}: SleeperCellProps) => {
       <SleepView style={styles.sleepDataCell}>
         <View style={styles.sleepDataRow}>
           <SleepText style={styles.titleText}>{data.name}</SleepText>
-          {kpiData?.hasBadScore ?
+          {kpiData?.hasBadScore ? (
             <SleepLinearGradient>
               <View style={styles.badScoreContainer}>
-                <SleepText style={styles.badScoreText}>{strings.sleeperList.cell.seeInsights}</SleepText>
+                <SleepText style={styles.badScoreText}>
+                  {strings.sleeperList.cell.seeInsights}
+                </SleepText>
               </View>
-            </SleepLinearGradient> : null}
+            </SleepLinearGradient>
+          ) : null}
           <ChevronRight />
         </View>
         <View style={[styles.sleepDataRow, styles.bottomDataRow]}>
@@ -50,20 +53,26 @@ export const SleeperCell = ({data, onPress}: SleeperCellProps) => {
           {kpiData !== undefined && userStatus === 'idle' ? (
             <>
               <GlowingBorder
-                shadowColor={getKpiColor(kpiData.deepSleepDurationStatus) || ""}
-                hideGlow={getKpiColor(kpiData.deepSleepDurationStatus) === undefined}
-              >
+                shadowColor={getKpiColor(kpiData.deepSleepDurationStatus) || ''}
+                hideGlow={
+                  getKpiColor(kpiData.deepSleepDurationStatus) === undefined
+                }>
                 <DataPoint
-                  dataView={<SleepText style={numberStyles.text}>{kpiData.averageDeepSleepDurationStr}</SleepText>}
+                  dataView={
+                    <SleepText style={numberStyles.text}>
+                      {kpiData.averageDeepSleepDurationStr}
+                    </SleepText>
+                  }
                   detailText={strings.sleeperList.cell.deepSleep}
                 />
               </GlowingBorder>
               <GlowingBorder
-                shadowColor={getKpiColor(kpiData.scoreStatus) || ""}
-                hideGlow={getKpiColor(kpiData.scoreStatus) === undefined}
-              >
+                shadowColor={getKpiColor(kpiData.scoreStatus) || ''}
+                hideGlow={getKpiColor(kpiData.scoreStatus) === undefined}>
                 <DataPoint
-                  dataView={<AnimatedNumber n={kpiData.averageScore} duration={500} />}
+                  dataView={
+                    <AnimatedNumber n={kpiData.averageScore} duration={500} />
+                  }
                   detailText={strings.sleeperList.cell.sleepScore}
                   unit={strings.units.percent}
                 />
@@ -103,10 +112,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   bottomDataRow: {
-    paddingHorizontal: 15
+    paddingHorizontal: 15,
   },
   indicator: {
-    width: "100%",
+    width: '100%',
   },
   badScoreText: {
     fontSize: 12,

@@ -1,19 +1,19 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {PieChart, lineDataItem, pieDataItem} from 'react-native-gifted-charts';
+import {View} from 'react-native';
+import {PieChart} from 'react-native-gifted-charts';
 
-interface SleepDataByStageChartProps {
-  data: pieDataItem[];
-  title: string;
-  units: string;
-  yAxisOffset: number;
-  noOfSections: number;
-  spacing: number;
-  initialSpacing: number;
-}
+// interface SleepDataByStageChartProps {
+//   data: pieDataItem[];
+//   title: string;
+//   units: string;
+//   yAxisOffset: number;
+//   noOfSections: number;
+//   spacing: number;
+//   initialSpacing: number;
+// }
 
 /**
- * 
+ *
  * @returns {
   data: lineData,
   title,
@@ -77,7 +77,7 @@ export const SleepDataByStageChart = () => {
   ];
 
   return (
-    <View >
+    <View>
       <PieChart
         data={pieData}
         showText
@@ -93,18 +93,18 @@ export const SleepDataByStageChart = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  chartContainer: {
-    paddingVertical: 20,
-    backgroundColor: '#414141',
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginLeft: 10,
-  },
-  conatiner: {
-    marginVertical: 10,
-  },
-  yAxis: {color: 'lightgray'},
-});
+// const styles = StyleSheet.create({
+//   chartContainer: {
+//     paddingVertical: 20,
+//     backgroundColor: '#414141',
+//   },
+//   text: {
+//     fontSize: 24,
+//     fontWeight: 'bold',
+//     marginLeft: 10,
+//   },
+//   conatiner: {
+//     marginVertical: 10,
+//   },
+//   yAxis: {color: 'lightgray'},
+// });

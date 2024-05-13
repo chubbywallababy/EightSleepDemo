@@ -4,7 +4,6 @@
 // export const getLineData = (
 //   data: SortedSleepStages,
 // ): SleepDataByLineItem => {
-  
 
 //   return {
 //     deep: data.deep.map(d => ({value: d[key]})),

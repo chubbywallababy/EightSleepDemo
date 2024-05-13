@@ -21,43 +21,38 @@ export const CircularProgress = ({
   detailText,
 }: CircularProgressProps) => {
   return (
-    <View
-      style={styles.container}
-    >
+    <View style={styles.container}>
       <AnimatedCircularProgress
         size={radius}
         width={strokeWidth}
         delay={200}
-        lineCap='round'
+        lineCap="round"
         fill={percentageComplete}
         tintColor={backgroundColor}
         backgroundColor="#143F99"
-        rotation={0}
-      >
-        {
-          (fill) => (
-            <SleepText style={styles.powerText}>
-              <View style={styles.textViewContainer}>
-                <View>
-                  <SleepText style={styles.boldText}>
-                    {Math.floor(fill)}
-                    {unit ? <SleepText style={styles.unitText}>
-                      {unit}
-                    </SleepText> : null}
-                  </SleepText>
-                </View>
-                <View>
-                  {detailText ? <SleepText style={styles.detailText}>
-                    {detailText}
-                  </SleepText> : null}
-                </View>
+        rotation={0}>
+        {fill => (
+          <SleepText style={styles.powerText}>
+            <View style={styles.textViewContainer}>
+              <View>
+                <SleepText style={styles.boldText}>
+                  {Math.floor(fill)}
+                  {unit ? (
+                    <SleepText style={styles.unitText}>{unit}</SleepText>
+                  ) : null}
+                </SleepText>
               </View>
-            </SleepText>
-          )
-        }
+              <View>
+                {detailText ? (
+                  <SleepText style={styles.detailText}>{detailText}</SleepText>
+                ) : null}
+              </View>
+            </View>
+          </SleepText>
+        )}
       </AnimatedCircularProgress>
     </View>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
@@ -76,7 +71,7 @@ const styles = StyleSheet.create({
   boldText: {
     fontSize: 46,
     fontWeight: '700',
-    textAlign: "center",
+    textAlign: 'center',
   },
   unitText: {
     fontSize: 18,

@@ -10,12 +10,16 @@ interface AnimatedNumberProps {
 }
 
 /**
- * Does not currently work for numbers with decimals. Set `animateCount` to false 
- * 
- * @param param0 
- * @returns 
+ * Does not currently work for numbers with decimals. Set `animateCount` to false
+ *
+ * @param param0
+ * @returns
  */
-export const AnimatedNumber = ({n, duration = 1000, animateCount = true}: AnimatedNumberProps) => {
+export const AnimatedNumber = ({
+  n,
+  duration = 1000,
+  animateCount = true,
+}: AnimatedNumberProps) => {
   const [count] = useState(new Animated.Value(0));
   const [currentValue, setCurrentValue] = useState(0);
 

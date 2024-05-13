@@ -46,7 +46,7 @@ const App = () => {
           name="Details"
           component={SleeperDetailView}
           options={{
-            headerLeft: NavigationBack
+            headerLeft: NavigationBack,
           }}
         />
       </Stack.Navigator>

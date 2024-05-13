@@ -14,7 +14,7 @@ type SleepDataDetailViewProps = NativeStackScreenProps<
 
 /**
  * The parent view for the sleep detail content.
- * 
+ *
  * This view is responsible for setting the title and data validation
  */
 export const SleeperDetailView = ({

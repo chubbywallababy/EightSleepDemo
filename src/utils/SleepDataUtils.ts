@@ -283,7 +283,7 @@ const getLineGraphDataFromInterval = (
   let minPoint = Infinity;
   let maxPoint = 0;
 
-  const points = interval.timeseries.heartRate.map(([ts, v]) => {
+  const points = interval.timeseries.heartRate.map(([_, v]) => {
     if (v > maxPoint) {
       maxPoint = v;
     }
