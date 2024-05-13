@@ -69,11 +69,17 @@ export const SleeperDataContent = ({data}: {data: SleepDetailData}) => {
         goalRange={data.timeToFallAsleepDataPoint.goal}
         statValue={data.timeToFallAsleepDataPoint.currentDataPoint}
       />
-      <HorizontalDetailScrollView title={strings.details.card.titles.tossAndTurnCount}>
-        {data.tntData.map((dataPoint) => <TossAndTurnCount dataPoint={dataPoint} key={dataPoint.ts} />)}
+      <HorizontalDetailScrollView
+        title={strings.details.card.titles.tossAndTurnCount}>
+        {data.tntData.map(dataPoint => (
+          <TossAndTurnCount dataPoint={dataPoint} key={dataPoint.ts} />
+        ))}
       </HorizontalDetailScrollView>
-      <HorizontalDetailScrollView title={strings.details.card.titles.sleepHeartRate}>
-        {data.sleepHeartRateData.map((dataPoint) => <HeartRateLineGraph key={dataPoint.ts} dataPoint={dataPoint} />)}
+      <HorizontalDetailScrollView
+        title={strings.details.card.titles.sleepHeartRate}>
+        {data.sleepHeartRateData.map(dataPoint => (
+          <HeartRateLineGraph key={dataPoint.ts} dataPoint={dataPoint} />
+        ))}
       </HorizontalDetailScrollView>
     </ScrollView>
   );
@@ -89,6 +95,6 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   textTest: {
-    fontSize: 30
-  }
+    fontSize: 30,
+  },
 });

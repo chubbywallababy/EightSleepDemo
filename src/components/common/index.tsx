@@ -22,7 +22,12 @@ export const SleepText = (props: TextProps) => {
  * @returns Text component
  */
 export const CardTitle = (props: TextProps) => {
-  return <SleepText {...props} style={[commonStyles.text, commonStyles.cardTitle, props.style]} />;
+  return (
+    <SleepText
+      {...props}
+      style={[commonStyles.text, commonStyles.cardTitle, props.style]}
+    />
+  );
 };
 
 /**
@@ -32,9 +37,14 @@ export const CardTitle = (props: TextProps) => {
  * @returns Text component
  */
 export const DateSubtitle = (props: TextProps & {ts: string}) => {
-  return <SleepText {...props} style={[commonStyles.text, commonStyles.subtitle, props.style]} >{dayjs(props.ts).utc().format("MMM DD")}</SleepText>;
+  return (
+    <SleepText
+      {...props}
+      style={[commonStyles.text, commonStyles.subtitle, props.style]}>
+      {dayjs(props.ts).utc().format('MMM DD')}
+    </SleepText>
+  );
 };
-
 
 /**
  * A wrapper around react-native View to help styling smaller views, like table cells or items in a scroll view
@@ -42,11 +52,23 @@ export const DateSubtitle = (props: TextProps & {ts: string}) => {
  * @param props
  * @returns View component
  */
-export const SleepView = (props: ViewProps & {setWidth?: (width: number) => void}) => {
+export const SleepView = (
+  props: ViewProps & {setWidth?: (width: number) => void},
+) => {
   const setWidth = props.setWidth;
-  return <View {...props} style={[commonStyles.view, props.style]} onLayout={setWidth ? (e) => {
-    setWidth(e.nativeEvent.layout.width);
-  } : undefined} />;
+  return (
+    <View
+      {...props}
+      style={[commonStyles.view, props.style]}
+      onLayout={
+        setWidth
+          ? e => {
+              setWidth(e.nativeEvent.layout.width);
+            }
+          : undefined
+      }
+    />
+  );
 };
 
 /**

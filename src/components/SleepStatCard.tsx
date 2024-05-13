@@ -189,5 +189,5 @@ const styles = StyleSheet.create({
   dataContainer: {
     paddingTop: 20,
     gap: 0,
-  }
+  },
 });
