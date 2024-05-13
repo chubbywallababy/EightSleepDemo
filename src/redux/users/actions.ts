@@ -7,4 +7,6 @@ export const usersActions = {
   fetchUsers: createAction(USER_PREFIX + 'fetch'),
   setUsers: createAction<User[]>(USER_PREFIX + 'set'),
   setError: createAction<string>(USER_PREFIX + 'error'),
+  // denySuggestion: createAction<string>(USER_PREFIX + 'deny'),
+  // acceptSuggestion: createAction<string>(USER_PREFIX + 'accept'),
 };

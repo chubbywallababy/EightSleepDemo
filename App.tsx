@@ -14,10 +14,12 @@ import {User} from './src/types';
 import {StatusBar} from 'react-native';
 import {NavigationHeader} from './src/components/NavigationHeader';
 import {NavigationBack} from './src/components/NavigationBack';
+import {SuggestionView} from './src/views/SuggestionView';
 
 export type RootStackParamList = {
   Home: undefined;
   Details: {data: User};
+  Suggestion: {data: User};
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -47,6 +49,14 @@ const App = () => {
           component={SleeperDetailView}
           options={{
             headerLeft: NavigationBack,
+          }}
+        />
+        <Stack.Screen
+          name="Suggestion"
+          component={SuggestionView}
+          options={{
+            headerLeft: NavigationBack,
+            title: "Autopilot"
           }}
         />
       </Stack.Navigator>

@@ -2,6 +2,8 @@ export const strings = {
   common: {
     mostRecent: 'Most recent',
     average: 'Average',
+    acceptChanges: 'Accept changes',
+    notTonight: 'Not tonight',
   },
   details: {
     sleepFitness: 'Sleep Fitness',
@@ -28,6 +30,10 @@ export const strings = {
       deepSleep: 'Deep sleep',
       seeInsights: 'See insights',
     },
+  },
+  suggestion: {
+    title: 'Temperature suggestion',
+    text: 'Based on your recent activity, we suggest a cooler temperature for your Pod tonight.',
   },
   units: {
     hours: 'hours',

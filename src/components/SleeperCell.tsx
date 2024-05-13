@@ -17,6 +17,7 @@ import {strings} from '../i18n';
 import {GlowingBorder} from './GlowingBorder';
 import {getKpiColor} from './utils/getKpiColor';
 import {SleepLinearGradient} from './SleepLinearGradient';
+import {selectHasUserMadeSelection} from '../redux/users/selectors';
 
 export interface SleeperCellProps {
   data: User;
@@ -26,13 +27,14 @@ export interface SleeperCellProps {
 export const SleeperCell = ({data, onPress}: SleeperCellProps) => {
   const kpiData = useAppSelector(selectUsersKpis(data.id));
   const userStatus = useAppSelector(selectUsersStatus(data.id));
+  const hasUserMadeSelection = useAppSelector(selectHasUserMadeSelection(data.id));
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.touchable}>
       <SleepView style={styles.sleepDataCell}>
         <View style={styles.sleepDataRow}>
           <SleepText style={styles.titleText}>{data.name}</SleepText>
-          {kpiData?.hasBadScore ? (
+          {kpiData?.hasBadScore && !hasUserMadeSelection ? (
             <SleepLinearGradient>
               <View style={styles.badScoreContainer}>
                 <SleepText style={styles.badScoreText}>

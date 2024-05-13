@@ -11,6 +11,15 @@ import {hoursToSleepObject} from '../../utils/SleepDataUtils';
 import {HorizontalDetailScrollView} from '../../components/HorizontalDetailScrollView';
 import {TossAndTurnCount} from '../../components/TossAndTurnCount';
 import {HeartRateLineGraph} from '../../components/HeartRateLineGraph';
+import {useAppSelector} from '../../redux/hooks';
+import {selectHasUserMadeSelection} from '../../redux/users/selectors';
+
+interface SleeperDataContentProps {
+  data: SleepDetailData,
+  userId: string;
+  /** If the suggestion is pressed */
+  onSuggestionPress: () => void;
+}
 
 /**
  *
@@ -21,17 +30,18 @@ import {HeartRateLineGraph} from '../../components/HeartRateLineGraph';
  * @param param0
  * @returns
  */
-export const SleeperDataContent = ({data}: {data: SleepDetailData}) => {
+export const SleeperDataContent = ({data, onSuggestionPress, userId}: SleeperDataContentProps) => {
+
+  const hasUserMadeSelection = useAppSelector(selectHasUserMadeSelection(userId));
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {data.hasBadScore ? (
+      {data.hasBadScore && !hasUserMadeSelection ? (
         <SleeperActionCell
           icon={<Thermometer />}
           details={strings.details.action.detail}
           title={strings.details.action.title}
-          onPress={() => {
-            console.log('hello!');
-          }}
+          onPress={onSuggestionPress}
         />
       ) : null}
       <CircularProgress
