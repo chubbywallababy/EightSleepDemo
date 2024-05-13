@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import {SleepText, SleepView} from './common';
+import {CardTitle, commonStyles, SleepText, SleepView} from './common';
 import {StyleSheet} from 'react-native';
 import {DottedLine, ProgressBar} from './ProgressBar';
 import {strings} from '../i18n';
@@ -37,7 +37,7 @@ export const SleepStatCard = ({
   return (
     <SleepView style={styles.cardContainer}>
       <View style={styles.dataRow}>
-        <SleepText style={styles.cardTitle}>{title}</SleepText>
+        <CardTitle>{title}</CardTitle>
       </View>
       <View style={styles.dataRow}>
         <SleepText style={styles.cardSubtitle}>{subtitle}</SleepText>
@@ -109,17 +109,12 @@ const GoalRange = ({
 const styles = StyleSheet.create({
   cardContainer: {
     padding: 16,
-    borderRadius: 8,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 4,
     height: 184,
     flexDirection: 'column',
     justifyContent: 'space-between',
-  },
-  cardTitle: {
-    fontSize: 22,
-    fontWeight: '700',
   },
   cardSubtitle: {
     fontSize: 14,

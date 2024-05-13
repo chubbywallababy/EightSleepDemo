@@ -79,15 +79,6 @@ I could make a saga for the `fetchSleepData` generator function but it wasn't re
 
 Q
 
-Why is the SleeperCell a pure component?
-
-A
-
-<br>
-<hr>
-
-Q
-
 Why are there separate errors and loading states on the redux sleep state?
 
 A
@@ -152,6 +143,7 @@ So I would have assumed this user would have a "tnt" value of 4. In a "real worl
 <hr>
 
 Q
+The function `getTimeToFallAsleepDataPoint` always assumes the first stage represents how long it takes for a user to fall asleep.
 
 A
 
@@ -159,6 +151,14 @@ A
 <hr>
 
 Q
-The function `getTimeToFallAsleepDataPoint` always assumes the first stage represents how long it takes for a user to fall asleep.
+Why are we using utc plugin in the tnt view?
+
+A
+I'm assuming that the date coming through from the JSON response is accurate, but not sure if that represents the users time or the server time. I chose to do this for clarity in the demo but I'd weant to clarify this before implementation.
+
+<br>
+<hr>
+
+Q
 
 A

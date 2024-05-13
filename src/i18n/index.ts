@@ -12,6 +12,7 @@ export const strings = {
       titles: {
         timeSlept: 'Time slept',
         timeToFallAsleep: 'Time to fall asleep',
+        tossAndTurnCount: 'Toss and turn count',
       },
       goal: 'Goal',
     },

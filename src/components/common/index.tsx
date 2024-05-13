@@ -12,6 +12,17 @@ export const SleepText = (props: TextProps) => {
 };
 
 /**
+ * A wrapper around react-native Text to help styling
+ *
+ * @param props
+ * @returns Text component
+ */
+export const CardTitle = (props: TextProps) => {
+  return <SleepText {...props} style={[commonStyles.text, commonStyles.cardTitle, props.style]} />;
+};
+
+
+/**
  * A wrapper around react-native View to help styling smaller views, like table cells or items in a scroll view
  *
  * @param props
@@ -43,4 +54,8 @@ export const commonStyles = StyleSheet.create({
   text: {color: 'white'},
   label: {color: '#888', fontSize: 14},
   view: {backgroundColor: '#202020'},
+  cardTitle: {
+    fontSize: 22,
+    fontWeight: '700',
+  },
 });
