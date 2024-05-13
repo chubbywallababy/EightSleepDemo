@@ -1,6 +1,7 @@
 export const strings = {
   common: {
     mostRecent: 'Most recent',
+    average: 'Average',
   },
   details: {
     sleepFitness: 'Sleep Fitness',
@@ -12,7 +13,7 @@ export const strings = {
       titles: {
         timeSlept: 'Time slept',
         timeToFallAsleep: 'Time to fall asleep',
-        tossAndTurnCount: 'Toss and turn count',
+        tossAndTurnCount: 'Tosses and turns',
       },
       goal: 'Goal',
     },

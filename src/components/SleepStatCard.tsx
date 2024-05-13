@@ -12,6 +12,9 @@ interface SleepStatCardProps {
   subtitle: string;
   /** Current value for the sleep stat (e.g., "8h 49m")  */
   data: number | string;
+  // Second line of data
+  subtitle2: string;
+  data2: number | string;
   /** Object defining minimum and maximum values for the goal range */
   goalRange: {min: number; max: number};
   /** Object defining minimum and maximum values for the data visualization line */
@@ -29,6 +32,8 @@ export const SleepStatCard = ({
   title,
   subtitle,
   data,
+  subtitle2,
+  data2,
   goalRange,
   lineRange,
   labels,
@@ -39,9 +44,15 @@ export const SleepStatCard = ({
       <View style={styles.dataRow}>
         <CardTitle>{title}</CardTitle>
       </View>
-      <View style={styles.dataRow}>
-        <SleepText style={styles.cardSubtitle}>{subtitle}</SleepText>
-        <SleepText style={styles.cardData}>{data}</SleepText>
+      <View style={styles.dataContainer}>
+        <View style={styles.dataRow}>
+          <SleepText style={styles.mainCardSubtitle}>{subtitle}</SleepText>
+          <SleepText style={styles.mainCardData}>{data}</SleepText>
+        </View>
+        <View style={styles.dataRow}>
+          <SleepText style={styles.cardSubtitle}>{subtitle2}</SleepText>
+          <SleepText style={styles.cardData}>{data2}</SleepText>
+        </View>
       </View>
       <View style={styles.progressLineContainer}>
         <GoalRange
@@ -112,16 +123,24 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    height: 184,
     flexDirection: 'column',
     justifyContent: 'space-between',
+  },
+  mainCardSubtitle: {
+    fontSize: 18,
+    marginBottom: 8,
   },
   cardSubtitle: {
     fontSize: 14,
     marginBottom: 8,
   },
-  cardData: {
+  mainCardData: {
     fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  cardData: {
+    fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 4,
   },
@@ -134,9 +153,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginLeft: 8,
     width: '100%',
+    marginTop: 5,
   },
   label: {
-    fontSize: 10,
+    fontSize: 11,
   },
   dotContainer: {
     height: 30,
@@ -166,4 +186,8 @@ const styles = StyleSheet.create({
   },
   rightGoalPost: {height: 20, right: 0, position: 'absolute'},
   leftGoalPost: {height: 20, left: 0, position: 'absolute'},
+  dataContainer: {
+    paddingTop: 20,
+    gap: 0,
+  }
 });

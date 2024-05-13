@@ -34,9 +34,7 @@
 
 - Verified android and found two bugs
 
-# What I want to do...
-
-# Monday
+# Sunday
 
 - Finish the detail card (remove icon button)
   - today (current value)
@@ -49,7 +47,12 @@
   - Sleep heart rate line data
 - Implement remaining detail views
   - toss and turn card
-  - sleep heart rate line data
+
+# What I want to do...
+
+# Monday
+
+- sleep heart rate line data
 - Implement suggestion view with graph and buttons
   - suggestion redux state
   - graph

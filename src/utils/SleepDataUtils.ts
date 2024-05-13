@@ -12,7 +12,7 @@ import {
   SleepDetailData,
   SleepDurationObject,
   SleepKpiData,
-  TimeseriesDataPoints,
+  TimeseriesDataPoint,
 } from './types';
 
 /**
@@ -165,6 +165,8 @@ const getTimeSleptDataPoint = (intervals: SleepInterval[]): DataPoint => {
   );
   const average =
     totalDurations.reduce((prev, total) => prev + total, 0) /
+    60 /
+    60 /
     totalDurations.length;
   const averageSleepObj = hoursToSleepObject(average);
   const mostRecentInterval = getMostRecentInterval(intervals);
@@ -257,7 +259,7 @@ const getTimeToFallAsleepDataPoint = (
 
 const getTntTimeseriesData = (
   intervals: SleepInterval[],
-): TimeseriesDataPoints<number>[] => {
+): TimeseriesDataPoint<number>[] => {
   return intervals.map(i => ({
     ts: i.ts,
     data: i.timeseries.tnt.reduce((prev, tnt) => prev + tnt[1], 0),
@@ -266,7 +268,7 @@ const getTntTimeseriesData = (
 
 const getSleepHeartRateData = (
   intervals: SleepInterval[],
-): TimeseriesDataPoints<LineGraphData[]>[] => {
+): TimeseriesDataPoint<LineGraphData[]>[] => {
   return intervals.map(i => ({
     ts: i.ts,
     data: intervals.map(getLineGraphDataFromInterval),

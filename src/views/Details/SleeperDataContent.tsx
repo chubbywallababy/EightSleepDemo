@@ -49,6 +49,8 @@ export const SleeperDataContent = ({data}: {data: SleepDetailData}) => {
           hoursToSleepObject(data.timeSleptDataPoint.currentDataPoint).hours,
           hoursToSleepObject(data.timeSleptDataPoint.currentDataPoint).minutes,
         )}
+        subtitle2={strings.common.average}
+        data2={data.timeSleptDataPoint.average}
         labels={data.timeSleptDataPoint.markers.map(v => v.label)}
         lineRange={data.timeSleptDataPoint.lineRange}
         goalRange={data.timeSleptDataPoint.goal}
@@ -60,6 +62,8 @@ export const SleeperDataContent = ({data}: {data: SleepDetailData}) => {
         data={strings.units.getMinutes(
           data.timeToFallAsleepDataPoint.currentDataPoint,
         )}
+        subtitle2={strings.common.average}
+        data2={data.timeToFallAsleepDataPoint.average}
         labels={data.timeToFallAsleepDataPoint.markers.map(v => v.label)}
         lineRange={data.timeToFallAsleepDataPoint.lineRange}
         goalRange={data.timeToFallAsleepDataPoint.goal}
