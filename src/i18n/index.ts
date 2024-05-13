@@ -1,4 +1,7 @@
 export const strings = {
+  common: {
+    mostRecent: 'Most recent',
+  },
   details: {
     sleepFitness: 'Sleep Fitness',
     action: {
@@ -6,6 +9,10 @@ export const strings = {
       detail: 'New temperature suggestion',
     },
     card: {
+      titles: {
+        timeSlept: 'Time slept',
+        timeToFallAsleep: 'Time to fall asleep',
+      },
       goal: 'Goal',
     },
   },
@@ -24,5 +31,6 @@ export const strings = {
     hoursShort: 'hrs',
     percent: '%',
     getHoursAndMinutes: (hrs: number, mins: number) => `${hrs}h ${mins}m`,
+    getMinutes: (mins: number) => `${mins}m`,
   },
 };

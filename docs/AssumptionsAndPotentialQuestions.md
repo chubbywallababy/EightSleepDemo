@@ -134,4 +134,31 @@ A
 
 Q
 
+How was the "toss and turn" value calculated?
+
+A
+
+The "toss and turn" value was calculated assuming the second number in this format was the number of times the user "tossed and turned".
+
+```
+["2017-02-28T06:20:00.000Z", 1], // datapoint of the timeseries, in the format [time, value]
+["2017-02-28T06:21:00.000Z", 2],
+["2017-02-28T06:30:00.000Z", 1]
+```
+
+So I would have assumed this user would have a "tnt" value of 4. In a "real world scenario", this would have been something I'd need to clarify with product before implementing. The gist seemed pretty clear but I'd want to repeat this to them explicitly so I'm sure I'm not misunderstanding.
+
+<br>
+<hr>
+
+Q
+
+A
+
+<br>
+<hr>
+
+Q
+The function `getTimeToFallAsleepDataPoint` always assumes the first stage represents how long it takes for a user to fall asleep.
+
 A

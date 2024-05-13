@@ -1,21 +1,17 @@
-import {SleepDataByLineItem} from '../../types/SleepDataByLineItem';
-import {SleepStageKeys} from '../../types';
-import {SortedSleepStages} from '../../types/SortedSleepStages';
+// import {SleepDataByLineItem} from '../../types/SleepDataByLineItem';
+// import {SortedSleepStages} from '../../types/SortedSleepStages';
 
-export const getLineData = (
-  data: SortedSleepStages,
-  key: SleepStageKeys,
-): SleepDataByLineItem => {
-  if (key === 'stage') {
-    throw new Error('stage key is not allowed');
-  }
+// export const getLineData = (
+//   data: SortedSleepStages,
+// ): SleepDataByLineItem => {
+  
 
-  return {
-    deep: data.deep.map(d => ({value: d[key]})),
-    light: data.light.map(d => ({value: d[key]})),
-    rem: data.rem.map(d => ({value: d[key]})),
-  };
-};
+//   return {
+//     deep: data.deep.map(d => ({value: d[key]})),
+//     light: data.light.map(d => ({value: d[key]})),
+//     rem: data.rem.map(d => ({value: d[key]})),
+//   };
+// };
 
 // const dPoint = () => {
 //   return (

@@ -4,7 +4,6 @@ import {SleepText, SleepView} from './common';
 import {StyleSheet} from 'react-native';
 import {DottedLine, ProgressBar} from './ProgressBar';
 import {strings} from '../i18n';
-import {Info} from './images';
 
 interface SleepStatCardProps {
     /** Title displayed at the top of the card */
@@ -39,7 +38,6 @@ export const SleepStatCard = ({
         <SleepView style={styles.cardContainer}>
             <View style={styles.dataRow}>
                 <SleepText style={styles.cardTitle}>{title}</SleepText>
-                <Info />
             </View>
             <View style={styles.dataRow}>
                 <SleepText style={styles.cardSubtitle}>{subtitle}</SleepText>

@@ -6,6 +6,7 @@ import {strings} from '../../i18n';
 import {SleeperActionCell} from '../../components/SleeperActionCell';
 import {Thermometer} from '../../components/images';
 import {SleepStatCard} from '../../components/SleepStatCard';
+import {hoursToSleepObject} from '../../utils/SleepDataUtils';
 
 /**
  * 
@@ -36,40 +37,22 @@ export const SleeperDataContent = ({data}: {data: SleepDetailData}) => {
                 detailText={strings.details.sleepFitness}
             />
             <SleepStatCard
-                title="Sleep score"
-                subtitle="hi"
-                data="40"
-                labels={["0", "25", "50", "75", "100"]}
-                lineRange={{min: 0, max: 100}}
-                goalRange={{min: 20, max: 40}}
-                statValue={40}
+                title={strings.details.card.titles.timeSlept}
+                subtitle={strings.common.mostRecent}
+                data={strings.units.getHoursAndMinutes(hoursToSleepObject(data.timeSleptDataPoint.currentDataPoint).hours, hoursToSleepObject(data.timeSleptDataPoint.currentDataPoint).minutes)}
+                labels={data.timeSleptDataPoint.markers.map((v) => v.label)}
+                lineRange={data.timeSleptDataPoint.lineRange}
+                goalRange={data.timeSleptDataPoint.goal}
+                statValue={data.timeSleptDataPoint.currentDataPoint}
             />
             <SleepStatCard
-                title="Time slept"
-                subtitle="hi"
-                data="8.5"
-                labels={["4h", "5h", "6h", "7h", "8h", "9h", "10h", "11h"]}
-                lineRange={{min: 4, max: 11}}
-                goalRange={{min: 7, max: 9}}
-                statValue={8.5}
-            />
-            <SleepStatCard
-                title="Sleep score"
-                subtitle="hi"
-                data="40"
-                labels={["0", "25", "50", "75", "100"]}
-                lineRange={{min: 0, max: 100}}
-                goalRange={{min: 20, max: 40}}
-                statValue={40}
-            />
-            <SleepStatCard
-                title="Time slept"
-                subtitle="hi"
-                data="8.5"
-                labels={["4h", "5h", "6h", "7h", "8h", "9h", "10h", "11h"]}
-                lineRange={{min: 4, max: 11}}
-                goalRange={{min: 7, max: 9}}
-                statValue={8.5}
+                title={strings.details.card.titles.timeToFallAsleep}
+                subtitle={strings.common.mostRecent}
+                data={strings.units.getMinutes(data.timeToFallAsleepDataPoint.currentDataPoint)}
+                labels={data.timeToFallAsleepDataPoint.markers.map((v) => v.label)}
+                lineRange={data.timeToFallAsleepDataPoint.lineRange}
+                goalRange={data.timeToFallAsleepDataPoint.goal}
+                statValue={data.timeToFallAsleepDataPoint.currentDataPoint}
             />
         </ScrollView>
     )

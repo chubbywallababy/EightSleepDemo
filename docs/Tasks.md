@@ -27,8 +27,47 @@
 - Animations for the sleeper cell and styling for bad kpi scores
 - Temperature suggestion for users that have a bad kpi scores
 - Circular progress
-
-what i want to do
-
 - Determine the data/types to show in the view and how to organize that
 - detail view and data visualization initial steps
+
+# Saturday
+
+- Verified android and found two bugs
+
+# What I want to do...
+
+# Monday
+
+- Finish the detail card (remove icon button)
+  - today (current value)
+  - average
+  - accept the correct prop
+- Implement util functions to populate detail data
+  - Data points for time slept
+  - Data points time to fall asleep
+  - Toss and turns
+  - Sleep heart rate line data
+- Implement remaining detail views
+  - toss and turn card
+  - sleep heart rate line data
+- Implement suggestion view with graph and buttons
+  - suggestion redux state
+  - graph
+  - buttons
+
+# Tuesday
+
+- Cleanup all the code
+- Unit tests to 80%
+  - redux
+  - utils
+  - views
+- Documentation
+  - Documents in the docs folder
+  - document all functions/components
+- E2E tests
+
+# Wednesday
+
+- Find any more animations to improve
+- improve code coverage if under 90%

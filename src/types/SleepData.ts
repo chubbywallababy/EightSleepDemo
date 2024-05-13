@@ -10,7 +10,9 @@ export interface OldSleepData {
 }
 
 export interface Stage {
+  /** each stage can be any of "awake" (in bed, awake), "out" (out of bed), "light" (in light sleep), "deep" (in deep sleep) */
   stage: string;
+  /** In seconds */
   duration: number;
 }
 
