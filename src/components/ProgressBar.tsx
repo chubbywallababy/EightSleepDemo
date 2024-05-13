@@ -110,6 +110,6 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: 'white',
     // Bring it up over the dotted line
-    bottom: 2,
+    bottom: 4,
   },
 });

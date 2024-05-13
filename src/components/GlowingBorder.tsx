@@ -1,5 +1,5 @@
 import React, {useRef, useEffect} from 'react';
-import {Animated, StyleSheet} from 'react-native';
+import {Animated, Platform, StyleSheet} from 'react-native';
 
 interface GlowingBorderProps {
   children: React.ReactNode;
@@ -12,6 +12,9 @@ interface GlowingBorderProps {
   hideGlow?: boolean;
 }
 
+/**
+ * Animation doesn't work on Android, but still provides the glowing UI
+ */
 export const GlowingBorder = ({
   children,
   shadowColor,
