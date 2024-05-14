@@ -17,7 +17,7 @@ type SuggestionViewProps = NativeStackScreenProps<
 /**
  * A view for a user to view and accept suggestions. This is currently only a view with text and buttons.
  *
- * Future improvements would be to include a graph like the one in the mocks
+ * Future improvements would be to include a graph like the one in the figma mock
  */
 export const SuggestionView = ({route, navigation}: SuggestionViewProps) => {
   const dispatch = useAppDispatch();

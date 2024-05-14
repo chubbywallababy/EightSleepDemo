@@ -60,18 +60,18 @@ const pointerLabelComponent =
   (items: lineDataItem[]) => {
     const item = items[0];
     return (
-      <View style={styles.pionterContainer}>
+      <View style={styles.pointerContainer}>
         <Text style={styles.pointerText}>
-          {strings.units.bpm(item.value + dataPoint.data.yAxisOffset)}
+          {strings.units.bpm((item?.value || 0) + dataPoint.data.yAxisOffset)}
         </Text>
-        <Text style={styles.pointerText}>{item.dataPointText}</Text>
+        <Text style={styles.pointerText}>{item?.dataPointText || ''}</Text>
       </View>
     );
   };
 
 const styles = StyleSheet.create({
   pointerText: {color: colors.text, fontWeight: 'bold'},
-  pionterContainer: {
+  pointerContainer: {
     width: 100,
     backgroundColor: '#282C3E',
     borderRadius: 8,

@@ -32,7 +32,10 @@ export const SleeperCell = ({data, onPress}: SleeperCellProps) => {
   );
 
   return (
-    <TouchableOpacity onPress={onPress} style={styles.touchable}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={styles.touchable}
+      testID={data.id}>
       <SleepView style={styles.sleepDataCell}>
         <View style={styles.sleepDataRow}>
           <SleepText style={styles.titleText}>{data.name}</SleepText>

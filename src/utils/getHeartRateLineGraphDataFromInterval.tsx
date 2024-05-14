@@ -43,8 +43,8 @@ export const getHeartRateLineGraphDataFromInterval = (
         labelTextStyle: styles.xAxisLabel,
         // This is meant to be rendered on the main graph but we use it for the label when the user touches the graph
         dataPointText: dayjs(ts).utc().format('h:mm a'),
-        // This allows us to keep the
-        dataPointLabelComponent: () => null,
+        // This allows us to keep the labels undefined for all expect the first and last
+        dataPointLabelComponent,
       };
     },
   );
@@ -66,6 +66,9 @@ export const getHeartRateLineGraphDataFromInterval = (
     maxValue: minPoint,
   };
 };
+
+/** This allows us to keep the labels undefined for all expect the first and last */
+export const dataPointLabelComponent = () => null;
 
 /**
  * Returns 6 numbers representing the heart rate
@@ -99,11 +102,11 @@ const getLineGraphYAxisForHeartRateInterval = (
   ];
 };
 
-const dPoint = () => {
+export const dPoint = () => {
   return <View style={styles.point} />;
 };
 
-const dPointLabel = (value: number, isHigh: boolean) => {
+export const dPointLabel = (value: number, isHigh: boolean) => {
   return (
     <SleepText
       style={[isHigh ? styles.labelHigh : styles.labelLow, styles.label]}>

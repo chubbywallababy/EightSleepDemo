@@ -13,4 +13,7 @@ module.exports = {
     '!**/src/i18n/*',
     '!**/node_modules/**',
   ],
+  testPathIgnorePatterns: [
+    '<rootDir>/__tests__/__mocks__/', // Replace with your actual path
+  ],
 };

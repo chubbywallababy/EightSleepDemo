@@ -6,7 +6,7 @@ import {SleepData} from '../../types';
  * This redux state is an object where the key represents
  * the user id and the object is that users sleep data
  */
-interface SleepState {
+export interface SleepState {
   [userId: string]: UserSleepState;
 }
 interface UserSleepState {

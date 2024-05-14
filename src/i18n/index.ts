@@ -30,6 +30,7 @@ export const strings = {
       deepSleep: 'Deep sleep',
       seeInsights: 'See insights',
     },
+    label: 'Family mode',
   },
   suggestion: {
     title: 'Temperature suggestion',
