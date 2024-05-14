@@ -28,10 +28,10 @@ export const SuggestionView = ({route, navigation}: SuggestionViewProps) => {
       if (accept) {
         dispatch(acceptSuggestion(route.params.data.id));
         Toast.show({
-          type: "success",
-          text1: "Success",
-          text2: "Your preferences have been updated"
-        })
+          type: 'success',
+          text1: 'Success',
+          text2: 'Your preferences have been updated',
+        });
       } else {
         dispatch(denySuggestion(route.params.data.id));
       }

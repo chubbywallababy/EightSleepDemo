@@ -50,7 +50,7 @@ export const graphStyles = StyleSheet.create({
   label: {
     left: 10,
   },
-  xAxisLabel: {width: 100, color: 'white', textAlign: "left"},
+  xAxisLabel: {width: 100, color: 'white', textAlign: 'left'},
 });
 
 /**
@@ -95,7 +95,6 @@ export const getPoints = (
       // This allows us to keep the labels undefined.
       // The first and last labels are populated below (after determining which points are the max/min)
       dataPointLabelComponent,
-
     };
   });
 

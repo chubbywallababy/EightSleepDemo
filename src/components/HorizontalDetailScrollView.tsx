@@ -38,6 +38,18 @@ export const HorizontalDetailScrollView = ({
   const [currentIdx, setCurrentIdx] = useState(0);
 
   /**
+   * Used to hide the child until it is scrolled to.
+   *
+   * This allows for a nice animation every time the user scrolls to the next child.
+   *
+   * This also allows for the children to not need to communicate animation data. The child can
+   * show the animation as soon as it's rendered.
+   */
+  const [shownChildren, setShownChildren] = useState(
+    getShownChildrenInitialValue(children.length),
+  );
+
+  /**
    * When the user pushes the button to go left
    */
   const onLeft = useCallback(() => {
@@ -55,6 +67,10 @@ export const HorizontalDetailScrollView = ({
     if (!ref.current) {
       return;
     }
+    setShownChildren(v => ({
+      ...v,
+      [currentIdx + 1]: true,
+    }));
     ref.current.scrollTo({x: width * (currentIdx + 1), animated: true});
     setCurrentIdx(x => x + 1);
   }, [ref, width, currentIdx]);
@@ -74,7 +90,7 @@ export const HorizontalDetailScrollView = ({
           contentContainerStyle={contentContainerStyle}>
           {children.map((child, i) => (
             <HorizontalScrollChildContainer key={i} width={width}>
-              {child}
+              {shownChildren[i] ? child : <></>}
             </HorizontalScrollChildContainer>
           ))}
         </ScrollView>
@@ -148,3 +164,19 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 });
+
+/**
+ * Get the initial children shown object based
+ * on the number of children
+ *
+ * @param n
+ */
+const getShownChildrenInitialValue = (n: number): {[key: number]: boolean} => {
+  const result: {[key: number]: boolean} = {[0]: true};
+
+  for (var i = 1; i <= n - 1; i++) {
+    result[i] = false;
+  }
+
+  return result;
+};

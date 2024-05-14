@@ -17,8 +17,8 @@ export const colors = {
   bad: 'orange',
   confettiColors: [
     'white',
-    STAGE_COLOR_MAP['deep'],
-    STAGE_COLOR_MAP['light'],
-    STAGE_COLOR_MAP['awake'],
+    STAGE_COLOR_MAP.deep,
+    STAGE_COLOR_MAP.light,
+    STAGE_COLOR_MAP.awake,
   ],
 };

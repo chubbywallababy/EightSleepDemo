@@ -56,6 +56,7 @@ export const SleepDataLineGraph = ({dataPoint}: HeartRateLineGraphProps) => {
             pointerLabelComponent: PointerLabelComponent(dataPoint, 'bpm'),
           }}
           isAnimated
+          animationDuration={2000}
         />
       </View>
     </View>

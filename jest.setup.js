@@ -8,7 +8,7 @@ jest.mock('react-native-reanimated', () => {
 
   // The mock for `call` immediately calls the callback which is incorrect
   // So we override it with a no-op
-  Reanimated.default.call = () => { };
+  Reanimated.default.call = () => {};
 
   return Reanimated;
 });
@@ -48,4 +48,4 @@ jest.mock('react-native-gifted-charts', () => ({
   }),
 }));
 
-jest.mock('react-native-toast-message', () => <></>);
+jest.mock('react-native-toast-message', () => null);
