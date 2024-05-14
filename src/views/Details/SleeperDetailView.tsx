@@ -3,12 +3,18 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../../App';
 import {Background} from '../../components/common';
 import {useAppDispatch, useAppSelector} from '../../redux/hooks';
-import {selectDidAnimateConfettiForUser, selectUserSleepDetailData} from '../../redux/sleep/selectors';
+import {
+  selectDidAnimateConfettiForUser,
+  selectUserSleepDetailData,
+} from '../../redux/sleep/selectors';
 import {SleeperDataContent} from './SleeperDataContent';
 import {ErrorContainer} from './ErrorContainer';
 import {didUserAcceptSelection} from '../../redux/users/selectors';
 import {setDidAnimateConfetti} from '../../redux/sleep/slice';
-import {ConfettiCannon, ConfettiCannonRef} from '../../components/confetti/Cannon';
+import {
+  ConfettiCannon,
+  ConfettiCannonRef,
+} from '../../components/confetti/Cannon';
 
 type SleepDataDetailViewProps = NativeStackScreenProps<
   RootStackParamList,
@@ -26,8 +32,12 @@ export const SleeperDetailView = ({
 }: SleepDataDetailViewProps) => {
   const dispatch = useAppDispatch();
   const data = useAppSelector(selectUserSleepDetailData(route.params.data.id));
-  const didAccept = useAppSelector(didUserAcceptSelection(route.params.data.id));
-  const didAnimate = useAppSelector(selectDidAnimateConfettiForUser(route.params.data.id));
+  const didAccept = useAppSelector(
+    didUserAcceptSelection(route.params.data.id),
+  );
+  const didAnimate = useAppSelector(
+    selectDidAnimateConfettiForUser(route.params.data.id),
+  );
 
   const confettiCannonRef = useRef<ConfettiCannonRef>(null);
 
@@ -43,7 +53,13 @@ export const SleeperDetailView = ({
         });
       }
     }
-  }, [didAccept, didAnimate, dispatch, route.params.data.id, confettiCannonRef]);
+  }, [
+    didAccept,
+    didAnimate,
+    dispatch,
+    route.params.data.id,
+    confettiCannonRef,
+  ]);
 
   return (
     <Background>
