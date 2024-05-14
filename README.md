@@ -12,7 +12,7 @@ In the `docs` folder can be found the following markdown documents:
 
 # Setup
 
-There shouldn't be any unique setup for this repo. Install node modules (and pods for iOS) and you should be good to go!
+Install node modules (and pods for iOS) and you should be good to go!
 
 # Testing
 
