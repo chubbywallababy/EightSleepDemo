@@ -41,7 +41,7 @@
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = sleepy/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		1C6EB5BDED5681D36384364C /* Pods-sleepy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sleepy.debug.xcconfig"; path = "Target Support Files/Pods-sleepy/Pods-sleepy.debug.xcconfig"; sourceTree = "<group>"; };
 		2090483D2DB30C0A8E4D78D6 /* Pods-sleepy-sleepyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sleepy-sleepyTests.release.xcconfig"; path = "Target Support Files/Pods-sleepy-sleepyTests/Pods-sleepy-sleepyTests.release.xcconfig"; sourceTree = "<group>"; };
-		721144079BCA742FDD797E52 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = sleepy/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		721144079BCA742FDD797E52 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = sleepy/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = sleepy/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BCE2AECDA290D77B4809849 /* libPods-sleepy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sleepy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98CDD6226485A1A9968C688 /* Pods-sleepy-sleepyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sleepy-sleepyTests.debug.xcconfig"; path = "Target Support Files/Pods-sleepy-sleepyTests/Pods-sleepy-sleepyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -547,6 +547,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CXX = "";
@@ -631,6 +632,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				CXX = "";
