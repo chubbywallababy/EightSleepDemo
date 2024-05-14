@@ -14,6 +14,7 @@ import {useAppSelector} from '../../redux/hooks';
 import {selectHasUserMadeSelection} from '../../redux/users/selectors';
 import {hoursToSleepObject} from '../../utils/general';
 import {TemperatureAreaGraph} from '../../components/TemperatureAreaGraph';
+import {SleepStageDistribution} from '../../components/SleepStageDistribution';
 
 interface SleeperDataContentProps {
   data: SleepDetailData;
@@ -98,7 +99,17 @@ export const SleeperDataContent = ({
         ))}
       </HorizontalDetailScrollView>
       <HorizontalDetailScrollView
-        title={strings.details.card.titles.temperatures}>
+        title={strings.details.card.titles.sleepStages}
+
+        contentContainerStyle={styles.sleepDistributionContent}
+      >
+        {data.sleepStageData.map(dataPoint => (
+          <SleepStageDistribution key={dataPoint.ts} dataPoint={dataPoint} />
+        ))}
+      </HorizontalDetailScrollView>
+      <HorizontalDetailScrollView
+        title={strings.details.card.titles.temperatures}
+      >
         {data.temperatureData.map(dataPoint => (
           <TemperatureAreaGraph key={dataPoint.ts} dataPoint={dataPoint} />
         ))}
@@ -119,4 +130,7 @@ const styles = StyleSheet.create({
   textTest: {
     fontSize: 30,
   },
+  sleepDistributionContent: {
+    left: 20,
+  }
 });

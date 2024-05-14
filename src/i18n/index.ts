@@ -20,9 +20,11 @@ export const strings = {
         tossAndTurnCount: 'Tosses and turns',
         sleepHeartRate: 'Sleep heart rate',
         temperatures: 'Temperatures',
+        sleepStages: 'Sleep stages',
       },
       goal: 'Goal',
     },
+    totalTimeAsleep: 'Total time asleep:',
   },
   error: {
     generalError: 'Sorry, an error has occurred. Please try again.',
@@ -43,9 +45,10 @@ export const strings = {
     hours: 'hours',
     hoursShort: 'hrs',
     percent: '%',
+    asPercent: (n: number) => `${n}%`,
     getHoursAndMinutes: (hrs: number, mins: number) => `${hrs}h ${mins}m`,
     getMinutes: (mins: number) => `${mins}m`,
     bpm: (bpm: number) => `${bpm} bpm`,
-    celcius: (bpm: number) => `${bpm}° C`,
+    celcius: (bpm: number) => `${bpm}°C`,
   },
 };
