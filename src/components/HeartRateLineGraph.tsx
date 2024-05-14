@@ -45,7 +45,6 @@ export const HeartRateLineGraph = ({dataPoint}: HeartRateLineGraphProps) => {
           focusEnabled
           stripColor={colors.white}
           xAxisIndicesColor={colors.white}
-          xAxisLabelTextStyle={{width: 200}}
           pointerConfig={{
             pointerColor: 'transparent',
             activatePointersOnLongPress: true,

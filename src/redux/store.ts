@@ -1,9 +1,4 @@
-import {
-  configureStore,
-  ThunkAction,
-  Action,
-  combineReducers,
-} from '@reduxjs/toolkit';
+import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit';
 import usersReducer from './users/slice';
 import sleepReducer from './sleep/slice';
 import createSagaMiddleware from 'redux-saga';

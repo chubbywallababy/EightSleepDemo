@@ -4,8 +4,8 @@ import {strings} from '../../i18n';
 
 /**
  * A stub error container
- * 
- * @returns 
+ *
+ * @returns
  */
 export const ErrorContainer = () => {
   return (

@@ -1,20 +1,21 @@
-import React from 'react';
 import {lineDataItem} from 'react-native-gifted-charts';
 import {SleepInterval} from '../types';
 import {LineGraphData} from './types';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import {StyleSheet, View} from 'react-native';
-import {colors} from '../styles/colors';
-import {SleepText} from '../components/common';
-import {dPoint, dPointLabel, dataPointLabelComponent, graphStyles} from './graphComponents';
+import {
+  dPoint,
+  dPointLabel,
+  dataPointLabelComponent,
+  graphStyles,
+} from './graphComponents';
 
 dayjs.extend(utc);
 
 /**
  * Get the heart rate data for a given interval in a format that a line graph can digest
- * 
- * @param interval 
+ *
+ * @param interval
  * @returns LineGraphData
  */
 export const getHeartRateLineGraphDataFromInterval = (
@@ -45,7 +46,7 @@ export const getHeartRateLineGraphDataFromInterval = (
         label:
           index === 0 || index === interval.timeseries.heartRate.length - 1
             ? /** TODO - Fix. Adding a space in place of styling. Should address with proper styling after finishing tasks */
-            ' ' + dayjs(ts).utc().format('h:mm a')
+              ' ' + dayjs(ts).utc().format('h:mm a')
             : undefined,
         labelTextStyle: graphStyles.xAxisLabel,
         // This is meant to be rendered on the main graph but we use it for the label when the user touches the graph
@@ -74,7 +75,6 @@ export const getHeartRateLineGraphDataFromInterval = (
     maxValue: minPoint,
   };
 };
-
 
 /**
  * Returns 6 numbers representing the heart rate

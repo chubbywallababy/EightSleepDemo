@@ -1,5 +1,11 @@
 import React, {useCallback, useRef, useState} from 'react';
-import {ScrollView, StyleProp, TouchableOpacity, View, ViewStyle} from 'react-native';
+import {
+  ScrollView,
+  StyleProp,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from 'react-native';
 import {CardTitle, SleepView} from './common';
 import {StyleSheet} from 'react-native';
 import {ChevronLeft, ChevronRight} from './images';
@@ -63,8 +69,7 @@ export const HorizontalDetailScrollView = ({
           ref={ref}
           scrollEnabled={false}
           showsHorizontalScrollIndicator={false}
-          contentContainerStyle={contentContainerStyle}
-        >
+          contentContainerStyle={contentContainerStyle}>
           {children.map((child, i) => (
             <HorizontalScrollChildContainer key={i} width={width}>
               {child}

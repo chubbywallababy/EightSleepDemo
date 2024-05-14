@@ -19,7 +19,7 @@ import {usersActions} from '../redux/users/actions';
 
 /**
  * A list view to see all of the family members
- * 
+ *
  * @returns React.JSX.Element
  */
 export const SleepersListView = () => {
