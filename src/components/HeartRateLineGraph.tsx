@@ -55,6 +55,7 @@ export const HeartRateLineGraph = ({dataPoint}: HeartRateLineGraphProps) => {
             pointerStripWidth: 4,
             pointerLabelComponent: PointerLabelComponent(dataPoint, 'bpm'),
           }}
+          isAnimated
         />
       </View>
     </View>

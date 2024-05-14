@@ -69,6 +69,7 @@ export const TemperatureAreaGraph = ({dataPoint}: HeartRateLineGraphProps) => {
             ]),
           }}
           curved
+          isAnimated
         />
       </View>
     </View>

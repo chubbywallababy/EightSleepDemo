@@ -14,6 +14,7 @@ interface HorizontalDetailScrollViewProps {
   title: string;
   children: JSX.Element[];
   contentContainerStyle?: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
 }
 
 /**
@@ -28,6 +29,7 @@ interface HorizontalDetailScrollViewProps {
 export const HorizontalDetailScrollView = ({
   children,
   title,
+  style,
   contentContainerStyle,
 }: HorizontalDetailScrollViewProps) => {
   const [width, setWidth] = useState(0);
@@ -59,7 +61,7 @@ export const HorizontalDetailScrollView = ({
 
   return (
     <SleepView setWidth={setWidth}>
-      <View style={styles.contentContainer}>
+      <View style={[styles.contentContainer, style]}>
         <CardTitle style={styles.title}>{title}</CardTitle>
         <ScrollView
           horizontal
