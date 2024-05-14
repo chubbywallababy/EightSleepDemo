@@ -79,6 +79,7 @@
 
 # Wednesday
 
+- Verify repo works with a fresh clone
 - Find any more animations to improve
 - improve code coverage
 
