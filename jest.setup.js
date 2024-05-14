@@ -47,3 +47,5 @@ jest.mock('react-native-gifted-charts', () => ({
     return JSON.stringify(data);
   }),
 }));
+
+jest.mock('react-native-toast-message', () => <></>);
