@@ -37,8 +37,8 @@ export const getHeartRateLineGraphDataFromInterval = (
     yAxisLables: getLineGraphYAxisForHeartRateInterval(minPoint, maxPoint).map(
       n => Math.floor(n).toString(),
     ),
-    yAxisOffset: minPoint - 8,
-    maxValue: maxPoint,
+    yAxisOffset: minPoint - 5,
+    maxValue: maxPoint + 10,
   };
 };
 
