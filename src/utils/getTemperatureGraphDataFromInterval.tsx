@@ -1,13 +1,9 @@
-import React from 'react';
 import {lineDataItem} from 'react-native-gifted-charts';
-import {SleepInterval} from '../types';
-import {LineGraphData, SleepTemperatureLineGraphData} from './types';
+import {SleepInterval, Timeseries} from '../types';
+import {SleepTemperatureLineGraphData} from './types';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import {StyleSheet, View} from 'react-native';
-import {colors} from '../styles/colors';
-import {SleepText} from '../components/common';
-import {dPointLabel, dPoint, dataPointLabelComponent, graphStyles} from './graphComponents';
+import {dataPointLabelComponent, graphStyles} from './graphComponents';
 
 dayjs.extend(utc);
 
@@ -18,12 +14,50 @@ export const getTemperatureDataFromInterval = (
         interval.timeseries.tempBedC[interval.timeseries.tempBedC.length - 1][0];
     const minTs = interval.timeseries.tempBedC[0][0];
 
+    const {
+        points: bedPoints,
+        maxPoint: bedMax,
+        minPoint: bedMin,
+        // maxIdx: bedMaxIdx,
+        // minIdx: bedMinIdx,
+    } = getPoints(interval.timeseries.tempBedC);
+
+    const {
+        points: roomPoints,
+        maxPoint: roomMax,
+        minPoint: roomMin,
+        // maxIdx: roomMaxIdx,
+        // minIdx: roomMinIdx,
+    } = getPoints(interval.timeseries.tempRoomC);
+
+    const minPoint = roomMin < bedMin ? roomMax : bedMax;
+    const maxPoint = roomMax > bedMax ? roomMax : bedMax;
+
+    return {
+        bedTempPoints: bedPoints,
+        roomTempPoints: roomPoints,
+        xAxisLabels: [dayjs(minTs).format('HH:MMa'), dayjs(maxTs).format('HH:MMa')],
+        yAxisLables: getLineGraphYAxisForTempInterval(minPoint, maxPoint).map(
+            n => Math.floor(n).toString(),
+        ),
+        yAxisOffset: minPoint - 5,
+        maxValue: minPoint,
+    };
+};
+
+const getPoints = (timeseries: Timeseries): {
+    points: lineDataItem[];
+    maxPoint: number;
+    minPoint: number;
+    minIdx: number;
+    maxIdx: number;
+} => {
+
     let minPoint = Infinity;
     let minIdx = 0;
     let maxPoint = 0;
     let maxIdx = 0;
-
-    const points: lineDataItem[] = interval.timeseries.tempBedC.map(
+    const points: lineDataItem[] = timeseries.map(
         ([ts, v], index) => {
             if (v > maxPoint) {
                 maxPoint = v;
@@ -35,9 +69,9 @@ export const getTemperatureDataFromInterval = (
             }
             return {
                 value: Math.floor(v),
-                customDataPoint: dPoint,
+                customDataPoint: () => null,
                 label:
-                    index === 0 || index === interval.timeseries.tempBedC.length - 1
+                    index === 0 || index === timeseries.length - 1
                         ? /** TODO - Fix. Adding a space in place of styling. Should address with proper styling after finishing tasks */
                         ' ' + dayjs(ts).utc().format('h:mm a')
                         : undefined,
@@ -51,24 +85,14 @@ export const getTemperatureDataFromInterval = (
         },
     );
 
-    points[minIdx].dataPointLabelComponent = () =>
-        dPointLabel(Math.floor(minPoint), false);
-    points[minIdx].hideDataPoint = false;
-    points[maxIdx].dataPointLabelComponent = () =>
-        dPointLabel(Math.floor(maxPoint), true);
-    points[maxIdx].hideDataPoint = false;
-
     return {
-        bedTempPoints: points,
-        roomTempPoints: [],
-        xAxisLabels: [dayjs(minTs).format('HH:MMa'), dayjs(maxTs).format('HH:MMa')],
-        yAxisLables: getLineGraphYAxisForTempInterval(minPoint, maxPoint).map(
-            n => Math.floor(n).toString(),
-        ),
-        yAxisOffset: minPoint - 8,
-        maxValue: minPoint,
-    };
-};
+        points,
+        maxPoint,
+        minPoint,
+        maxIdx,
+        minIdx,
+    }
+}
 
 
 /**
@@ -82,7 +106,7 @@ export const getTemperatureDataFromInterval = (
 const getLineGraphYAxisForTempInterval = (
     min: number,
     max: number,
-): [number, number, number, number, number, number] => {
+): [number, number, number, number] => {
     if (min > max) {
         throw new Error(`'min' needs to be less than 'max': min=${min} max=${max}`);
     }
@@ -97,8 +121,6 @@ const getLineGraphYAxisForTempInterval = (
         bottom,
         bottom + interval,
         bottom + interval * 2,
-        bottom + interval * 3,
-        bottom + interval * 4,
         top,
     ];
 };

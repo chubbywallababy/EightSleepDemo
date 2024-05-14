@@ -1,12 +1,12 @@
 import React from 'react';
 import {LineGraphData, TimeseriesDataPoint} from '../utils/types';
-import {LineChart, lineDataItem} from 'react-native-gifted-charts';
-import {StyleSheet, Text, View} from 'react-native';
+import {LineChart} from 'react-native-gifted-charts';
+import {View} from 'react-native';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import {strings} from '../i18n';
 import {DateSubtitle} from './common';
 import {colors} from '../styles/colors';
+import {graphStyles, PointerLabelComponent} from './PointerLabelComponent';
 
 dayjs.extend(utc);
 
@@ -16,7 +16,7 @@ interface HeartRateLineGraphProps {
 
 /**
  * Wrapper around `react-native-gifted-charts` LineChart
- *
+ * for heart rate data
  * @param param0
  * @returns
  */
@@ -24,7 +24,7 @@ export const HeartRateLineGraph = ({dataPoint}: HeartRateLineGraphProps) => {
   return (
     <View>
       <DateSubtitle ts={dataPoint.ts} />
-      <View style={styles.container}>
+      <View style={graphStyles.container}>
         <LineChart
           data={dataPoint.data.points}
           yAxisOffset={dataPoint.data.yAxisOffset}
@@ -39,12 +39,13 @@ export const HeartRateLineGraph = ({dataPoint}: HeartRateLineGraphProps) => {
           rulesType="solid"
           yAxisColor={colors.white}
           xAxisColor={colors.white}
-          yAxisTextStyle={styles.textStyle}
+          yAxisTextStyle={graphStyles.textStyle}
           xAxisIndicesWidth={300}
           showStripOnFocus
           focusEnabled
           stripColor={colors.white}
           xAxisIndicesColor={colors.white}
+          xAxisLabelTextStyle={{width: 200}}
           pointerConfig={{
             pointerColor: 'transparent',
             activatePointersOnLongPress: true,
@@ -53,43 +54,10 @@ export const HeartRateLineGraph = ({dataPoint}: HeartRateLineGraphProps) => {
             pointerStripUptoDataPoint: false,
             pointerStripColor: 'lightgray',
             pointerStripWidth: 4,
-            pointerLabelComponent: pointerLabelComponent(dataPoint),
+            pointerLabelComponent: PointerLabelComponent(dataPoint, 'bpm'),
           }}
         />
       </View>
     </View>
   );
 };
-
-/**
- * Allows the user to see extra data when they touch on the graph
- *
- * @param dataPoint
- * @returns
- */
-const pointerLabelComponent =
-  (dataPoint: TimeseriesDataPoint<LineGraphData>) =>
-  (items: lineDataItem[]) => {
-    const item = items[0];
-    return (
-      <View style={styles.pointerContainer}>
-        <Text style={styles.pointerText}>
-          {strings.units.bpm((item?.value || 0) + dataPoint.data.yAxisOffset)}
-        </Text>
-        <Text style={styles.pointerText}>{item?.dataPointText || ''}</Text>
-      </View>
-    );
-  };
-
-const styles = StyleSheet.create({
-  pointerText: {color: colors.text, fontWeight: 'bold'},
-  pointerContainer: {
-    width: 100,
-    backgroundColor: '#282C3E',
-    borderRadius: 8,
-    justifyContent: 'center',
-    padding: 16,
-  },
-  container: {paddingTop: 20},
-  textStyle: {color: colors.text},
-});

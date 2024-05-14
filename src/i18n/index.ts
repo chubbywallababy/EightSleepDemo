@@ -4,6 +4,8 @@ export const strings = {
     average: 'Average',
     acceptChanges: 'Accept changes',
     notTonight: 'Not tonight',
+    room: 'room',
+    bed: 'bed',
   },
   details: {
     sleepFitness: 'Sleep Fitness',
@@ -17,6 +19,7 @@ export const strings = {
         timeToFallAsleep: 'Time to fall asleep',
         tossAndTurnCount: 'Tosses and turns',
         sleepHeartRate: 'Sleep heart rate',
+        temperatures: 'Temperatures',
       },
       goal: 'Goal',
     },
@@ -43,5 +46,6 @@ export const strings = {
     getHoursAndMinutes: (hrs: number, mins: number) => `${hrs}h ${mins}m`,
     getMinutes: (mins: number) => `${mins}m`,
     bpm: (bpm: number) => `${bpm} bpm`,
+    celcius: (bpm: number) => `${bpm}° C`,
   },
 };

@@ -13,6 +13,7 @@ import {HeartRateLineGraph} from '../../components/HeartRateLineGraph';
 import {useAppSelector} from '../../redux/hooks';
 import {selectHasUserMadeSelection} from '../../redux/users/selectors';
 import {hoursToSleepObject} from '../../utils/general';
+import {TemperatureAreaGraph} from '../../components/TemperatureAreaGraph';
 
 interface SleeperDataContentProps {
   data: SleepDetailData;
@@ -94,6 +95,12 @@ export const SleeperDataContent = ({
         title={strings.details.card.titles.sleepHeartRate}>
         {data.sleepHeartRateData.map(dataPoint => (
           <HeartRateLineGraph key={dataPoint.ts} dataPoint={dataPoint} />
+        ))}
+      </HorizontalDetailScrollView>
+      <HorizontalDetailScrollView
+        title={strings.details.card.titles.temperatures}>
+        {data.temperatureData.map(dataPoint => (
+          <TemperatureAreaGraph key={dataPoint.ts} dataPoint={dataPoint} />
         ))}
       </HorizontalDetailScrollView>
     </ScrollView>
