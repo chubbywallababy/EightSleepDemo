@@ -57,7 +57,7 @@
   - suggestion redux state
   - buttons
 - Cleanup all the code
-- Unit tests to 60%
+- Unit tests to ~60% coverage
   - redux
   - utils
   - views
@@ -65,14 +65,15 @@
   - Documents in the docs folder
   - document all functions/components
 
-# What I want to do...
-
 # Tuesday
 
 - Sleep Stages Distribution
   - use a stacked bar chart to show the proportion of each sleep stage over time. Each bar represents a sleep session, and different segments of the bar represent different sleep stages.
 - Sleep Environment Conditions
   - Use an area chart to display the variation in sleep environment conditions (e.g., room temperature, bed temperature) over the course of a sleep session. Time is plotted along the x-axis, and the environmental condition (e.g., temperature) is plotted along the y-axis. (use horizontal scroll)
+
+# What I want to do...
+
 - Respiratory rate
   - use a line graph to represent breaths per minute for a given night (use horizontal scroll)
 - Verify on iOS and android devices

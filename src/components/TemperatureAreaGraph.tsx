@@ -38,7 +38,8 @@ export const TemperatureAreaGraph = ({dataPoint}: HeartRateLineGraphProps) => {
           width={280}
           yAxisExtraHeight={20}
           noOfSections={dataPoint.data.yAxisLables.length - 1}
-          thickness={2}
+          thickness={5}
+          thickness2={5}
           color={colors.white}
           rulesColor="transparent"
           formatYLabel={l => l.split('.')[0]}

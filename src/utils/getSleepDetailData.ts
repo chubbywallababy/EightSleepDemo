@@ -1,6 +1,7 @@
 import {SleepInterval, SleepStageValue} from '../types';
 import {getMostRecentInterval, hoursToSleepObject} from './general';
 import {getHeartRateLineGraphDataFromInterval} from './getHeartRateLineGraphDataFromInterval';
+import {getRespiratoryDataFromInterval} from './getRespiratoryDataFromInterval';
 import {getSleepKpiData} from './getSleepKpiData';
 import {getTemperatureDataFromInterval} from './getTemperatureGraphDataFromInterval';
 import {
@@ -29,6 +30,13 @@ export const getSleepDetailData = (
     return undefined;
   }
 
+  /**
+   * Each of these data points map over each of the intervals in `data`,
+   * effectively `n * m` where `n` is the number of items in data and `m` is the number of keys in the
+   * returned object that need to map over the data.
+   *
+   * This could be improved by only looping over data once and pushing onto separate arrays.
+   */
   return {
     ...kpiData,
     timeSleptDataPoint: getTimeSleptDataPoint(data),
@@ -172,21 +180,6 @@ const getSleepStageFromInterval = (interval: SleepInterval): SleepStageData => {
   return {
     totalTimeAsleep,
     percentages,
-  };
-};
-
-/**
- * TODO - FINISH
- */
-const getRespiratoryDataFromInterval = (
-  interval: SleepInterval,
-): LineGraphData => {
-  return {
-    points: [],
-    yAxisLables: [],
-    yAxisOffset: 0,
-    xAxisLabels: [],
-    maxValue: 100,
   };
 };
 

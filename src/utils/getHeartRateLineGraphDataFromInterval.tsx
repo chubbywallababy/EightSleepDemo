@@ -1,13 +1,10 @@
-import {lineDataItem} from 'react-native-gifted-charts';
 import {SleepInterval} from '../types';
 import {LineGraphData} from './types';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import {
-  dPoint,
   dPointLabel,
-  dataPointLabelComponent,
-  graphStyles,
+  getPoints,
 } from './graphComponents';
 
 dayjs.extend(utc);
@@ -25,38 +22,13 @@ export const getHeartRateLineGraphDataFromInterval = (
     interval.timeseries.heartRate[interval.timeseries.heartRate.length - 1][0];
   const minTs = interval.timeseries.heartRate[0][0];
 
-  let minPoint = Infinity;
-  let minIdx = 0;
-  let maxPoint = 0;
-  let maxIdx = 0;
-
-  const points: lineDataItem[] = interval.timeseries.heartRate.map(
-    ([ts, v], index) => {
-      if (v > maxPoint) {
-        maxPoint = v;
-        maxIdx = index;
-      }
-      if (v < minPoint) {
-        minPoint = v;
-        minIdx = index;
-      }
-      return {
-        value: Math.floor(v),
-        customDataPoint: dPoint,
-        label:
-          index === 0 || index === interval.timeseries.heartRate.length - 1
-            ? /** TODO - Fix. Adding a space in place of styling. Should address with proper styling after finishing tasks */
-              ' ' + dayjs(ts).utc().format('h:mm a')
-            : undefined,
-        labelTextStyle: graphStyles.xAxisLabel,
-        // This is meant to be rendered on the main graph but we use it for the label when the user touches the graph
-        dataPointText: dayjs(ts).utc().format('h:mm a'),
-        // This allows us to keep the labels undefined.
-        // The first and last labels are populated below (after determining which points are the max/min)
-        dataPointLabelComponent,
-      };
-    },
-  );
+  const {
+    points,
+    minIdx,
+    minPoint,
+    maxIdx,
+    maxPoint,
+  } = getPoints(interval.timeseries.heartRate, true);
 
   points[minIdx].dataPointLabelComponent = () =>
     dPointLabel(Math.floor(minPoint), false);
@@ -72,7 +44,7 @@ export const getHeartRateLineGraphDataFromInterval = (
       n => Math.floor(n).toString(),
     ),
     yAxisOffset: minPoint - 8,
-    maxValue: minPoint,
+    maxValue: maxPoint,
   };
 };
 

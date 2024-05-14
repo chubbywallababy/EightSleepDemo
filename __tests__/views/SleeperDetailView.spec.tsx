@@ -18,8 +18,8 @@ jest.mock('../../src/components/SleepLinearGradient', () => ({
   ),
 }));
 
-jest.mock('../../src/components/HeartRateLineGraph', () => ({
-  HeartRateLineGraph: () => <></>,
+jest.mock('../../src/components/SleepDataLineGraph', () => ({
+  SleepDataLineGraph: () => <></>,
 }));
 
 jest.mock('../../src/components/ProgressBar', () => ({

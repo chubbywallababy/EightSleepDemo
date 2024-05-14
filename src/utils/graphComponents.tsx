@@ -2,6 +2,12 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {SleepText} from '../components/common';
 import {colors} from '../styles/colors';
+import {Timeseries} from '../types';
+import {lineDataItem} from 'react-native-gifted-charts';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+
+dayjs.extend(utc);
 
 /** This allows us to keep the labels undefined for all expect the first and last */
 export const dataPointLabelComponent = () => null;
@@ -46,3 +52,58 @@ export const graphStyles = StyleSheet.create({
   },
   xAxisLabel: {width: 60, color: 'white'},
 });
+
+/**
+ * A utility function to get standardized graph data from a Timeseries object
+ * 
+ * @param timeseries 
+ * @returns 
+ */
+export const getPoints = (
+  timeseries: Timeseries,
+  includePoint: boolean,
+): {
+  points: lineDataItem[];
+  maxPoint: number;
+  minPoint: number;
+  minIdx: number;
+  maxIdx: number;
+} => {
+  let minPoint = Infinity;
+  let minIdx = 0;
+  let maxPoint = 0;
+  let maxIdx = 0;
+  const points: lineDataItem[] = timeseries.map(([ts, v], index) => {
+    if (v > maxPoint) {
+      maxPoint = v;
+      maxIdx = index;
+    }
+    if (v < minPoint) {
+      minPoint = v;
+      minIdx = index;
+    }
+    return {
+      value: Math.floor(v),
+      customDataPoint: includePoint ? dPoint : () => null,
+      label:
+        index === 0 || index === timeseries.length - 1
+          ? /** TODO - Fix. Adding a space in place of styling. Should address with proper styling after finishing tasks */
+          ' ' + dayjs(ts).utc().format('h:mm a')
+          : undefined,
+      labelTextStyle: graphStyles.xAxisLabel,
+      // This is meant to be rendered on the main graph but we use it for the label when the user touches the graph
+      dataPointText: dayjs(ts).utc().format('h:mm a'),
+      // This allows us to keep the labels undefined.
+      // The first and last labels are populated below (after determining which points are the max/min)
+      dataPointLabelComponent,
+    };
+  });
+
+  return {
+    points,
+    maxPoint,
+    minPoint,
+    maxIdx,
+    minIdx,
+  };
+};

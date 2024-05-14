@@ -16,11 +16,11 @@ interface HeartRateLineGraphProps {
 
 /**
  * Wrapper around `react-native-gifted-charts` LineChart
- * for heart rate data
+ * for general data
  * @param param0
  * @returns
  */
-export const HeartRateLineGraph = ({dataPoint}: HeartRateLineGraphProps) => {
+export const SleepDataLineGraph = ({dataPoint}: HeartRateLineGraphProps) => {
   return (
     <View>
       <DateSubtitle ts={dataPoint.ts} />

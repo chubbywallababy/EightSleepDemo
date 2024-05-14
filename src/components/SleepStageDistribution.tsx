@@ -80,7 +80,7 @@ const LegendComponent = ({percentages, total}: LegendComponentProps) => {
                 {`${strings.details.totalTimeAsleep} `}
                 {strings.units.getHoursAndMinutes(hours, minutes)}
             </SleepText>
-            {percentages.map(p => (
+            {percentages.sort((a, b) => a.stage.localeCompare(b.stage)).map(p => (
                 <PercentageItem data={p} key={p.stage} />
             ))}
         </View>

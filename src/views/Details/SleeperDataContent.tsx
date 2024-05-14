@@ -9,7 +9,7 @@ import {Thermometer} from '../../components/images';
 import {SleepStatCard} from '../../components/SleepStatCard';
 import {HorizontalDetailScrollView} from '../../components/HorizontalDetailScrollView';
 import {TossAndTurnCount} from '../../components/TossAndTurnCount';
-import {HeartRateLineGraph} from '../../components/HeartRateLineGraph';
+import {SleepDataLineGraph} from '../../components/SleepDataLineGraph';
 import {useAppSelector} from '../../redux/hooks';
 import {selectHasUserMadeSelection} from '../../redux/users/selectors';
 import {hoursToSleepObject} from '../../utils/general';
@@ -95,7 +95,7 @@ export const SleeperDataContent = ({
       <HorizontalDetailScrollView
         title={strings.details.card.titles.sleepHeartRate}>
         {data.sleepHeartRateData.map(dataPoint => (
-          <HeartRateLineGraph key={dataPoint.ts} dataPoint={dataPoint} />
+          <SleepDataLineGraph key={dataPoint.ts} dataPoint={dataPoint} />
         ))}
       </HorizontalDetailScrollView>
       <HorizontalDetailScrollView
@@ -111,6 +111,12 @@ export const SleeperDataContent = ({
         title={strings.details.card.titles.temperatures}>
         {data.temperatureData.map(dataPoint => (
           <TemperatureAreaGraph key={dataPoint.ts} dataPoint={dataPoint} />
+        ))}
+      </HorizontalDetailScrollView>
+      <HorizontalDetailScrollView
+        title={strings.details.card.titles.respiratoryRate}>
+        {data.respiratoryData.map(dataPoint => (
+          <SleepDataLineGraph key={dataPoint.ts} dataPoint={dataPoint} />
         ))}
       </HorizontalDetailScrollView>
     </ScrollView>

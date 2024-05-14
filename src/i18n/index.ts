@@ -21,6 +21,7 @@ export const strings = {
         sleepHeartRate: 'Sleep heart rate',
         temperatures: 'Temperatures',
         sleepStages: 'Sleep stages',
+        respiratoryRate: 'Respiratory rate',
       },
       goal: 'Goal',
     },
