@@ -9,9 +9,8 @@ import {hoursToSleepObject, round} from '../utils/general';
 import {StyleSheet, View} from 'react-native';
 import {graphStyles} from './PointerLabelComponent';
 import {DateSubtitle, SleepText} from './common';
-import {SleepStageValue} from '../types';
 import {strings} from '../i18n';
-import {colors} from '../styles/colors';
+import {colors, STAGE_COLOR_MAP} from '../styles/colors';
 
 interface SleepStageDistributionProps {
   dataPoint: TimeseriesDataPoint<SleepStageData>;
@@ -41,7 +40,6 @@ export const SleepStageDistribution = ({
           innerCircleBorderColor="#333"
           showGradient
           gradientCenterColor={'#AAAAAA'}
-          sectionAutoFocus
         />
         <LegendComponent
           percentages={dataPoint.data.percentages}
@@ -57,13 +55,6 @@ const getPieDataItems = (data: SleepStageData): pieDataItem[] => {
     value: round(v.percentage, 2),
     color: STAGE_COLOR_MAP[v.stage] || '',
   }));
-};
-
-const STAGE_COLOR_MAP: {[key in SleepStageValue]: string} = {
-  awake: '#5796bcCC',
-  out: '#FFA500AA',
-  light: '#008200AA',
-  deep: '#47047cAA',
 };
 
 interface LegendComponentProps {
