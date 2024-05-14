@@ -8,6 +8,7 @@ import {StyleSheet} from 'react-native';
 import {colors} from '../styles/colors';
 import {useAppDispatch} from '../redux/hooks';
 import {acceptSuggestion, denySuggestion} from '../redux/users/slice';
+import Toast from 'react-native-toast-message';
 
 type SuggestionViewProps = NativeStackScreenProps<
   RootStackParamList,
@@ -26,6 +27,11 @@ export const SuggestionView = ({route, navigation}: SuggestionViewProps) => {
     (accept: boolean) => {
       if (accept) {
         dispatch(acceptSuggestion(route.params.data.id));
+        Toast.show({
+          type: "success",
+          text1: "Success",
+          text2: "Your preferences have been updated"
+        })
       } else {
         dispatch(denySuggestion(route.params.data.id));
       }

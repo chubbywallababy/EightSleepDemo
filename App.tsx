@@ -12,6 +12,7 @@ import {StatusBar} from 'react-native';
 import {NavigationHeader} from './src/components/NavigationHeader';
 import {NavigationBack} from './src/components/NavigationBack';
 import {SuggestionView} from './src/views/SuggestionView';
+import Toast from 'react-native-toast-message';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -23,41 +24,44 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App = () => {
   return (
-    <NavigationContainer
-      theme={{
-        ...DarkTheme,
-        colors: {
-          ...DarkTheme.colors,
-          // Make the navigation header black
-          card: '#000',
-        },
-      }}>
-      <StatusBar backgroundColor="#000" barStyle="light-content" />
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
-          name="Home"
-          component={SleepersListView}
-          options={{
-            header: NavigationHeader,
-          }}
-        />
-        <Stack.Screen
-          name="Details"
-          component={SleeperDetailView}
-          options={{
-            headerLeft: NavigationBack,
-          }}
-        />
-        <Stack.Screen
-          name="Suggestion"
-          component={SuggestionView}
-          options={{
-            headerLeft: NavigationBack,
-            title: 'Autopilot',
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <NavigationContainer
+        theme={{
+          ...DarkTheme,
+          colors: {
+            ...DarkTheme.colors,
+            // Make the navigation header black
+            card: '#000',
+          },
+        }}>
+        <StatusBar backgroundColor="#000" barStyle="light-content" />
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Home"
+            component={SleepersListView}
+            options={{
+              header: NavigationHeader,
+            }}
+          />
+          <Stack.Screen
+            name="Details"
+            component={SleeperDetailView}
+            options={{
+              headerLeft: NavigationBack,
+            }}
+          />
+          <Stack.Screen
+            name="Suggestion"
+            component={SuggestionView}
+            options={{
+              headerLeft: NavigationBack,
+              title: 'Autopilot',
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+      <Toast />
+    </>
   );
 };
 
