@@ -13,6 +13,8 @@ interface UserSleepState {
   status: 'idle' | 'loading' | 'failed';
   error?: string;
   data?: SleepData;
+  /** Would be nice to have a separate slice for this but it's fine for a demo */
+  didAnimateConfetti?: boolean;
 }
 
 export const initialSleepState: SleepState = {};
@@ -21,7 +23,11 @@ const sleepSlice = createSlice({
   name: 'sleep',
   reducerPath: 'sleep',
   initialState: initialSleepState,
-  reducers: {},
+  reducers: {
+    setDidAnimateConfetti(state, {payload}) {
+      state[payload].didAnimateConfetti = true;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(sleepActions.fetchUserSleep, (state, action) => {
@@ -45,5 +51,7 @@ const sleepSlice = createSlice({
       });
   },
 });
+
+export const {setDidAnimateConfetti} = sleepSlice.actions;
 
 export default sleepSlice.reducer;

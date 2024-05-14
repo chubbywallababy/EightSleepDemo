@@ -23,3 +23,9 @@ export const selectUserSleepDetailData = (id: string) =>
   createSelector(selectUsersData(id), usersSleepState =>
     getSleepDetailData(usersSleepState?.intervals),
   );
+
+export const selectDidAnimateConfettiForUser = (id: string) =>
+  createSelector(
+    selectSleepState,
+    sleepState => sleepState[id].didAnimateConfetti,
+  );
