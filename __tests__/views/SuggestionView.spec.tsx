@@ -9,7 +9,7 @@ import {TouchableOpacity} from 'react-native';
 describe('boilerplate for SuggestionView', () => {
   it('should render the view', async () => {
     // Render the app
-    const {root} = render(
+    const {root, toJSON} = render(
       <Provider store={mockStore}>
         <SuggestionView
           route={{params: {data: users[1]}, key: '', name: 'Suggestion'}}
@@ -36,5 +36,7 @@ describe('boilerplate for SuggestionView', () => {
 
     const view = root.findAllByType(TouchableOpacity);
     expect(view).toHaveLength(2);
+
+    expect(toJSON()).toMatchSnapshot();
   });
 });

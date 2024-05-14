@@ -4,4 +4,6 @@ export const colors = {
   background: '#000',
   text: 'white',
   white: 'white',
+  great: '#0073DD',
+  bad: 'orange',
 };

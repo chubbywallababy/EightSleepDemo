@@ -10,6 +10,12 @@ import {SleepText} from '../components/common';
 
 dayjs.extend(utc);
 
+/**
+ * Get the heart rate data for a given interval in a format that a line graph can digest
+ * 
+ * @param interval 
+ * @returns LineGraphData
+ */
 export const getHeartRateLineGraphDataFromInterval = (
   interval: SleepInterval,
 ): LineGraphData => {
@@ -38,7 +44,7 @@ export const getHeartRateLineGraphDataFromInterval = (
         label:
           index === 0 || index === interval.timeseries.heartRate.length - 1
             ? /** TODO - Fix. Adding a space in place of styling. Should address with proper styling after finishing tasks */
-              ' ' + dayjs(ts).utc().format('h:mm a')
+            ' ' + dayjs(ts).utc().format('h:mm a')
             : undefined,
         labelTextStyle: styles.xAxisLabel,
         // This is meant to be rendered on the main graph but we use it for the label when the user touches the graph

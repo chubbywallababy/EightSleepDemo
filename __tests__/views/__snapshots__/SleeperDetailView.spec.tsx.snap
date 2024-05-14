@@ -1,0 +1,1894 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`boilerplate for SleepersListView should render the app 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#000",
+      },
+      undefined,
+    ]
+  }
+>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "gap": 20,
+        "paddingHorizontal": 10,
+        "paddingTop": 20,
+      }
+    }
+  >
+    <View>
+      <View
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "padding": 10,
+              "width": "100%",
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "gap": 20,
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "testUri": "../../../src/components/images/Thermometer.png",
+                }
+              }
+              style={
+                [
+                  {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View>
+              <Text
+                style={
+                  [
+                    {
+                      "color": "white",
+                    },
+                    {
+                      "fontWeight": "400",
+                      "textTransform": "uppercase",
+                    },
+                  ]
+                }
+              >
+                Review
+              </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "color": "white",
+                    },
+                    {
+                      "fontSize": 14,
+                      "fontWeight": "700",
+                    },
+                  ]
+                }
+              >
+                New temperature suggestion
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              {
+                "paddingRight": 10,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "testUri": "../../../src/components/images/Chevron.png",
+                }
+              }
+              style={
+                [
+                  {
+                    "height": 16,
+                    "width": 9,
+                  },
+                  undefined,
+                ]
+              }
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#202020",
+            },
+            {
+              "flexDirection": "column",
+              "justifyContent": "space-between",
+              "padding": 16,
+              "shadowOffset": {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.1,
+              "shadowRadius": 4,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "white",
+                },
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 22,
+                    "fontWeight": "700",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Time slept
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "gap": 0,
+              "paddingTop": 20,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 18,
+                    "marginBottom": 8,
+                  },
+                ]
+              }
+            >
+              Most recent
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 20,
+                    "fontWeight": "bold",
+                    "marginBottom": 4,
+                  },
+                ]
+              }
+            >
+              6h 13m
+            </Text>
+          </View>
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 14,
+                    "marginBottom": 8,
+                  },
+                ]
+              }
+            >
+              Average
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                    "marginBottom": 4,
+                  },
+                ]
+              }
+            >
+              6h 21m
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "paddingTop": 50,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "height": "100%",
+                  "justifyContent": "space-between",
+                  "position": "absolute",
+                  "top": 20,
+                },
+                {
+                  "left": "42.857142857142854%",
+                  "width": "28.57142857142857%",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 12,
+                    "fontWeight": "400",
+                    "height": "100%",
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "top": 3,
+                  },
+                ]
+              }
+            >
+              Goal
+            </Text>
+          </View>
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginLeft": 8,
+                "marginTop": 5,
+                "width": "100%",
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 11,
+                  },
+                ]
+              }
+            >
+              4h
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 11,
+                  },
+                ]
+              }
+            >
+              5h
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 11,
+                  },
+                ]
+              }
+            >
+              6h
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 11,
+                  },
+                ]
+              }
+            >
+              7h
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 11,
+                  },
+                ]
+              }
+            >
+              8h
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 11,
+                  },
+                ]
+              }
+            >
+              9h
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 11,
+                  },
+                ]
+              }
+            >
+              10h
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 11,
+                  },
+                ]
+              }
+            >
+              11h
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#202020",
+            },
+            {
+              "flexDirection": "column",
+              "justifyContent": "space-between",
+              "padding": 16,
+              "shadowOffset": {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.1,
+              "shadowRadius": 4,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "white",
+                },
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 22,
+                    "fontWeight": "700",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Time to fall asleep
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "gap": 0,
+              "paddingTop": 20,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 18,
+                    "marginBottom": 8,
+                  },
+                ]
+              }
+            >
+              Most recent
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 20,
+                    "fontWeight": "bold",
+                    "marginBottom": 4,
+                  },
+                ]
+              }
+            >
+              18m
+            </Text>
+          </View>
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 14,
+                    "marginBottom": 8,
+                  },
+                ]
+              }
+            >
+              Average
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                    "marginBottom": 4,
+                  },
+                ]
+              }
+            >
+              11m
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "paddingTop": 50,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "height": "100%",
+                  "justifyContent": "space-between",
+                  "position": "absolute",
+                  "top": 20,
+                },
+                {
+                  "left": "0%",
+                  "width": "37.5%",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 12,
+                    "fontWeight": "400",
+                    "height": "100%",
+                    "textAlign": "center",
+                    "textAlignVertical": "center",
+                    "top": 3,
+                  },
+                ]
+              }
+            >
+              Goal
+            </Text>
+          </View>
+          <View
+            style={
+              {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginLeft": 8,
+                "marginTop": 5,
+                "width": "100%",
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 11,
+                  },
+                ]
+              }
+            >
+              In bed
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 11,
+                  },
+                ]
+              }
+            >
+              +10m
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 11,
+                  },
+                ]
+              }
+            >
+              +20m
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 11,
+                  },
+                ]
+              }
+            >
+              +30m
+            </Text>
+            <Text
+              style={
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 11,
+                  },
+                ]
+              }
+            >
+              +40m
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        setWidth={[Function]}
+        style={
+          [
+            {
+              "backgroundColor": "#202020",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "flexDirection": "column",
+              "justifyContent": "space-between",
+              "padding": 16,
+              "shadowOffset": {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.1,
+              "shadowRadius": 4,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "white",
+                },
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 22,
+                    "fontWeight": "700",
+                  },
+                  {
+                    "marginBottom": 10,
+                  },
+                ],
+              ]
+            }
+          >
+            Tosses and turns
+          </Text>
+          <RCTScrollView
+            decelerationRate={0}
+            horizontal={true}
+            pagingEnabled={true}
+            scrollEnabled={false}
+            showsHorizontalScrollIndicator={false}
+            snapToInterval={0}
+          >
+            <View>
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "flex-start",
+                      "padding": 10,
+                    },
+                    {
+                      "width": 0,
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    {
+                      "height": 100,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      {
+                        "gap": 20,
+                        "paddingRight": 20,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        [
+                          {
+                            "color": "white",
+                          },
+                          [
+                            {
+                              "color": "white",
+                            },
+                            {
+                              "fontSize": 18,
+                              "fontWeight": "bold",
+                            },
+                            undefined,
+                          ],
+                        ]
+                      }
+                      ts="2017-03-09T08:06:00.000Z"
+                    >
+                      Mar 09
+                    </Text>
+                    <View
+                      style={
+                        {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "gap": 18,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "white",
+                            },
+                            {
+                              "fontSize": 48,
+                              "fontWeight": "300",
+                            },
+                          ]
+                        }
+                      >
+                        12
+                      </Text>
+                      <View
+                        style={
+                          {
+                            "gap": 3,
+                          }
+                        }
+                      >
+                        <View
+                          style={
+                            {
+                              "flexDirection": "row",
+                              "gap": 3,
+                            }
+                          }
+                        >
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                        </View>
+                        <View
+                          style={
+                            {
+                              "flexDirection": "row",
+                              "gap": 3,
+                            }
+                          }
+                        >
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "flex-start",
+                      "padding": 10,
+                    },
+                    {
+                      "width": 0,
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    {
+                      "height": 100,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      {
+                        "gap": 20,
+                        "paddingRight": 20,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        [
+                          {
+                            "color": "white",
+                          },
+                          [
+                            {
+                              "color": "white",
+                            },
+                            {
+                              "fontSize": 18,
+                              "fontWeight": "bold",
+                            },
+                            undefined,
+                          ],
+                        ]
+                      }
+                      ts="2017-03-08T06:53:00.000Z"
+                    >
+                      Mar 08
+                    </Text>
+                    <View
+                      style={
+                        {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "gap": 18,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "white",
+                            },
+                            {
+                              "fontSize": 48,
+                              "fontWeight": "300",
+                            },
+                          ]
+                        }
+                      >
+                        27
+                      </Text>
+                      <View
+                        style={
+                          {
+                            "gap": 3,
+                          }
+                        }
+                      >
+                        <View
+                          style={
+                            {
+                              "flexDirection": "row",
+                              "gap": 3,
+                            }
+                          }
+                        >
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                        </View>
+                        <View
+                          style={
+                            {
+                              "flexDirection": "row",
+                              "gap": 3,
+                            }
+                          }
+                        >
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "flex-start",
+                      "padding": 10,
+                    },
+                    {
+                      "width": 0,
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    {
+                      "height": 100,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      {
+                        "gap": 20,
+                        "paddingRight": 20,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        [
+                          {
+                            "color": "white",
+                          },
+                          [
+                            {
+                              "color": "white",
+                            },
+                            {
+                              "fontSize": 18,
+                              "fontWeight": "bold",
+                            },
+                            undefined,
+                          ],
+                        ]
+                      }
+                      ts="2017-03-07T09:24:00.000Z"
+                    >
+                      Mar 07
+                    </Text>
+                    <View
+                      style={
+                        {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "gap": 18,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "white",
+                            },
+                            {
+                              "fontSize": 48,
+                              "fontWeight": "300",
+                            },
+                          ]
+                        }
+                      >
+                        16
+                      </Text>
+                      <View
+                        style={
+                          {
+                            "gap": 3,
+                          }
+                        }
+                      >
+                        <View
+                          style={
+                            {
+                              "flexDirection": "row",
+                              "gap": 3,
+                            }
+                          }
+                        >
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                        </View>
+                        <View
+                          style={
+                            {
+                              "flexDirection": "row",
+                              "gap": 3,
+                            }
+                          }
+                        >
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                          <View
+                            style={
+                              {
+                                "backgroundColor": "white",
+                                "borderRadius": 3,
+                                "height": 6,
+                                "width": 6,
+                              }
+                            }
+                          />
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </RCTScrollView>
+        </View>
+        <View
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginHorizontal": 25,
+              "paddingBottom": 20,
+            }
+          }
+        >
+          <View />
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "height": 20,
+                "justifyContent": "center",
+                "opacity": 1,
+                "width": 30,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "testUri": "../../../src/components/images/Chevron.png",
+                }
+              }
+              style={
+                [
+                  {
+                    "height": 16,
+                    "width": 9,
+                  },
+                  undefined,
+                ]
+              }
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        setWidth={[Function]}
+        style={
+          [
+            {
+              "backgroundColor": "#202020",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "flexDirection": "column",
+              "justifyContent": "space-between",
+              "padding": 16,
+              "shadowOffset": {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.1,
+              "shadowRadius": 4,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "white",
+                },
+                [
+                  {
+                    "color": "white",
+                  },
+                  {
+                    "fontSize": 22,
+                    "fontWeight": "700",
+                  },
+                  {
+                    "marginBottom": 10,
+                  },
+                ],
+              ]
+            }
+          >
+            Sleep heart rate
+          </Text>
+          <RCTScrollView
+            decelerationRate={0}
+            horizontal={true}
+            pagingEnabled={true}
+            scrollEnabled={false}
+            showsHorizontalScrollIndicator={false}
+            snapToInterval={0}
+          >
+            <View>
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "flex-start",
+                      "padding": 10,
+                    },
+                    {
+                      "width": 0,
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "flex-start",
+                      "padding": 10,
+                    },
+                    {
+                      "width": 0,
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "flex-start",
+                      "padding": 10,
+                    },
+                    {
+                      "width": 0,
+                    },
+                  ]
+                }
+              />
+            </View>
+          </RCTScrollView>
+        </View>
+        <View
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginHorizontal": 25,
+              "paddingBottom": 20,
+            }
+          }
+        >
+          <View />
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "height": 20,
+                "justifyContent": "center",
+                "opacity": 1,
+                "width": 30,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "testUri": "../../../src/components/images/Chevron.png",
+                }
+              }
+              style={
+                [
+                  {
+                    "height": 16,
+                    "width": 9,
+                  },
+                  undefined,
+                ]
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

@@ -95,6 +95,12 @@ interface HorizontalScrollChildContainerProps {
   width: number;
   children: JSX.Element;
 }
+/**
+ * A wrapper around children passed in to the horizontal scroll view to keep consistent styling
+ *
+ * @param param0
+ * @returns
+ */
 const HorizontalScrollChildContainer = ({
   children,
   width,

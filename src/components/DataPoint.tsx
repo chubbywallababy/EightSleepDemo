@@ -9,14 +9,14 @@ interface DataPointProps {
 }
 /**
  * This view accepts short detail text (tested between 5 and 20 characters),
- * a unit, and a view to show data. It's meant to show an auxiliary data point
+ * a unit, and a view to show data. It's meant to show an auxiliary data point.
  */
 export const DataPoint = ({dataView, detailText, unit}: DataPointProps) => {
   return (
-    <View style={styles.container}>
+    <View>
       <Text style={styles.detailText}>
-        {detailText}{' '}
-        {unit ? <Text style={styles.unitText}>{`(${unit})`}</Text> : null}
+        {detailText}
+        {unit ? <Text style={styles.unitText}>{` (${unit})`}</Text> : null}
       </Text>
       {dataView}
     </View>
@@ -24,7 +24,6 @@ export const DataPoint = ({dataView, detailText, unit}: DataPointProps) => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
   detailText: {
     color: '#ADB3C5',
     textTransform: 'uppercase',

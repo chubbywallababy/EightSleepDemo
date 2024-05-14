@@ -3,6 +3,11 @@ import {SleepData} from '../../types';
 import {sleepActions} from './actions';
 import {SleepService} from '../../services/SleepService';
 
+/**
+ * Fetches the sleep data for a specific user by id
+ *
+ * @param param0
+ */
 export function* fetchSleepData({payload: id}: {payload: string}) {
   try {
     const sleepData: SleepData = yield SleepService.getSleepData(id);

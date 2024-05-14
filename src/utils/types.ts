@@ -1,6 +1,8 @@
 /**
  * These are convenience types relevant to the UI.
  * They are represented in the JSON data at the S3 endpoints,
+ * but not organized in S3 in a fashion that's optimal for the UI
+ * to consume.
  */
 
 import {lineDataItem} from 'react-native-gifted-charts';

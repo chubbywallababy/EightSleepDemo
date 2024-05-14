@@ -4,10 +4,13 @@ import {User} from '../../types';
 import {usersActions} from './actions';
 import {sleepActions} from '../sleep/actions';
 
+/**
+ * Fetch all the users
+ */
 export function* fetchUsers() {
   try {
     const data: User[] = yield call(SleepService.getUsers);
-    yield put(usersActions.setUsers(data)); // Dispatch with typed data
+    yield put(usersActions.setUsers(data));
     for (const i in data) {
       const id = data[i].id;
       yield put(sleepActions.fetchUserSleep(id));

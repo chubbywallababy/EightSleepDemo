@@ -9,7 +9,7 @@ import {SleepDurationObject} from './types';
 /** Get the average for an array of numbers */
 export const getAverage = (nums: number[]): number =>
   nums.reduce((a, b) => a + b, 0) / nums.length;
-// Only meant to be used for a few decimal places, not tested completely
+// Only meant to be used for a few decimal places
 export const round = (n: number, places = 1) =>
   Math.round(n * 10 ** places) / 10 ** places;
 /** Get the most recent sleep interval */

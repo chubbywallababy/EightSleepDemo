@@ -10,7 +10,7 @@ interface AnimatedNumberProps {
 }
 
 /**
- * Does not currently work for numbers with decimals. Set `animateCount` to false
+ * Does not currently work for numbers with decimals.
  *
  * @param param0
  * @returns

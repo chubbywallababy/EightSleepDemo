@@ -4,6 +4,12 @@ import {View} from 'react-native';
 import {EightSleepLogo} from './images';
 import {StyleSheet} from 'react-native';
 
+/**
+ * A header for the home screen for the family view
+ *
+ * @param props
+ * @returns
+ */
 export const NavigationHeader = (props: NativeStackHeaderProps) => (
   <View {...props} style={styles.container}>
     <EightSleepLogo style={styles.logo} />

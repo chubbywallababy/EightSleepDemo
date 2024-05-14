@@ -13,6 +13,14 @@ interface SleeperActionCellProps {
   onPress: () => void;
 }
 
+/**
+ * Prompts the user to click on a cell to perform some action.
+ *
+ * The content is shown within a linear gradient.
+ *
+ * @param param0
+ * @returns
+ */
 export const SleeperActionCell = ({
   icon,
   style,

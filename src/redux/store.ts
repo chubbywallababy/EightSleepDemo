@@ -39,20 +39,3 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >;
-
-/**
- * For testing
- *
- * @param preloadedState
- * @returns
- */
-export const setupStore = (preloadedState?: Partial<RootState>) => {
-  return configureStore({
-    reducer: combineReducers({
-      users: usersReducer,
-      sleep: sleepReducer,
-    }),
-    preloadedState,
-  });
-};
-export type AppStore = ReturnType<typeof setupStore>;

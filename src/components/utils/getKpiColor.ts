@@ -1,3 +1,4 @@
+import {colors} from '../../styles/colors';
 import {KpiStatus} from '../../utils/types';
 
 /**
@@ -10,9 +11,9 @@ import {KpiStatus} from '../../utils/types';
  */
 export const getKpiColor = (status: KpiStatus): string | undefined => {
   if (status === KpiStatus.Great) {
-    return '#0073DD';
+    return colors.great;
   } else if (status === KpiStatus.Bad) {
-    return 'orange';
+    return colors.bad;
   }
   return undefined;
 };

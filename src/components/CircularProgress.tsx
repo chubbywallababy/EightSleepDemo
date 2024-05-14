@@ -12,6 +12,12 @@ interface CircularProgressProps {
   detailText?: string;
 }
 
+/**
+ * A wrapper around `react-native-circular-progress`.
+ *
+ * @param param0
+ * @returns
+ */
 export const CircularProgress = ({
   radius,
   strokeWidth,

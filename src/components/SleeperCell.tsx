@@ -24,6 +24,12 @@ export interface SleeperCellProps {
   onPress: () => void;
 }
 
+/**
+ * A cell component that can be clicked
+ *
+ * @param param0
+ * @returns
+ */
 export const SleeperCell = ({data, onPress}: SleeperCellProps) => {
   const kpiData = useAppSelector(selectUsersKpis(data.id));
   const userStatus = useAppSelector(selectUsersStatus(data.id));

@@ -17,6 +17,11 @@ import {
 import {SleeperCell} from '../components/SleeperCell';
 import {usersActions} from '../redux/users/actions';
 
+/**
+ * A list view to see all of the family members
+ * 
+ * @returns React.JSX.Element
+ */
 export const SleepersListView = () => {
   const navigation = useNavigation();
 

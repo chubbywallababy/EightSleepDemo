@@ -14,6 +14,12 @@ interface HeartRateLineGraphProps {
   dataPoint: TimeseriesDataPoint<LineGraphData>;
 }
 
+/**
+ * Wrapper around `react-native-gifted-charts` LineChart
+ *
+ * @param param0
+ * @returns
+ */
 export const HeartRateLineGraph = ({dataPoint}: HeartRateLineGraphProps) => {
   return (
     <View>
@@ -55,6 +61,12 @@ export const HeartRateLineGraph = ({dataPoint}: HeartRateLineGraphProps) => {
   );
 };
 
+/**
+ * Allows the user to see extra data when they touch on the graph
+ *
+ * @param dataPoint
+ * @returns
+ */
 const pointerLabelComponent =
   (dataPoint: TimeseriesDataPoint<LineGraphData>) =>
   (items: lineDataItem[]) => {

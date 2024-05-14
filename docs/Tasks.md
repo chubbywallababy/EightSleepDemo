@@ -2,6 +2,8 @@
 
 - A list of what items were done for the project and in what order
 
+# Tasks
+
 # Tuesday (before meeting with caglar8S)
 
 - Research on Eight Sleep interview steps and found take home assessment to be part of the process - [glassdoor](https://www.glassdoor.com/Interview/Eight-Sleep-Software-Engineer-Interview-Questions-EI_IE2131100.0,11_KO12,29.htm?filter.jobTitleFTS=Software+Engineer)
@@ -54,16 +56,16 @@
 - Implement suggestion view with graph and buttons
   - suggestion redux state
   - buttons
+- Cleanup all the code
+- Unit tests to 60%
+  - redux
+  - utils
+  - views
 
 # What I want to do...
 
 # Tuesday
 
-- Cleanup all the code
-- Unit tests to 80%
-  - redux
-  - utils
-  - views
 - Documentation
   - Documents in the docs folder
   - document all functions/components
@@ -72,7 +74,7 @@
 # Wednesday
 
 - Find any more animations to improve
-- improve code coverage if under 90%
+- improve code coverage
 
 # Nice-to-haves
 

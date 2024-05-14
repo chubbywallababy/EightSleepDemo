@@ -35,16 +35,6 @@ export const Thermometer = (props: ImageProps) => {
   );
 };
 
-export const Info = (props: ImageProps) => {
-  return (
-    <Image
-      source={require('./Info.png')}
-      {...props}
-      style={[styles.info, props.style]}
-    />
-  );
-};
-
 const styles = StyleSheet.create({
   chevronLeft: {
     transform: [{rotate: '-180deg'}],

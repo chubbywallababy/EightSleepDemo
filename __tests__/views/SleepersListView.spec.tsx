@@ -23,7 +23,7 @@ jest.mock('../../src/components/AnimatedNumber', () => ({
 describe('boilerplate for SleepersListView', () => {
   it('should render the view', async () => {
     // Render the app
-    const {root} = render(
+    const {root, toJSON} = render(
       <Provider store={mockStore}>
         <SleepersListView />
       </Provider>,
@@ -31,5 +31,7 @@ describe('boilerplate for SleepersListView', () => {
 
     const view = root.findAllByType(TouchableOpacity);
     expect(view).toHaveLength(3);
+
+    expect(toJSON()).toMatchSnapshot();
   });
 });
