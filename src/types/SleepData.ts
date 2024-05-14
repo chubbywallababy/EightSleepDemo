@@ -1,6 +1,14 @@
+/**
+ * This is data represented in S3
+ *
+ * https://gist.github.com/maghis/8c35fe1bb5c7810bdcc6ca389c6cd702
+ */
+
+/** each stage can be any of "awake" (in bed, awake), "out" (out of bed), "light" (in light sleep), "deep" (in deep sleep) */
+export type SleepStageValue = 'awake' | 'out' | 'light' | 'deep';
+
 export interface Stage {
-  /** each stage can be any of "awake" (in bed, awake), "out" (out of bed), "light" (in light sleep), "deep" (in deep sleep) */
-  stage: string;
+  stage: SleepStageValue;
   /** In seconds */
   duration: number;
 }

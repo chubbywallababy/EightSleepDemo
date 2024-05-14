@@ -10,6 +10,17 @@
 
 Q
 
+How is the sleep fitness number calculated?
+
+A
+
+Currently I'm taking the average of all the available intervals.
+
+<br>
+<hr>
+
+Q
+
 How will you structure and manage the JSON data for the sleep sessions?
 
 A

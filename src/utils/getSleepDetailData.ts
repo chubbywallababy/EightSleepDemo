@@ -1,11 +1,15 @@
-import {SleepInterval} from '../types';
+import {SleepInterval, SleepStageValue} from '../types';
 import {getMostRecentInterval, hoursToSleepObject} from './general';
 import {getHeartRateLineGraphDataFromInterval} from './getHeartRateLineGraphDataFromInterval';
 import {getSleepKpiData} from './getSleepKpiData';
+import {getTemperatureDataFromInterval} from './getTemperatureGraphDataFromInterval';
 import {
   DataPoint,
   LineGraphData,
   SleepDetailData,
+  SleepStageData,
+  SleepStagePercentage,
+  SleepTemperatureLineGraphData,
   TimeseriesDataPoint,
 } from './types';
 
@@ -31,6 +35,9 @@ export const getSleepDetailData = (
     timeToFallAsleepDataPoint: getTimeToFallAsleepDataPoint(data),
     tntData: getTntTimeseriesData(data),
     sleepHeartRateData: getSleepHeartRateData(data),
+    sleepStageData: getSleepStageData(data),
+    temperatureData: getTemperatureData(data),
+    respiratoryData: getRespiratoryData(data),
   };
 };
 
@@ -66,6 +73,7 @@ const getTimeSleptDataPoint = (intervals: SleepInterval[]): DataPoint => {
     60 /
     60;
 
+  /** Static markers can be replaced with a util function that determines the start/end dynamically */
   const markers = [
     {value: 4, label: '4h'},
     {value: 5, label: '5h'},
@@ -138,6 +146,50 @@ const getTimeToFallAsleepDataPoint = (
   };
 };
 
+const getSleepStageFromInterval = (interval: SleepInterval): SleepStageData => {
+  const stageMap: {[key: string]: number} = {};
+  const totalTimeAsleep = interval.stages.reduce((prev, stage) => {
+    if (stageMap[stage.stage]) {
+      stageMap[stage.stage] += stage.duration;
+    } else {
+      stageMap[stage.stage] = stage.duration;
+    }
+    return prev + stage.duration;
+  }, 0);
+
+  const percentages: SleepStagePercentage[] = [];
+
+  for (const i in stageMap) {
+    const timeInStage = stageMap[i];
+    percentages.push({
+      total: timeInStage,
+      percentage: timeInStage / totalTimeAsleep,
+      // Making this assumption based on the gist
+      stage: i as SleepStageValue,
+    });
+  }
+
+  return {
+    totalTimeAsleep,
+    percentages,
+  };
+};
+
+/**
+ * TODO - FINISH
+ */
+const getRespiratoryDataFromInterval = (
+  interval: SleepInterval,
+): LineGraphData => {
+  return {
+    points: [],
+    yAxisLables: [],
+    yAxisOffset: 0,
+    xAxisLabels: [],
+    maxValue: 100,
+  };
+};
+
 const getTntTimeseriesData = (
   intervals: SleepInterval[],
 ): TimeseriesDataPoint<number>[] => {
@@ -155,3 +207,27 @@ const getSleepHeartRateData = (
     data: getHeartRateLineGraphDataFromInterval(i),
   }));
 };
+
+const getSleepStageData = (
+  intervals: SleepInterval[],
+): TimeseriesDataPoint<SleepStageData>[] =>
+  intervals.map(i => ({
+    ts: i.ts,
+    data: getSleepStageFromInterval(i),
+  }));
+
+const getTemperatureData = (
+  intervals: SleepInterval[],
+): TimeseriesDataPoint<SleepTemperatureLineGraphData>[] =>
+  intervals.map(i => ({
+    ts: i.ts,
+    data: getTemperatureDataFromInterval(i),
+  }));
+
+const getRespiratoryData = (
+  intervals: SleepInterval[],
+): TimeseriesDataPoint<LineGraphData>[] =>
+  intervals.map(i => ({
+    ts: i.ts,
+    data: getRespiratoryDataFromInterval(i),
+  }));

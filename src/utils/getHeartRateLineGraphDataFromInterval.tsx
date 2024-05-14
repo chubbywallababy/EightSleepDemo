@@ -7,6 +7,7 @@ import utc from 'dayjs/plugin/utc';
 import {StyleSheet, View} from 'react-native';
 import {colors} from '../styles/colors';
 import {SleepText} from '../components/common';
+import {dPoint, dPointLabel, dataPointLabelComponent, graphStyles} from './graphComponents';
 
 dayjs.extend(utc);
 
@@ -46,10 +47,11 @@ export const getHeartRateLineGraphDataFromInterval = (
             ? /** TODO - Fix. Adding a space in place of styling. Should address with proper styling after finishing tasks */
             ' ' + dayjs(ts).utc().format('h:mm a')
             : undefined,
-        labelTextStyle: styles.xAxisLabel,
+        labelTextStyle: graphStyles.xAxisLabel,
         // This is meant to be rendered on the main graph but we use it for the label when the user touches the graph
         dataPointText: dayjs(ts).utc().format('h:mm a'),
-        // This allows us to keep the labels undefined for all expect the first and last
+        // This allows us to keep the labels undefined.
+        // The first and last labels are populated below (after determining which points are the max/min)
         dataPointLabelComponent,
       };
     },
@@ -73,8 +75,6 @@ export const getHeartRateLineGraphDataFromInterval = (
   };
 };
 
-/** This allows us to keep the labels undefined for all expect the first and last */
-export const dataPointLabelComponent = () => null;
 
 /**
  * Returns 6 numbers representing the heart rate
@@ -107,42 +107,3 @@ const getLineGraphYAxisForHeartRateInterval = (
     top,
   ];
 };
-
-export const dPoint = () => {
-  return <View style={styles.point} />;
-};
-
-export const dPointLabel = (value: number, isHigh: boolean) => {
-  return (
-    <SleepText
-      style={[isHigh ? styles.labelHigh : styles.labelLow, styles.label]}>
-      {value}
-    </SleepText>
-  );
-};
-
-const POINT_SIZE = 7;
-
-const styles = StyleSheet.create({
-  point: {
-    height: POINT_SIZE,
-    width: POINT_SIZE,
-    borderWidth: 2,
-    borderRadius: POINT_SIZE / 2,
-    borderColor: colors.white,
-    backgroundColor: colors.secondary,
-    // Adjusts so it's along the line
-    bottom: 2,
-    left: 1,
-  },
-  labelHigh: {
-    bottom: 15,
-  },
-  labelLow: {
-    top: 15,
-  },
-  label: {
-    left: 10,
-  },
-  xAxisLabel: {width: 60, color: 'white'},
-});
