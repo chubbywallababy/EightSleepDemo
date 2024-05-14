@@ -61,7 +61,7 @@ describe('boilerplate for SleepersListView', () => {
     );
 
     const view = root.findAllByType(SleepView);
-    expect(view).toHaveLength(4);
+    expect(view).toHaveLength(7);
 
     expect(toJSON()).toMatchSnapshot();
   });

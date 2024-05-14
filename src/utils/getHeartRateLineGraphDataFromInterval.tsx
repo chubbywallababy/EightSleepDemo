@@ -2,10 +2,7 @@ import {SleepInterval} from '../types';
 import {LineGraphData} from './types';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import {
-  dPointLabel,
-  getPoints,
-} from './graphComponents';
+import {dPointLabel, getPoints} from './graphComponents';
 
 dayjs.extend(utc);
 
@@ -22,13 +19,10 @@ export const getHeartRateLineGraphDataFromInterval = (
     interval.timeseries.heartRate[interval.timeseries.heartRate.length - 1][0];
   const minTs = interval.timeseries.heartRate[0][0];
 
-  const {
-    points,
-    minIdx,
-    minPoint,
-    maxIdx,
-    maxPoint,
-  } = getPoints(interval.timeseries.heartRate, true);
+  const {points, minIdx, minPoint, maxIdx, maxPoint} = getPoints(
+    interval.timeseries.heartRate,
+    true,
+  );
 
   points[minIdx].dataPointLabelComponent = () =>
     dPointLabel(Math.floor(minPoint), false);

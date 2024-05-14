@@ -101,8 +101,7 @@ export const SleeperDataContent = ({
       <HorizontalDetailScrollView
         title={strings.details.card.titles.sleepStages}
         contentContainerStyle={styles.sleepDistributionContent}
-        style={styles.sleepDistributionContainer}
-      >
+        style={styles.sleepDistributionContainer}>
         {data.sleepStageData.map(dataPoint => (
           <SleepStageDistribution key={dataPoint.ts} dataPoint={dataPoint} />
         ))}
@@ -140,5 +139,5 @@ const styles = StyleSheet.create({
   },
   sleepDistributionContainer: {
     paddingBottom: 0,
-  }
+  },
 });

@@ -8,7 +8,7 @@ jest.mock('react-native-reanimated', () => {
 
   // The mock for `call` immediately calls the callback which is incorrect
   // So we override it with a no-op
-  Reanimated.default.call = () => {};
+  Reanimated.default.call = () => { };
 
   return Reanimated;
 });
@@ -40,8 +40,10 @@ jest.mock('react-native-circular-progress', () => ({
 
 // Mocking the LineChart component
 jest.mock('react-native-gifted-charts', () => ({
-  LineChart: jest.fn(({data, pointerConfig}) => {
-    // You can add any mock behavior here based on the props passed to LineChart
-    return pointerConfig.pointerLabelComponent(data[0]); // For example, mocking the pointerLabelComponent behavior
+  LineChart: jest.fn(({data}) => {
+    return JSON.stringify(data);
+  }),
+  PieChart: jest.fn(({data}) => {
+    return JSON.stringify(data);
   }),
 }));

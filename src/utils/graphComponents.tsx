@@ -55,9 +55,9 @@ export const graphStyles = StyleSheet.create({
 
 /**
  * A utility function to get standardized graph data from a Timeseries object
- * 
- * @param timeseries 
- * @returns 
+ *
+ * @param timeseries
+ * @returns
  */
 export const getPoints = (
   timeseries: Timeseries,
@@ -88,7 +88,7 @@ export const getPoints = (
       label:
         index === 0 || index === timeseries.length - 1
           ? /** TODO - Fix. Adding a space in place of styling. Should address with proper styling after finishing tasks */
-          ' ' + dayjs(ts).utc().format('h:mm a')
+            ' ' + dayjs(ts).utc().format('h:mm a')
           : undefined,
       labelTextStyle: graphStyles.xAxisLabel,
       // This is meant to be rendered on the main graph but we use it for the label when the user touches the graph
