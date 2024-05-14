@@ -50,7 +50,7 @@ export const graphStyles = StyleSheet.create({
   label: {
     left: 10,
   },
-  xAxisLabel: {width: 60, color: 'white'},
+  xAxisLabel: {width: 100, color: 'white', textAlign: "left"},
 });
 
 /**
@@ -87,8 +87,7 @@ export const getPoints = (
       customDataPoint: includePoint ? dPoint : () => null,
       label:
         index === 0 || index === timeseries.length - 1
-          ? /** TODO - Fix. Adding a space in place of styling. Should address with proper styling after finishing tasks */
-            ' ' + dayjs(ts).utc().format('h:mm a')
+          ? dayjs(ts).utc().format('h:mm a')
           : undefined,
       labelTextStyle: graphStyles.xAxisLabel,
       // This is meant to be rendered on the main graph but we use it for the label when the user touches the graph
@@ -96,6 +95,7 @@ export const getPoints = (
       // This allows us to keep the labels undefined.
       // The first and last labels are populated below (after determining which points are the max/min)
       dataPointLabelComponent,
+
     };
   });
 

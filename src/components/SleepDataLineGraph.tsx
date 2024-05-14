@@ -28,7 +28,7 @@ export const SleepDataLineGraph = ({dataPoint}: HeartRateLineGraphProps) => {
         <LineChart
           data={dataPoint.data.points}
           yAxisOffset={dataPoint.data.yAxisOffset}
-          spacing={250 / dataPoint.data.points.length}
+          spacing={220 / dataPoint.data.points.length}
           width={280}
           yAxisExtraHeight={20}
           noOfSections={dataPoint.data.yAxisLables.length - 1}

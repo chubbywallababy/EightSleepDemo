@@ -17,6 +17,7 @@ In the `docs` folder can be found the following markdown documents:
 
 - cd ios && pod install
 - You might have to set up a signing team in XCode
+- If you have to open it, heads up that the project was originally called `sleepy` -> ./ios/sleepy.xcworkspace (When I tested with a fresh clone, it wouldn't run from the terminal via `npm run ios` but would start up fine when ran from XCode)
 
 # Testing
 
@@ -33,7 +34,7 @@ All files                                   |    64.5 |    44.02 |   63.04 |   6
 
 ## Heads up
 
-There's a few different touch interactions available for the graphs
+There's a few different touch interactions available for the graphs. I ran it on an iPad mini and it looks fine, but hasn't been optimized for this yet.
 
 ## iOS
 

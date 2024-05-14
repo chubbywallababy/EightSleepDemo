@@ -127,6 +127,7 @@ const styles = StyleSheet.create({
   child: {
     padding: 10,
     alignItems: 'flex-start',
+    right: 10,
   },
   contentContainer: {
     padding: 16,

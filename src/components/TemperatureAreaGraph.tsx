@@ -34,7 +34,7 @@ export const TemperatureAreaGraph = ({dataPoint}: HeartRateLineGraphProps) => {
           data={dataPoint.data.bedTempPoints}
           data2={dataPoint.data.roomTempPoints}
           yAxisOffset={dataPoint.data.yAxisOffset}
-          spacing={250 / dataPoint.data.bedTempPoints.length}
+          spacing={220 / dataPoint.data.bedTempPoints.length}
           width={280}
           yAxisExtraHeight={20}
           noOfSections={dataPoint.data.yAxisLables.length - 1}
