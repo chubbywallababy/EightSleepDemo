@@ -14,6 +14,16 @@ In the `docs` folder can be found the following markdown documents:
 
 There shouldn't be any unique setup for this repo. Install node modules (and pods for iOS) and you should be good to go!
 
+# Testing
+
+Tests and coverage are set up on the repo. Coverage is sitting around 60%
+```
+--------------------------------------------|---------|----------|---------|---------
+File                                        | % Stmts | % Branch | % Funcs | % Lines 
+--------------------------------------------|---------|----------|---------|---------
+All files                                   |    64.5 |    44.02 |   63.04 |   63.87 
+```
+
 # Screenshots
 
 ## Heads up 
