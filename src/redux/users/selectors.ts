@@ -14,6 +14,12 @@ export const selectHasUserMadeSelection = (id: string) =>
     usersState => typeof usersState.data.acceptedSuggestion[id] === 'boolean',
   );
 
+export const didUserAcceptSelection = (id: string) =>
+  createSelector(
+    selectUsersState,
+    usersState => usersState.data.acceptedSuggestion[id],
+  );
+
 export const selectUsersStatus = createSelector(
   selectUsersState,
   usersState => usersState.status,
