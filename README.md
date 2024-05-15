@@ -1,11 +1,24 @@
 # Requirements
 
-- [X] The application must compile and run on Android and iOS without error. This includes switching between family members and viewing sleep data.
+- [x] The application must compile and run on Android and iOS without error. This includes switching between family members and viewing sleep data.
 - [x] No mock data is statically defined in the project.
 - [x] Uses React Native and Typescript.
 - [x] Build a “family mode” mobile app that presents this underlying sleep data for three fictitious family members.
 - [x] The app should enable the viewer to see each individual they’re monitoring.
 - [x] Upon tapping on one of the individuals, the app should display the sleep data of the selected person in a meaningful way
+
+# Versions
+
+- XCode
+  - 15.0.1
+- npm
+  - 10.2.4
+- node
+  - v20.11.0
+- react
+  - 18.2.0
+- react-native
+  - 0.74.1
 
 # Docs
 
@@ -69,4 +82,5 @@ All files                                   |   72.26 |    46.35 |   68.06 |   7
 
 # Post development thoughts
 
-After developing, I've realized the detail view would be a good first draft for weekly analysis, but it's hard to see any "big picture" data. For instance, if I wanted to see my progress per week, this would not be an optimal view.
+- After developing, I've realized the detail view would be a good first draft for weekly analysis, but it's hard to see any "big picture" data. For instance, if I wanted to see my progress per week, this would not be an optimal view.
+- It would be nice to add the amount of time (in hours and minutes) with the sleep stage pie graph
