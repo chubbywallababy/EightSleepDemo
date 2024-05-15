@@ -1,3 +1,12 @@
+# Requirements
+
+- [x] The application must compile and run on Android and iOS without error. This includes switching between family members and viewing sleep data.
+- [x] No mock data is statically defined in the project.
+- [x] Uses React Native and Typescript.
+- [x] Build a “family mode” mobile app that presents this underlying sleep data for three fictitious family members.
+- [x] The app should enable the viewer to see each individual they’re monitoring.
+- [x] Upon tapping on one of the individuals, the app should display the sleep data of the selected person in a meaningful way
+
 # Docs
 
 In the `docs` folder can be found the following markdown documents:
@@ -15,26 +24,31 @@ In the `docs` folder can be found the following markdown documents:
 1. Install node modules
 2. iOS setup
 
-- cd ios && pod install
+- `cd ios` && `pod install`
 - You might have to set up a signing team in XCode
-- If you have to open it, heads up that the project was originally called `sleepy` -> ./ios/sleepy.xcworkspace (When I tested with a fresh clone, it wouldn't run from the terminal via `npm run ios` but would start up fine when ran from XCode)
+- If you have to open the project, heads up that the project was originally called `sleepy` -> ./ios/sleepy.xcworkspace (When I tested with a fresh clone, it wouldn't run from the terminal via `npm run ios` but starts up fine when ran from XCode)
 
 # Testing
 
-Tests and coverage are set up on the repo. Coverage is sitting around 60%
+Tests and coverage are set up on the repo. Here's the current output of `npm run coverage`
 
 ```
 --------------------------------------------|---------|----------|---------|---------
 File                                        | % Stmts | % Branch | % Funcs | % Lines
 --------------------------------------------|---------|----------|---------|---------
-All files                                   |    64.5 |    44.02 |   63.04 |   63.87
+All files                                   |   72.26 |    46.35 |   68.06 |   72.08
 ```
 
 # Screenshots
 
 ## Heads up
 
-There's a few different touch interactions available for the graphs. I ran it on an iPad mini and it looks fine, but the app hasn't been optimized for this yet.
+- There's a few different touch interactions available for the graphs.
+- I ran it on an iPad mini and it looks fine, but the app hasn't been optimized for larger views yet.
+- Devices tested were:
+  - iOS: iPhone SE 3rd gen (17.0)
+  - Android: Pixel 4 XL (API 33)
+  - Physical devices not yet tested
 
 ## iOS
 
@@ -53,6 +67,6 @@ There's a few different touch interactions available for the graphs. I ran it on
 <img width="284" alt="Screenshot 2024-05-14 at 11 24 58 AM" src="https://github.com/chubbywallababy/EightSleepDemo/assets/168478087/bffe86ee-9019-48d5-a57d-f9b971a3f4d8">
 <img width="325" alt="Screenshot 2024-05-14 at 11 25 28 AM" src="https://github.com/chubbywallababy/EightSleepDemo/assets/168478087/cbad119b-ba91-4e19-b665-29e9d1793dcb">
 
-# Post development
+# Post development thoughts
 
-After developing, I've realized the detail view would be a good weekly analysis, but it's hard to see any "big picture" data. For instance, if I wanted to see my progress per week, this would not be an optimal view.
+After developing, I've realized the detail view would be a good first draft for weekly analysis, but it's hard to see any "big picture" data. For instance, if I wanted to see my progress per week, this would not be an optimal view.

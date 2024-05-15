@@ -8,6 +8,6 @@
    - All of the requirements needed to be completed
    - All of the code and functionality needs to be correct
 2. Beautification
-   - The app should be visually appealing and have a few animations
+   - The app should be visually appealing fun to use
 3. Code Quality
    - The code should be testable and maintainable
