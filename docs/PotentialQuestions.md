@@ -66,11 +66,12 @@ Here's a list of animations:
 2. Glow on card (family list - iOS only)
 3. Progress circle (detail view - sleep fitness)
 4. Progress bar (detail view)
+5. Graph animations (detail view - horizontal scroll component)
+6. Confetti on accepted changes (suggestion view)
 
 Here's some more that I'd like to implement
 
 1. Tnt count animation on next button (don't animate more than once per day)
-2. Sleep heart rate graph animation on next button (don't animate more than once per day)
 
 <br>
 
@@ -115,7 +116,7 @@ There's a couple ways
 1. Take the error from the saga, store it in state, then read/throw it in the view so an error boundary catches it.
 2. Report in the saga using a tool like sentry
 
-Either way, we'd probably want to keep it in state to be able to identify what happened and relay that to the user.
+Either way, we'd probably want to keep it in state to be able to relay that to the user.
 
 <br>
 
