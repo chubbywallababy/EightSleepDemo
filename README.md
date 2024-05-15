@@ -34,7 +34,7 @@ All files                                   |    64.5 |    44.02 |   63.04 |   6
 
 ## Heads up
 
-There's a few different touch interactions available for the graphs. I ran it on an iPad mini and it looks fine, but hasn't been optimized for this yet.
+There's a few different touch interactions available for the graphs. I ran it on an iPad mini and it looks fine, but the app hasn't been optimized for this yet.
 
 ## iOS
 
@@ -52,3 +52,7 @@ There's a few different touch interactions available for the graphs. I ran it on
 <img width="280" alt="Screenshot 2024-05-13 at 6 57 27 PM" src="https://github.com/chubbywallababy/sleepy/assets/168478087/601387ef-7cc4-4141-9dee-6580539d7ac9">
 <img width="284" alt="Screenshot 2024-05-14 at 11 24 58 AM" src="https://github.com/chubbywallababy/EightSleepDemo/assets/168478087/bffe86ee-9019-48d5-a57d-f9b971a3f4d8">
 <img width="325" alt="Screenshot 2024-05-14 at 11 25 28 AM" src="https://github.com/chubbywallababy/EightSleepDemo/assets/168478087/cbad119b-ba91-4e19-b665-29e9d1793dcb">
+
+# Post development
+
+After developing, I've realized the detail view would be a good weekly analysis, but it's hard to see any "big picture" data. For instance, if I wanted to see my progress per week, this would not be an optimal view.

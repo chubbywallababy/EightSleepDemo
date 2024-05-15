@@ -15,6 +15,8 @@ type SuggestionViewProps = NativeStackScreenProps<
   'Suggestion'
 >;
 
+const SUGGESTED_TEMP = 30;
+
 /**
  * A view for a user to view and accept suggestions. This is currently only a view with text and buttons.
  *
@@ -49,6 +51,9 @@ export const SuggestionView = ({route, navigation}: SuggestionViewProps) => {
         <SleepText style={[styles.text, styles.suggestionText]}>
           {strings.suggestion.text}
         </SleepText>
+      </View>
+      <View style={styles.suggestedTempContainer}>
+        <SleepText style={styles.suggestedTemp}>{strings.units.celcius(SUGGESTED_TEMP)}</SleepText>
       </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
@@ -103,4 +108,13 @@ const styles = StyleSheet.create({
   buttonContainer: {
     gap: 8,
   },
+  suggestedTempContainer: {
+    alignItems: "center",
+    paddingVertical: 25,
+    width: "100%",
+  },
+  suggestedTemp: {
+    fontSize: 62,
+    fontWeight: '300'
+  }
 });

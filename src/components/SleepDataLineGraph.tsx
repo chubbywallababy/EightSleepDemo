@@ -2,13 +2,10 @@ import React from 'react';
 import {LineGraphData, TimeseriesDataPoint} from '../utils/types';
 import {LineChart} from 'react-native-gifted-charts';
 import {View} from 'react-native';
-import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
 import {DateSubtitle} from './common';
 import {colors} from '../styles/colors';
 import {graphStyles, PointerLabelComponent} from './PointerLabelComponent';
 
-dayjs.extend(utc);
 
 interface HeartRateLineGraphProps {
   dataPoint: TimeseriesDataPoint<LineGraphData>;

@@ -2,6 +2,9 @@ import dayjs from 'dayjs';
 import {SleepInterval} from '../types';
 import {dPointLabel, getPoints} from './graphComponents';
 import {LineGraphData} from './types';
+import utc from 'dayjs/plugin/utc';
+
+dayjs.extend(utc);
 
 /**
  * Get respiratory data from an interval for the purposes of a line graph
@@ -12,7 +15,7 @@ export const getRespiratoryDataFromInterval = (
 ): LineGraphData => {
   const maxTs =
     interval.timeseries.respiratoryRate[
-      interval.timeseries.respiratoryRate.length - 1
+    interval.timeseries.respiratoryRate.length - 1
     ][0];
   const minTs = interval.timeseries.respiratoryRate[0][0];
 
@@ -30,7 +33,7 @@ export const getRespiratoryDataFromInterval = (
 
   return {
     points,
-    xAxisLabels: [dayjs(minTs).format('HH:MMa'), dayjs(maxTs).format('HH:MMa')],
+    xAxisLabels: [dayjs(minTs).utc().format('HH:MMa'), dayjs(maxTs).utc().format('HH:MMa')],
     yAxisLables: getLineGraphYAxisForRespRateInterval(minPoint, maxPoint).map(
       n => Math.floor(n).toString(),
     ),

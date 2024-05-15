@@ -78,9 +78,11 @@
 - Animation for the graphs
 - Cleanup documentation
 
-# What I want to do...
-
 # Wednesday
+
+- Added temperature text to the suggestion view
+- Additional code cleanup
+- Additional documentation cleanup
 
 # "Nice-to-have" list
 

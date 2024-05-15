@@ -4,7 +4,10 @@
 
 import {SleepInterval} from '../types';
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 import {SleepDurationObject} from './types';
+
+dayjs.extend(utc);
 
 /** Get the average for an array of numbers */
 export const getAverage = (nums: number[]): number =>
@@ -17,7 +20,7 @@ export const getMostRecentInterval = (intervals: SleepInterval[]) =>
   // copy the array in strict mode
   intervals
     .slice()
-    .sort((a, b) => dayjs(b.ts).unix() - dayjs(a.ts).unix())
+    .sort((a, b) => dayjs(b.ts).utc().unix() - dayjs(a.ts).utc().unix())
     .at(0);
 
 /**

@@ -68,6 +68,31 @@ exports[`boilerplate for SuggestionView should render the view 1`] = `
   <View
     style={
       {
+        "alignItems": "center",
+        "paddingVertical": 25,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "white",
+          },
+          {
+            "fontSize": 62,
+            "fontWeight": "300",
+          },
+        ]
+      }
+    >
+      30°C
+    </Text>
+  </View>
+  <View
+    style={
+      {
         "gap": 8,
       }
     }

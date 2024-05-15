@@ -33,7 +33,7 @@ export const getHeartRateLineGraphDataFromInterval = (
 
   return {
     points,
-    xAxisLabels: [dayjs(minTs).format('HH:MMa'), dayjs(maxTs).format('HH:MMa')],
+    xAxisLabels: [dayjs(minTs).utc().format('HH:MMa'), dayjs(maxTs).utc().format('HH:MMa')],
     yAxisLables: getLineGraphYAxisForHeartRateInterval(minPoint, maxPoint).map(
       n => Math.floor(n).toString(),
     ),

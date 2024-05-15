@@ -25,7 +25,7 @@ What are some future improvements that could be made?
 
 There's a lot, but I'd start with these:
 
-- Figure out some better way to show large amounts of aggreated data. The S3 objects only had a few days worth of information so it made sense in my opinion to show more simple views. But with a lot of data we'd want to show something where a months worth of progress can be viewed.
+- Figure out some better way to show large amounts of aggreated data. The S3 objects only had a few days' worth of information so it made sense in my opinion to show more simple views. But with a lot of data we'd want to show something where a month's worth of progress can be viewed.
 - Optimize `getSleepDetailData`: `m * n` -> `n`. More details are in the function. It doesn't make a difference with this amount of data but would make a difference with more data.
 
 <br>
@@ -48,7 +48,7 @@ What was the decision making process with the preemptive loading?
 
 To make each user list cell more informative, I wanted to show a few KPI's. In order to show relevant sleep data on the users list view, we needed to fetch each of the users info. Users will probably only want to drill down if they can see something is immediately wrong. Otherwise they'll have to drill down and analyze what's on that page. If they can instead do a quick sanity check on the family list, it provides a better UX.
 
-The biggest issue for this is scalability - what happens when each user has 1 years worth of sleep history? It's too much to preemptively call. This would bog down the server and client.
+The biggest issue for this is scalability - what happens when each user has 1 year's worth of sleep history? It's too much to preemptively call. This would bog down the server and client.
 
 We would need a BE solution, something like a KPI api for each user, or another way to get a summary to display.
 
@@ -155,9 +155,9 @@ What was your approach to testing?
 
 ## A
 
-I wanted to get a good amount of unit tests done. Testing UI with animations can be trick though, so as of now all of the animations are mocked.
+I wanted to get a good amount of unit tests done. Testing UI with animations can be tricky though. So as of now, all of the animations are mocked.
 
-I like to make stub tests that check a snapshot. Because if any UI updates are made they will have to be intentional since tests will fail. After that's set up, redux state and util functions are usually pretty easy to nail down.
+I like to make stub tests that check a snapshot. Because if any UI updates are made, they will have to be intentional since tests will fail. After that's set up, redux state and util functions are usually pretty easy to nail down.
 
 A good goal for a real project is between 70% and 90%, in my opinion.
 
@@ -181,7 +181,7 @@ How was the "toss and turn" value calculated?
 
 ## A
 
-The "toss and turn" value was calculated assuming the second number in this format was the number of times the user "tossed and turned".
+The "toss and turn" value was calculated assuming the second number in this format represents the number of times the user "tossed and turned".
 
 ```
 ["2017-02-28T06:20:00.000Z", 1], // datapoint of the timeseries, in the format [time, value]
@@ -189,7 +189,7 @@ The "toss and turn" value was calculated assuming the second number in this form
 ["2017-02-28T06:30:00.000Z", 1]
 ```
 
-So I would have assumed this user would have a "tnt" value of 4. In a "real world scenario", this would have been something I'd need to clarify with product before implementing. The gist seemed pretty clear but I'd want to repeat this explicitly so I'm sure I'm not misunderstanding.
+So I would have assumed this user would have a "tnt" value of 4. In a real-world scenario, this would have been something I'd need to clarify with product before implementing. The gist seemed pretty clear but I'd want to repeat this explicitly so I'm sure I'm not misunderstanding.
 
 <br>
 
@@ -199,14 +199,14 @@ The function `getTimeToFallAsleepDataPoint` always assumes the first stage repre
 
 ## A
 
-Again, this seems fairly self explanitory. But I'd rather clarify than misunderstand.
+Again, this seems fairly self explanitory. But I'd call it out before implementing, just to be safe.
 
 <br>
 
 ## Q
 
-Why are we using utc plugin in the tnt view?
+Why are we using the UTC plugin?
 
 ## A
 
-I'm assuming that the date coming through from the JSON response is accurate, but not sure if that represents the users time or the server time. I chose to do this for clarity in the demo but I'd want to clarify this before implementation with the BE folks and whoever creates the data.
+I'm assuming that the date coming through from the JSON response is accurate, but I'm not sure if that represents the users time or the server time. I chose to do this for clarity in the demo but I'd want to clarify this before implementation with the BE folks and whoever creates the data.
