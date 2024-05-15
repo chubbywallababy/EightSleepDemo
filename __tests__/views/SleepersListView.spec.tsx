@@ -22,7 +22,6 @@ jest.mock('../../src/components/AnimatedNumber', () => ({
 
 describe('boilerplate for SleepersListView', () => {
   it('should render the view', async () => {
-    // Render the app
     const {root, toJSON} = render(
       <Provider store={mockStore}>
         <SleepersListView />

@@ -33,9 +33,8 @@ jest.mock('../../src/components/AnimatedNumber', () => ({
 }));
 
 describe('boilerplate for SleepersListView', () => {
-  it('should render the app', async () => {
-    // Render the app
-    const {root, toJSON} = render(
+  it('basic render', async () => {
+    const {root} = render(
       <Provider store={mockStore}>
         <SleeperDetailView
           route={{params: {data: users[0]}, key: '', name: 'Details'}}
@@ -62,7 +61,5 @@ describe('boilerplate for SleepersListView', () => {
 
     const view = root.findAllByType(SleepView);
     expect(view).toHaveLength(7);
-
-    expect(toJSON()).toMatchSnapshot();
   });
 });

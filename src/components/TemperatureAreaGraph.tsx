@@ -10,7 +10,6 @@ import {colors} from '../styles/colors';
 import {PointerLabelComponent, graphStyles} from './PointerLabelComponent';
 import {strings} from '../i18n';
 
-
 interface HeartRateLineGraphProps {
   dataPoint: TimeseriesDataPoint<SleepTemperatureLineGraphData>;
 }

@@ -53,7 +53,9 @@ export const SuggestionView = ({route, navigation}: SuggestionViewProps) => {
         </SleepText>
       </View>
       <View style={styles.suggestedTempContainer}>
-        <SleepText style={styles.suggestedTemp}>{strings.units.celcius(SUGGESTED_TEMP)}</SleepText>
+        <SleepText style={styles.suggestedTemp}>
+          {strings.units.celcius(SUGGESTED_TEMP)}
+        </SleepText>
       </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
@@ -109,12 +111,12 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   suggestedTempContainer: {
-    alignItems: "center",
+    alignItems: 'center',
     paddingVertical: 25,
-    width: "100%",
+    width: '100%',
   },
   suggestedTemp: {
     fontSize: 62,
-    fontWeight: '300'
-  }
+    fontWeight: '300',
+  },
 });

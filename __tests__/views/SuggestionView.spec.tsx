@@ -8,7 +8,6 @@ import {TouchableOpacity} from 'react-native';
 
 describe('boilerplate for SuggestionView', () => {
   it('should render the view', async () => {
-    // Render the app
     const {root, toJSON} = render(
       <Provider store={mockStore}>
         <SuggestionView

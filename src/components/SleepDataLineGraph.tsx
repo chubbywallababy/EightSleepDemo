@@ -6,7 +6,6 @@ import {DateSubtitle} from './common';
 import {colors} from '../styles/colors';
 import {graphStyles, PointerLabelComponent} from './PointerLabelComponent';
 
-
 interface HeartRateLineGraphProps {
   dataPoint: TimeseriesDataPoint<LineGraphData>;
 }

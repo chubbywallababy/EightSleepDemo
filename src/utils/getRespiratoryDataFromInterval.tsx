@@ -15,7 +15,7 @@ export const getRespiratoryDataFromInterval = (
 ): LineGraphData => {
   const maxTs =
     interval.timeseries.respiratoryRate[
-    interval.timeseries.respiratoryRate.length - 1
+      interval.timeseries.respiratoryRate.length - 1
     ][0];
   const minTs = interval.timeseries.respiratoryRate[0][0];
 
@@ -33,7 +33,10 @@ export const getRespiratoryDataFromInterval = (
 
   return {
     points,
-    xAxisLabels: [dayjs(minTs).utc().format('HH:MMa'), dayjs(maxTs).utc().format('HH:MMa')],
+    xAxisLabels: [
+      dayjs(minTs).utc().format('HH:MMa'),
+      dayjs(maxTs).utc().format('HH:MMa'),
+    ],
     yAxisLables: getLineGraphYAxisForRespRateInterval(minPoint, maxPoint).map(
       n => Math.floor(n).toString(),
     ),
