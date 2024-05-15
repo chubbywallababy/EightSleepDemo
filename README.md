@@ -1,6 +1,6 @@
 # Requirements
 
-- [x] The application must compile and run on Android and iOS without error. This includes switching between family members and viewing sleep data.
+- [X] The application must compile and run on Android and iOS without error. This includes switching between family members and viewing sleep data.
 - [x] No mock data is statically defined in the project.
 - [x] Uses React Native and Typescript.
 - [x] Build a “family mode” mobile app that presents this underlying sleep data for three fictitious family members.
